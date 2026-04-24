@@ -1,0 +1,20 @@
+name: midsize_3000ep_restarts
+notes: "Midsize 120K params @ 3000 epochs with warm restarts every 1000 ep (3000 steps)"
+train_data: /Users/seanjosiah/Documents/autoresearch/math_lab/results/canonical_algebra_train_v1_20260422_193841.jsonl
+val_data: /Users/seanjosiah/Documents/autoresearch/math_lab/results/canonical_algebra_val_v1_20260422_193841.jsonl
+n_layer: 2
+n_head: 4
+n_embd: 64
+seq_len: 128
+epochs: 3000
+batch: 16
+lr: 6e-4
+lr_min: 1e-5
+weight_decay: 1.0
+dropout: 0.0
+label_smoothing: 0.1
+warmup: 50
+restart_period: 3000
+val_every: 50
+save_every: 500
+num_workers: 0

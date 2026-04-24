@@ -18,7 +18,12 @@
 ifeq ($(OS),Windows_NT)
     PLATFORM   ?= windows
 else
-    PLATFORM   ?= linux
+    UNAME_S    := $(shell uname -s)
+    ifeq ($(UNAME_S),Darwin)
+        PLATFORM   ?= macos
+    else
+        PLATFORM   ?= linux
+    endif
 endif
 
 # --- Source files ---
@@ -86,6 +91,7 @@ ifeq ($(PLATFORM),linux)
     LDFLAGS   = -shared -o
     OBJEXT    = o
     LIBOUT    = kernel.so
+    SIZE_FLAG = --elf
     TESTCC    = gcc -O2 -Wall -I..
     TESTLINK  = -L.. -lkernel -Wl,-rpath,.
 
@@ -116,10 +122,62 @@ test: test/test_fxmath test/test_vecop test/test_attn
 endif
 
 # =============================================================================
+# macOS (Mach-O) target
+# Intel x86-64: NASM macho64 + clang → kernel.dylib
+# Apple Silicon ARM64: pure-C fallback (kernel_c.c) → kernel.dylib
+# =============================================================================
+ifeq ($(PLATFORM),macos)
+    ARCH       := $(shell uname -m)
+    CC         = clang
+    LIBOUT     = kernel.dylib
+    SIZE_FLAG  = --macho
+
+    ifeq ($(ARCH),arm64)
+        # Apple Silicon: x86-64 NASM cannot target ARM64; use C fallback
+        CFLAGS   = -O2 -Wall -fPIC -DMACOS -DARM64
+
+$(LIBOUT): kernel_c.c kernel.h
+	$(CC) $(CFLAGS) -dynamiclib -o $@ kernel_c.c -lm
+	@python3 check_size.py $(LIBOUT) $(SIZE_LIMIT) $(SIZE_FLAG)
+
+    else
+        # Intel Mac: compile x86-64 NASM as Mach-O + link with clang
+        NASM      = nasm
+        NASMFLAGS = -f macho64 -g -F dwarf
+        CFLAGS    = -O2 -Wall -fPIC -DMACOS
+        OBJS      = $(KERNEL_SRCS:.asm=.o)
+
+$(LIBOUT): $(OBJS)
+	$(CC) $(CFLAGS) -dynamiclib -o $@ $(OBJS) -lm
+	@python3 check_size.py $(LIBOUT) $(SIZE_LIMIT) $(SIZE_FLAG)
+
+%.o: %.asm
+	$(NASM) $(NASMFLAGS) -o $@ $<
+
+    endif
+
+test/test_fxmath: test/test_fxmath.c $(LIBOUT)
+	$(CC) -O2 -Wall -I.. -o $@ test/test_fxmath.c -L. -lkernel -Wl,-rpath,.
+
+test/test_vecop: test/test_vecop.c $(LIBOUT)
+	$(CC) -O2 -Wall -I.. -o $@ test/test_vecop.c -L. -lkernel -Wl,-rpath,.
+
+test/test_attn: test/test_attn.c $(LIBOUT)
+	$(CC) -O2 -Wall -I.. -o $@ test/test_attn.c -L. -lkernel -Wl,-rpath,.
+
+test: test/test_fxmath test/test_vecop test/test_attn
+	DYLD_LIBRARY_PATH=. test/test_fxmath && \
+	DYLD_LIBRARY_PATH=. test/test_vecop  && \
+	DYLD_LIBRARY_PATH=. test/test_attn
+	@echo "All tests passed."
+
+endif
+
+# =============================================================================
 # Shared targets
 # =============================================================================
 size: $(LIBOUT)
-	@python$(if $(findstring windows,$(PLATFORM)),,3) check_size.py $(LIBOUT) $(SIZE_LIMIT)
+	@python$(if $(findstring windows,$(PLATFORM)),,3) check_size.py $(LIBOUT) $(SIZE_LIMIT) $(SIZE_FLAG)
 
 clean:
 	$(if $(findstring windows,$(PLATFORM)), \

@@ -1,12 +1,13 @@
 """
 check_size.py — Kernel binary size enforcer
-Usage: python check_size.py <binary> <limit_bytes> [--elf]
+Usage: python check_size.py <binary> <limit_bytes> [--elf] [--macho]
 
 Exits 0 if binary .text section (or total PE .text) is <= limit_bytes.
 Exits 1 and prints error if over limit.
 
-For PE/DLL (Windows): measures the .text section from the PE header.
-For ELF .so  (Linux):  measures the .text section via readelf or objdump.
+For PE/DLL   (Windows): measures the .text section from the PE header.
+For ELF .so  (Linux):   measures the .text section via readelf.
+For Mach-O   (macOS):   measures the __text section via otool.
 """
 
 import sys
@@ -75,15 +76,40 @@ def read_elf_text_size(path):
     return os.path.getsize(path)
 
 
+def read_macho_text_size(path):
+    """Extract __text section size from a Mach-O dylib (macOS)."""
+    try:
+        import subprocess
+        result = subprocess.run(
+            ["otool", "-l", path],
+            capture_output=True, text=True, timeout=10
+        )
+        lines = result.stdout.splitlines()
+        in_text = False
+        for line in lines:
+            s = line.strip()
+            if s == "sectname __text":
+                in_text = True
+            elif in_text and s.startswith("size"):
+                parts = s.split()
+                if len(parts) >= 2:
+                    return int(parts[1], 16)
+                in_text = False
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        pass
+    return os.path.getsize(path)
+
+
 def main():
     args = sys.argv[1:]
     if len(args) < 2:
-        print("Usage: python check_size.py <binary> <limit_bytes> [--elf]")
+        print("Usage: python check_size.py <binary> <limit_bytes> [--elf] [--macho]")
         sys.exit(1)
 
     binary_path = args[0]
     limit = int(args[1])
-    is_elf = "--elf" in args
+    is_elf   = "--elf"   in args
+    is_macho = "--macho" in args
 
     if not os.path.exists(binary_path):
         print(f"ERROR: {binary_path} not found")
@@ -91,6 +117,8 @@ def main():
 
     if is_elf:
         text_size = read_elf_text_size(binary_path)
+    elif is_macho:
+        text_size = read_macho_text_size(binary_path)
     else:
         try:
             text_size = read_pe_text_size(binary_path)

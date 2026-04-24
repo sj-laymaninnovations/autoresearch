@@ -2,7 +2,13 @@
   "permissions": {
     "allow": [
       "Bash(dir:*)",
-      "Bash(wc:*)"
+      "Bash(wc:*)",
+      "Bash(ls:*)",
+      "Bash(python:*)",
+      "Bash(del \"c:\\\\Users\\\\sjosiah\\\\Downloads\\\\autoresearch\\\\math_lab\\\\results\\\\harder_qa_cot_all_20260421_072228.jsonl\")",
+      "Bash(.venv/Scripts/python:*)",
+      "Bash(where:*)",
+      "Bash(python3:*)"
     ]
   }
 }

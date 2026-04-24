@@ -1,0 +1,11 @@
+name: smoke
+notes: "wiring test, 20 epochs"
+train_data: /Users/seanjosiah/Documents/autoresearch/math_lab/results/canonical_algebra_train_v1_20260422_193841.jsonl
+val_data: /Users/seanjosiah/Documents/autoresearch/math_lab/results/canonical_algebra_val_v1_20260422_193841.jsonl
+epochs: 20
+batch: 16
+val_every: 5
+save_every: 10
+lr: 6e-4
+dropout: 0.0
+label_smoothing: 0.0

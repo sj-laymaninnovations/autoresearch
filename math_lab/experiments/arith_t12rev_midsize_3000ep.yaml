@@ -1,0 +1,22 @@
+name: arith_t12rev_midsize_3000ep
+notes: "Midsize 120K on tier-1+2 arithmetic with arith_qa.py zero-padded reversed-digit format (581 train / 143 val) — test if format fix prevents constant-output collapse"
+train_data: /Users/seanjosiah/Documents/autoresearch/math_lab/results/canonical_arith_train_t12rev_20260423_042228.jsonl
+val_data: /Users/seanjosiah/Documents/autoresearch/math_lab/results/canonical_arith_val_t12rev_20260423_042228.jsonl
+n_layer: 2
+n_head: 4
+n_embd: 64
+seq_len: 128
+epochs: 3000
+batch: 16
+lr: 6e-4
+lr_min: 1e-5
+weight_decay: 1.0
+dropout: 0.0
+label_smoothing: 0.1
+warmup: 50
+restart_period: 0
+val_every: 100
+save_every: 500
+num_workers: 0
+em_every: 0
+em_sample: 32

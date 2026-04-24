@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pkill -f \"phase3_fresh\")",
+      "Bash(awk '{print $2, $11, $12}')",
+      "Bash(/Users/seanjosiah/.lmstudio/extensions/backends/vendor/_amphibian/cpython3.11-mac-arm64@10/bin/python3.11 math_lab/autoresearch_canonical.py --config math_lab/experiments/arith_6x8_192_phase5_scaleup.yaml)",
+      "Bash(tee /tmp/phase5.log)",
+      "Bash(awk '{print \"PID\", $2, \"CPU%\", $3, \"MEM%\", $4, \"runtime\", $10}')",
+      "Bash(/Users/seanjosiah/.lmstudio/extensions/backends/vendor/_amphibian/cpython3.11-mac-arm64@10/bin/python3.11 -c ' *)",
+      "Bash(pkill -f \"phase5\")",
+      "Bash(awk '{print $2, $11}')",
+      "Bash(/Users/seanjosiah/.lmstudio/extensions/backends/vendor/_amphibian/cpython3.11-mac-arm64@10/bin/python3.11 math_lab/autoresearch_canonical.py --config math_lab/experiments/arith_4x6_192_curriculum.yaml)",
+      "Bash(tee /tmp/curriculum.log)",
+      "Bash(awk -F'\\\\t' '{print $1, $2, \"train_s=\"$3, \"em=\"$6}' echo '')",
+      "Bash(/Users/seanjosiah/.lmstudio/extensions/backends/vendor/_amphibian/cpython3.11-mac-arm64@10/bin/python3.11 math_lab/autoresearch_canonical.py --config math_lab/experiments/arith_4x6_192_curriculum_cpu.yaml)",
+      "Bash(tee /tmp/curriculum_cpu.log)",
+      "Bash(grep -nB1 -A3 \"save_every\\\\|delete\\\\|unlink\\\\|rm\\\\|retain\\\\|keep.*ckpt\" /Users/seanjosiah/Documents/autoresearch/math_lab/finetune.py)",
+      "Bash(grep -v \"^--$\")",
+      "Bash(grep -nB1 -A2 \"save_every\\\\|epoch_.*\\\\.pt\\\\|ckpt_dir\\\\|save_checkpoint\" /Users/seanjosiah/Documents/autoresearch/math_lab/finetune.py)",
+      "Bash(grep -nB1 -A3 \"unlink\\\\|shutil\\\\|delete\\\\|cleanup\\\\|rm \\\\|remove\\\\|os.remove\" /Users/seanjosiah/Documents/autoresearch/math_lab/autoresearch_canonical.py)",
+      "Bash(grep -nB1 -A5 \"start_epoch\\\\|load_state_dict\\\\|ckpt\\\\[.epoch.\\\\]\\\\|resume\\\\|checkpoint.*load\\\\|init_ckpt\\\\|args.ckpt\" /Users/seanjosiah/Documents/autoresearch/math_lab/finetune.py)",
+      "Bash(/Users/seanjosiah/.lmstudio/extensions/backends/vendor/_amphibian/cpython3.11-mac-arm64@10/bin/python3.11 math_lab/autoresearch_canonical.py --config math_lab/experiments/arith_4x6_192_curriculum_full.yaml)",
+      "Bash(tee /tmp/curriculum_full.log)",
+      "Bash(xargs -I{} tail -4 {} echo '')",
+      "Bash(xargs -I{} basename {})",
+      "Bash(awk '{print \"PID\", $2, \"CPU%\", $3, \"runtime\", $10}')",
+      "Bash(awk '{print $9, $8}')"
+    ]
+  }
+}

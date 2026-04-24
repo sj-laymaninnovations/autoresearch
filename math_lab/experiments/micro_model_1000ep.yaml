@@ -1,0 +1,20 @@
+name: micro_model_1000ep
+notes: "Micro model n_layer=1 n_embd=32 — ~25K params, tests capacity-matched grokking"
+train_data: /Users/seanjosiah/Documents/autoresearch/math_lab/results/canonical_algebra_train_v1_20260422_193841.jsonl
+val_data: /Users/seanjosiah/Documents/autoresearch/math_lab/results/canonical_algebra_val_v1_20260422_193841.jsonl
+n_layer: 1
+n_head: 4
+n_embd: 32
+seq_len: 128
+epochs: 1000
+batch: 16
+lr: 6e-4
+lr_min: 1e-5
+weight_decay: 1.0
+dropout: 0.0
+label_smoothing: 0.1
+warmup: 50
+restart_period: 0
+val_every: 25
+save_every: 100
+num_workers: 0

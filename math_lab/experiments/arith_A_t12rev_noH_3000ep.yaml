@@ -1,0 +1,22 @@
+name: arith_A_t12rev_noH_3000ep
+notes: "[A] Midsize 120K on tier-1+2 arithmetic, reversed-digit, NO #### marker — test if stripping format overhead fixes format-collapse"
+train_data: /Users/seanjosiah/Documents/autoresearch/math_lab/results/canonical_arith_train_A_t12rev_noH_20260423_043824.jsonl
+val_data: /Users/seanjosiah/Documents/autoresearch/math_lab/results/canonical_arith_val_A_t12rev_noH_20260423_043824.jsonl
+n_layer: 2
+n_head: 4
+n_embd: 64
+seq_len: 128
+epochs: 3000
+batch: 16
+lr: 6e-4
+lr_min: 1e-5
+weight_decay: 1.0
+dropout: 0.0
+label_smoothing: 0.1
+warmup: 50
+restart_period: 0
+val_every: 100
+save_every: 500
+num_workers: 0
+em_every: 25
+em_sample: 32
