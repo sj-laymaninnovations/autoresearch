@@ -181,6 +181,15 @@ def build_cmd(cfg: dict, ckpt_dir: Path, log_path: Path) -> list[str]:
         cmd += ["--device", cfg["device"]]
     if cfg.get("init_ckpt"):
         cmd += ["--ckpt", cfg["init_ckpt"]]
+        # Default to resetting epoch counter when init_ckpt is set (warm-start semantics).
+        # Explicit `reset_epoch_counter: false` in YAML preserves old resume behavior.
+        if cfg.get("reset_epoch_counter", True):
+            cmd += ["--reset-epoch-counter"]
+    if cfg.get("init_embeddings"):
+        cmd += ["--init-embeddings", cfg["init_embeddings"]]
+        cmd += ["--init-embeddings-labels", cfg["init_embeddings_labels"]]
+        if cfg.get("init_embeddings_scale") is not None:
+            cmd += ["--init-embeddings-scale", str(cfg["init_embeddings_scale"])]
     return cmd
 
 

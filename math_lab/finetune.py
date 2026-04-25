@@ -84,7 +84,9 @@ class MathQADataset(Dataset):
         short = 0
         for p in pairs:
             problem  = str(p.get("problem",  ""))
-            solution = str(p.get("solution", p.get("answer", "")))
+            # Prefer CoT solution if present (from cot_teacher.py output);
+            # falls back to plain solution / answer for non-CoT datasets.
+            solution = str(p.get("solution_cot", p.get("solution", p.get("answer", ""))))
 
             prompt  = PROMPT_TEMPLATE.format(problem=problem)
             full    = prompt + solution + ANS_SUFFIX
@@ -459,6 +461,17 @@ def main():
                         help="Sleep N seconds every 100 epochs (GPU thermal protection)")
     parser.add_argument("--ckpt-dir", default=None,
                         help="Directory to save checkpoints (default: results/checkpoints)")
+    parser.add_argument("--reset-epoch-counter", action="store_true",
+                        help="When loading --ckpt, start epoch count from 0 instead of "
+                             "resuming. Use for warm-start/curriculum on a new task so "
+                             "the full --epochs count is trained.")
+    parser.add_argument("--init-embeddings", default=None,
+                        help="Path to .npy array of init embeddings (N x n_embd).")
+    parser.add_argument("--init-embeddings-labels", default=None,
+                        help="Path to .txt file with N labels (one per line). Single-char "
+                             "labels are mapped to char-vocab IDs; others are ignored.")
+    parser.add_argument("--init-embeddings-scale", type=float, default=1.0,
+                        help="Scale factor applied to init embeddings before copy (default 1.0).")
     args = parser.parse_args()
 
     ckpt_dir = Path(args.ckpt_dir) if args.ckpt_dir else CKPT_DIR
@@ -552,10 +565,49 @@ def main():
     if args.ckpt and Path(args.ckpt).exists():
         print(f"  Loading checkpoint: {args.ckpt}")
         model, ckpt = load_checkpoint(args.ckpt, device)
-        start_epoch = ckpt.get("epoch", 0) + 1
-        print(f"  Resuming from epoch {start_epoch}")
+        if args.reset_epoch_counter:
+            print(f"  Warm-start from ep {ckpt.get('epoch', 0) + 1} weights, "
+                  f"epoch counter reset to 0 (training full {args.epochs} epochs)")
+        else:
+            start_epoch = ckpt.get("epoch", 0) + 1
+            print(f"  Resuming from epoch {start_epoch}")
     else:
         model = MathGPT(cfg).to(device)
+
+    # Optional: override specific token embeddings with externally-loaded init
+    # (e.g. digit embeddings transferred from a larger model via PCA projection).
+    # Only applies when NOT warm-starting from a checkpoint (checkpoint already has
+    # its own embeddings, don't clobber them).
+    if args.init_embeddings and not (args.ckpt and Path(args.ckpt).exists()):
+        import numpy as _np
+        init_arr = _np.load(args.init_embeddings)
+        with open(args.init_embeddings_labels) as _f:
+            init_labels = [l.strip() for l in _f]
+        if init_arr.shape[0] != len(init_labels):
+            raise ValueError(f"init_embeddings rows ({init_arr.shape[0]}) "
+                             f"!= labels count ({len(init_labels)})")
+        if init_arr.shape[1] != cfg.n_embd:
+            raise ValueError(f"init_embeddings dim ({init_arr.shape[1]}) "
+                             f"!= n_embd ({cfg.n_embd})")
+        # Map single-char labels to char-vocab IDs and copy
+        emb_weight = model.tok_emb.weight.data
+        applied = []
+        skipped = []
+        for label, row in zip(init_labels, init_arr):
+            if len(label) == 1 and ord(label) < 127:
+                tok_id = ord(label) + OFFSET
+                emb_weight[tok_id] = torch.tensor(
+                    row * args.init_embeddings_scale,
+                    dtype=emb_weight.dtype, device=emb_weight.device)
+                applied.append(f"{label!r}→id{tok_id}")
+            else:
+                skipped.append(label)
+        print(f"  Init embeddings: applied {len(applied)} single-char vectors "
+              f"from {args.init_embeddings} (scale={args.init_embeddings_scale})")
+        print(f"    applied: {applied}")
+        if skipped:
+            print(f"    skipped (multi-char): {skipped}")
+
     model.label_smoothing = args.label_smoothing
 
     print(f"  Params : {count_params(model):,}  "
