@@ -21,3 +21,6 @@ dev/
 
 # Results file
 results.tsv
+
+# Claude Code runtime artifacts (per-machine, should not be tracked)
+.claude/scheduled_tasks.lock
