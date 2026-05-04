@@ -29,6 +29,13 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 
+# Optional MLflow tracking — graceful if not installed.
+try:
+    import mlflow
+    MLFLOW_AVAILABLE = True
+except ImportError:
+    MLFLOW_AVAILABLE = False
+
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
@@ -84,8 +91,6 @@ class MathQADataset(Dataset):
         short = 0
         for p in pairs:
             problem  = str(p.get("problem",  ""))
-            # Prefer CoT solution if present (from cot_teacher.py output);
-            # falls back to plain solution / answer for non-CoT datasets.
             solution = str(p.get("solution_cot", p.get("solution", p.get("answer", ""))))
 
             prompt  = PROMPT_TEMPLATE.format(problem=problem)
@@ -93,22 +98,26 @@ class MathQADataset(Dataset):
 
             ids = char_encode(full)
             if len(ids) > max_len:
-                ids = ids[:max_len]   # truncate
+                ids = ids[:max_len]
 
-            # Build loss mask: 0 for prompt tokens, 1 for answer tokens
             prompt_ids  = char_encode(prompt)
-            prompt_len  = len(prompt_ids)  # includes BOS
+            if prompt_ids and prompt_ids[-1] == EOS_ID:
+                prompt_ids = prompt_ids[:-1]
+            prompt_len  = len(prompt_ids)
             mask = [0] * min(prompt_len, len(ids)) + \
                    [1] * max(0, len(ids) - prompt_len)
 
-            # Pad to max_len
             pad_len = max_len - len(ids)
             ids  = ids  + [PAD_ID] * pad_len
             mask = mask + [0]      * pad_len
 
+            # Per-sample loss weight from knowledge gate (default 1.0)
+            w = float(p.get("loss_weight", 1.0))
+
             self.samples.append({
-                "ids":  torch.tensor(ids,  dtype=torch.long),
-                "mask": torch.tensor(mask, dtype=torch.float),
+                "ids":    torch.tensor(ids,  dtype=torch.long),
+                "mask":   torch.tensor(mask, dtype=torch.float),
+                "weight": torch.tensor(w,    dtype=torch.float),
             })
 
         if short:
@@ -118,7 +127,8 @@ class MathQADataset(Dataset):
         return len(self.samples)
 
     def __getitem__(self, idx):
-        return self.samples[idx]["ids"], self.samples[idx]["mask"]
+        s = self.samples[idx]
+        return s["ids"], s["mask"], s["weight"]
 
 
 def load_pairs(data_path: Path) -> list[dict]:
@@ -658,10 +668,50 @@ def main():
     best_val_loss     = float("inf")
     global_step       = 0
 
+    # ---- MLflow tracking ----
+    # Default tracking dir is `mlruns/` under the repo root. Override with
+    # MLFLOW_TRACKING_URI to point at a remote/server (e.g., http://nas:5000).
+    if MLFLOW_AVAILABLE:
+        try:
+            mlflow.set_tracking_uri(os.environ.get(
+                "MLFLOW_TRACKING_URI", f"file:{ROOT / 'mlruns'}"))
+            mlflow.set_experiment(os.environ.get(
+                "MLFLOW_EXPERIMENT", "skill_training"))
+            mlflow.start_run(run_name=ckpt_dir.name)
+            # Log every CLI arg as a parameter
+            for _k, _v in vars(args).items():
+                try:
+                    mlflow.log_param(_k, _v)
+                except Exception:
+                    pass
+            # Dataset metadata
+            mlflow.log_param("train_records", len(train_p))
+            mlflow.log_param("val_records",   len(val_p))
+            mlflow.log_param("device",        device)
+            mlflow.set_tag("data_train", str(args.data))
+            mlflow.set_tag("data_val",   str(args.val_data) if args.val_data else "split-from-data")
+            mlflow.set_tag("ckpt_dir",   str(ckpt_dir))
+            # Concept distribution if records carry it
+            try:
+                from collections import Counter
+                if train_p and isinstance(train_p[0], dict) and 'concept' in train_p[0]:
+                    cdist = Counter(r.get('concept', '?') for r in train_p)
+                    mlflow.set_tag("train_concepts", json.dumps(dict(cdist)))
+                if val_p and isinstance(val_p[0], dict) and 'concept' in val_p[0]:
+                    cdist = Counter(r.get('concept', '?') for r in val_p)
+                    mlflow.set_tag("val_concepts", json.dumps(dict(cdist)))
+            except Exception:
+                pass
+        except Exception as e:
+            print(f"  [mlflow] disabled: {e}", flush=True)
+
     print(f"\n{'-'*60}")
     print(f"  Training {args.epochs} epochs  |  "
           f"{len(train_loader)} steps/epoch  |  "
           f"batch={args.batch}")
+    if MLFLOW_AVAILABLE and mlflow.active_run():
+        print(f"  MLflow run: {mlflow.active_run().info.run_id} "
+              f"@ {mlflow.get_tracking_uri()}")
     print(f"{'-'*60}")
 
     # Periodic exact-match probe history (catches phantom losses on MPS)
@@ -694,9 +744,10 @@ def main():
         epoch_steps = 0
         t0 = time.time()
 
-        for ids, mask in train_loader:
+        for ids, mask, w in train_loader:
             ids  = ids.to(device,  non_blocking=True)
             mask = mask.to(device, non_blocking=True)
+            w    = w.to(device,    non_blocking=True)   # per-sample loss weight [B]
 
             # LR schedule (with optional warm restarts)
             current_lr = cosine_lr(global_step, args.warmup,
@@ -707,7 +758,12 @@ def main():
 
             optimizer.zero_grad(set_to_none=True)
             with autocast_ctx:
-                loss = model(ids, mask)
+                loss = model(ids, mask)          # scalar mean over batch
+                # Apply per-sample knowledge-gate loss weights.
+                # model() returns mean CE; re-weight by mean(w) ratio so
+                # overall scale stays in the same CE range.
+                if w.mean().item() != 1.0:
+                    loss = loss * (w.mean())
 
             # Sanity-check loss: must be finite AND within theoretical CE range
             # for our vocab + label smoothing. MPS non-determinism can produce
@@ -758,10 +814,10 @@ def main():
             val_loss  = 0.0
             val_steps = 0
             with torch.no_grad(), autocast_ctx:
-                for ids, mask in val_loader:
+                for ids, mask, _w in val_loader:
                     ids  = ids.to(device,  non_blocking=True)
                     mask = mask.to(device, non_blocking=True)
-                    val_loss  += model(ids, mask).item()
+                    val_loss  += model(ids, mask).item()   # always uniform weight for val
                     val_steps += 1
             avg_val = val_loss / max(val_steps, 1)
             if ema:
@@ -791,6 +847,17 @@ def main():
         print(f"  [{now}] epoch {epoch+1:03d}/{args.epochs}  "
               f"train={avg_train:.4f}  {val_str}  "
               f"lr={current_lr:.2e}  {dt:.1f}s  {status}")
+
+        # MLflow per-epoch metrics
+        if MLFLOW_AVAILABLE and mlflow.active_run():
+            try:
+                mlflow.log_metric("train_loss", avg_train, step=epoch + 1)
+                mlflow.log_metric("lr", current_lr, step=epoch + 1)
+                if run_val:
+                    mlflow.log_metric("val_loss", avg_val, step=epoch + 1)
+                    mlflow.log_metric("best_val_loss", best_val_loss, step=epoch + 1)
+            except Exception:
+                pass
 
         # Periodic checkpoint
         if (epoch + 1) % args.save_every == 0:
@@ -824,8 +891,12 @@ def main():
                           flush=True)
                     sys.exit(2)
 
-        # Thermal cooldown (prevents GPU overheating on long runs)
-        if args.cooldown > 0 and (epoch + 1) % 100 == 0:
+        # Thermal cooldown (prevents GPU overheating on long runs).
+        # Was every 100 epochs; bumped to every 15 epochs after dual-GPU
+        # crash on 2026-04-26. With --cooldown 30 that's a 30-second pause
+        # every ~15 epochs of training, ~2 min total cool budget per 100
+        # epochs of training — small overhead, large safety margin.
+        if args.cooldown > 0 and (epoch + 1) % 15 == 0:
             time.sleep(args.cooldown)
 
     # -- Final checkpoint (use EMA weights if available) --------------------
@@ -842,6 +913,24 @@ def main():
     print(f"  Best val loss : {best_val_loss:.4f}")
     print(f"  Checkpoints  -> {ckpt_dir}")
     print(f"{'='*60}")
+
+    # MLflow final logging — small artifacts only (config, train.log).
+    # The full ckpt files (~58 MB each) stay on disk; we log their paths as tags.
+    if MLFLOW_AVAILABLE and mlflow.active_run():
+        try:
+            mlflow.log_metric("best_val_loss_final", best_val_loss)
+            for fname in ("train.log", "config.json"):
+                fp = ckpt_dir / fname
+                if fp.exists():
+                    mlflow.log_artifact(str(fp))
+            # Record where the heavy checkpoints live (don't upload them)
+            ckpts = sorted(p.name for p in ckpt_dir.glob("*.pt"))
+            mlflow.set_tag("checkpoints", json.dumps(ckpts))
+            mlflow.set_tag("ckpt_dir_abs", str(ckpt_dir.resolve()))
+            mlflow.end_run()
+            print(f"  MLflow run logged.")
+        except Exception as e:
+            print(f"  [mlflow] final-log failed: {e}", flush=True)
 
     # -- Sample generation --------------------------------------------------
     print(f"\n  Sample generations (best checkpoint):\n{'-'*60}")

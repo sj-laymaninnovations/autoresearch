@@ -1,0 +1,12 @@
+# math_only.yaml — Pure mathematics gate
+# Activates all math sub-areas. Follows CSV dependency graph (physics, computer-science).
+# Baseline: what does a math-only generalist look like?
+
+name: math_only
+active_slugs:
+  - mathematics
+follow_dependencies: false    # don't pull in physics/cs — we only have math data anyway
+curriculum_order: dep_graph   # Arithmetic (1) → Algebra (2) → Word Problems (3)
+tier_filter: null             # keep all tiers
+loss_weight:
+  mathematics: 1.0

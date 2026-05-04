@@ -1,0 +1,24 @@
+name: div1d_richcot_seed42
+notes: "[Atomic div_1d rich-CoT seed 42] 6×8×256 constant LR, weight_decay=1.0, 4-variant CoT (factorization/buildup/countdown/inverse) for div_1d. Tests if richer reasoning paths unlock atomic div_1d at 5M (terse CoT 3/3 FAILED)."
+python: /Library/Frameworks/Python.framework/Versions/3.14/bin/python3
+train_data: math_lab/results/skills/div_1d_richcot_train_seed42_20260425_180655.jsonl
+val_data: math_lab/results/skills/div_1d_richcot_val_seed42_20260425_180655.jsonl
+seed: 42
+n_layer: 6
+n_head: 8
+n_embd: 256
+seq_len: 128
+epochs: 5000
+batch: 16
+lr: 1e-3
+lr_min: 1e-3
+weight_decay: 1.0
+dropout: 0.0
+label_smoothing: 0.0
+warmup: 0
+restart_period: 0
+val_every: 100
+save_every: 250
+num_workers: 0
+em_every: 0
+em_sample: 32

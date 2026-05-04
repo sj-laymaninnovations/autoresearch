@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MathGPT chat</title>
+  <style>
+    :root {
+      --bg: #0e0f12;
+      --panel: #16181d;
+      --panel2: #1d2026;
+      --panel3: #131518;
+      --txt: #e6e8ec;
+      --muted: #8a90a0;
+      --muted2: #555d6e;
+      --accent: #5dabff;
+      --accent2: #3d8ce0;
+      --user: #2a3550;
+      --asst: #1a2030;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --answer-bg: #0d2e1a;
+      --answer-border: #1a7a40;
+      --answer-txt: #3dffa0;
+      --reasoning-txt: #6b7a8d;
+      --example-txt: #9e86ff;
+      --tele-green: #3dffa0;
+      --tele-blue: #5dabff;
+      --tele-yellow: #ffd166;
+      --tele-orange: #ff9f43;
+      --tele-red: #ff6b6b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      color: var(--txt);
+      background: var(--bg);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ────────────────────────────────────────────────────── */
+    header {
+      display: flex; align-items: center; gap: .75rem;
+      padding: .65rem 1rem;
+      background: var(--panel);
+      border-bottom: 1px solid #24272e;
+      flex-wrap: wrap;
+    }
+    header h1 { margin: 0; font-size: 1rem; font-weight: 700; letter-spacing: -.01em; }
+    header h1 span { color: var(--accent); }
+    .ctrl-row { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
+    .lbl { font-size: .72rem; color: var(--muted); }
+    select, input[type=text], input[type=number] {
+      background: var(--panel2);
+      color: var(--txt);
+      border: 1px solid #2a2e36;
+      border-radius: 5px;
+      padding: .3rem .55rem;
+      font: inherit;
+      font-size: .85rem;
+    }
+    select:focus, input:focus { outline: 1px solid var(--accent); }
+    button.send-btn {
+      background: var(--accent);
+      color: #001828;
+      border: none;
+      border-radius: 5px;
+      padding: .4rem .9rem;
+      font: inherit;
+      font-size: .88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    button.send-btn:hover { background: var(--accent2); }
+    button.send-btn:disabled { opacity: .45; cursor: not-allowed; }
+
+    /* ── Telemetry bar ─────────────────────────────────────────────── */
+    #telebar {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      padding: 0 1rem;
+      background: var(--panel3);
+      border-bottom: 1px solid #1e2128;
+      min-height: 28px;
+      flex-wrap: wrap;
+      overflow: hidden;
+    }
+    .tsec {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      padding: 4px 10px;
+      border-right: 1px solid #24272e;
+    }
+    .tsec:last-child { border-right: none; }
+    .tk { font-size: .67rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted2); }
+    .tv {
+      font-family: var(--mono);
+      font-size: .75rem;
+      font-weight: 600;
+    }
+    .tv.green  { color: var(--tele-green); }
+    .tv.blue   { color: var(--tele-blue); }
+    .tv.yellow { color: var(--tele-yellow); }
+    .tv.orange { color: var(--tele-orange); }
+    .tv.muted  { color: var(--muted); }
+    .tbar-dot {
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #333;
+      margin-right: 2px;
+    }
+    .tbar-dot.live { background: var(--tele-green); box-shadow: 0 0 4px var(--tele-green); }
+    .tbar-dot.cpu  { background: var(--tele-blue); }
+
+    /* ── Chat area ─────────────────────────────────────────────────── */
+    main { flex: 1; overflow-y: auto; padding: 1rem; }
+    .msg {
+      max-width: 820px;
+      margin: 0 auto 1.1rem;
+      padding: .75rem 1rem;
+      border-radius: 8px;
+    }
+    .msg.user { background: var(--user); }
+    .msg.assistant { background: var(--asst); border: 1px solid #1e2530; }
+    .msg .role {
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--muted2);
+      margin-bottom: .5rem;
+      font-family: system-ui;
+    }
+    .msg.user .role { color: #4a6a9a; }
+
+    /* Reasoning zones */
+    .resp-example {
+      font-family: var(--mono);
+      font-size: .79rem;
+      color: var(--example-txt);
+      background: #19153a;
+      border-left: 2px solid #5a40cc;
+      padding: .4rem .75rem;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: .55rem;
+      white-space: pre-wrap;
+      line-height: 1.45;
+    }
+    .resp-reasoning {
+      font-family: var(--mono);
+      font-size: .84rem;
+      color: var(--reasoning-txt);
+      white-space: pre-wrap;
+      line-height: 1.6;
+      padding: .1rem 0 .3rem;
+    }
+    .resp-answer {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-top: .65rem;
+      padding: .55rem .9rem;
+      background: var(--answer-bg);
+      border: 1px solid var(--answer-border);
+      border-radius: 6px;
+    }
+    .resp-answer .alabel {
+      font-size: .68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: #2a9a50; font-family: system-ui;
+    }
+    .resp-answer .aval {
+      font-family: var(--mono); font-size: 1.5rem; font-weight: 700;
+      color: var(--answer-txt); letter-spacing: .02em;
+    }
+    .resp-answer .araw {
+      font-family: var(--mono); font-size: .7rem; color: var(--muted2); margin-left: auto;
+    }
+    .resp-raw {
+      font-family: var(--mono); font-size: .84rem; color: var(--txt);
+      white-space: pre-wrap; opacity: .65;
+    }
+
+    /* Per-response stats badge */
+    .resp-stats {
+      display: flex;
+      gap: .5rem;
+      margin-top: .6rem;
+      padding-top: .5rem;
+      border-top: 1px solid #1e2530;
+      flex-wrap: wrap;
+    }
+    .stat-chip {
+      display: flex; align-items: center; gap: .3rem;
+      background: #131518;
+      border: 1px solid #24272e;
+      border-radius: 4px;
+      padding: .2rem .5rem;
+      font-family: var(--mono);
+      font-size: .7rem;
+    }
+    .stat-chip .sc-lbl { color: var(--muted2); }
+    .stat-chip .sc-val { font-weight: 700; }
+    .sc-val.g { color: var(--tele-green); }
+    .sc-val.b { color: var(--tele-blue); }
+    .sc-val.y { color: var(--tele-yellow); }
+    .sc-val.o { color: var(--tele-orange); }
+
+    /* ── Tooltips (data-tip attribute) ─────────────────────────────── */
+    [data-tip] { position: relative; }
+    [data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 7px);
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: pre-line;
+      max-width: 260px;
+      padding: .4rem .65rem;
+      background: #1a1d24;
+      color: #d8dce8;
+      border: 1px solid #3a3f4d;
+      border-radius: 6px;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: .72rem;
+      line-height: 1.45;
+      box-shadow: 0 4px 18px rgba(0,0,0,.55);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .15s, transform .15s;
+      transform: translateX(-50%) translateY(4px);
+      z-index: 9999;
+    }
+    [data-tip]:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    /* Arrow */
+    [data-tip]::before {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #3a3f4d;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .15s;
+      z-index: 9999;
+    }
+    [data-tip]:hover::before { opacity: 1; }
+    /* Flip down when too close to top of viewport */
+    [data-tip].tip-below::after {
+      bottom: auto; top: calc(100% + 7px);
+      transform: translateX(-50%) translateY(-4px);
+    }
+    [data-tip].tip-below:hover::after { transform: translateX(-50%) translateY(0); }
+    [data-tip].tip-below::before {
+      bottom: auto; top: calc(100% + 2px);
+      border-top-color: transparent; border-bottom-color: #3a3f4d;
+    }
+
+    /* ── Rating widget ──────────────────────────────────────────────── */
+    .rating-panel {
+      margin-top: .7rem; padding: .6rem .8rem;
+      background: #0e1015; border: 1px solid #222530; border-radius: 6px;
+    }
+    .rating-row {
+      display: flex; align-items: center; gap: .45rem;
+      flex-wrap: wrap; margin-bottom: .4rem;
+    }
+    .rating-row:last-child { margin-bottom: 0; }
+    .rlbl {
+      font-size: .66rem; text-transform: uppercase; letter-spacing: .06em;
+      color: var(--muted2); min-width: 3.8rem; font-family: system-ui;
+    }
+    .chip {
+      display: inline-flex; align-items: center; gap: .2rem;
+      padding: .2rem .5rem; border: 1px solid #2a2e36; border-radius: 20px;
+      font-size: .74rem; cursor: pointer; background: var(--panel2);
+      color: var(--muted); transition: all .12s; user-select: none;
+      font-family: var(--mono);
+    }
+    .chip:hover { border-color: var(--accent); color: var(--txt); }
+    .chip.act-up   { background:#0d2e1a; border-color:var(--tele-green);  color:var(--tele-green); }
+    .chip.act-down { background:#2e0d0d; border-color:var(--tele-red);    color:var(--tele-red); }
+    .chip.act-star { background:#2a220a; border-color:var(--tele-yellow); color:var(--tele-yellow); }
+    .rating-comment {
+      width:100%; min-height:42px; background:var(--panel2); color:var(--txt);
+      border:1px solid #2a2e36; border-radius:5px;
+      font-family:var(--mono); font-size:.78rem; padding:.3rem .5rem; resize:vertical;
+    }
+    .rating-comment:focus { outline:1px solid var(--accent); }
+    .rating-submit {
+      padding:.22rem .65rem; background:#0d2218; border:1px solid var(--answer-border);
+      border-radius:5px; color:var(--tele-green); font-size:.75rem; font-weight:700;
+      cursor:pointer; font-family:system-ui; transition:all .12s;
+    }
+    .rating-submit:hover { background:var(--answer-bg); }
+    .rating-saved { font-size:.73rem; color:var(--tele-green); font-family:var(--mono); }
+
+    /* ── Footer ────────────────────────────────────────────────────── */
+    footer {
+      padding: .65rem 1rem;
+      background: var(--panel);
+      border-top: 1px solid #24272e;
+    }
+    .composer { display: flex; gap: .5rem; max-width: 820px; margin: 0 auto; }
+    .composer input { flex: 1; font-size: .92rem; padding: .45rem .7rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Math<span>GPT</span></h1>
+    <div class="ctrl-row">
+      <span class="lbl">server</span>
+      <input type="text" id="base" value="" size="32"/>
+      <span class="lbl">user</span>
+      <input type="text" id="username" placeholder="your name" style="width:8em"/>
+      <span class="lbl">version</span>
+      <select id="version">
+        <option value="all">all</option>
+        <option value="v1">v1</option>
+        <option value="v2">v2</option>
+        <option value="v3">v3</option>
+        <option value="v4">v4</option>
+      </select>
+      <span class="lbl">model</span>
+      <select id="model"></select>
+      <span class="lbl">max&nbsp;tokens</span>
+      <input type="number" id="maxtok" value="260" style="width:5em"/>
+      <span id="status" style="font-size:.75rem;color:var(--muted);"></span>
+    </div>
+  </header>
+
+  <!-- Telemetry bar -->
+  <div id="telebar">
+    <div class="tsec tip-below" data-tip="Inference backend device.&#10;&#10;cpu → running on host CPU (slower, ~1–5 tok/s)&#10;cuda → running on NVIDIA GPU (faster, ~50–500 tok/s)&#10;&#10;Green dot = server reachable.">
+      <span class="tbar-dot" id="dot-server"></span>
+      <span class="tk">server</span>
+      <span class="tv muted" id="t-device">—</span>
+    </div>
+    <div class="tsec tip-below" data-tip="Number of logical CPU cores on the inference server.&#10;&#10;More cores help with Python overhead and data loading, but token generation itself is single-threaded per request.">
+      <span class="tbar-dot cpu"></span>
+      <span class="tk">cpu</span>
+      <span class="tv blue" id="t-cores">—</span>
+    </div>
+    <div class="tsec tip-below" data-tip="Server RAM: available / total (GB).&#10;&#10;Each model checkpoint is ~55 MB. With 19 models registered and all loaded, peak usage ≈ 1 GB.&#10;&#10;Requires psutil on server (pip install psutil).">
+      <span class="tk">ram</span>
+      <span class="tv muted" id="t-ram">—</span>
+    </div>
+    <div class="tsec tip-below" data-tip="Theoretical peak compute capacity of this server node.&#10;&#10;GPU: rated FP32 TFLOPS from spec sheet&#10;  RTX 3090 ≈ 35.6 TFLOPS&#10;  RTX 3080 ≈ 29.8 TFLOPS&#10;&#10;CPU: rough estimate = cores × 8 GFLOPS&#10;&#10;Actual sustained throughput is much lower due to memory bandwidth, Python overhead, and batch size of 1.">
+      <span class="tk">capacity est</span>
+      <span class="tv yellow" id="t-cap">—</span>
+    </div>
+    <div class="tsec tip-below" data-tip="Total trainable parameters in the currently selected model.&#10;&#10;All MathGPT models share the same architecture:&#10;  6 layers · 8 heads · 256 embed dim&#10;  Char-level vocab (~96 tokens)&#10;&#10;≈ 5.16M parameters&#10;  Embedding:   24 K&#10;  6× layers:   4.72 M&#10;  LM head:     24 K&#10;&#10;Larger = more expressive but slower and uses more memory.">
+      <span class="tk">model params</span>
+      <span class="tv blue" id="t-params">—</span>
+    </div>
+    <div class="tsec tip-below" data-tip="Estimated floating-point operations required to generate one output token.&#10;&#10;Calculated as: 2 × param_count (2× rule of thumb for transformer forward pass)&#10;&#10;≈ 10.32 MFLOP/token for this model&#10;&#10;Multiply by tokens/response to get total compute per query.">
+      <span class="tk">FLOPs/tok</span>
+      <span class="tv orange" id="t-flops">—</span>
+    </div>
+    <div class="tsec tip-below" data-tip="Live stats from the most recent model response.&#10;&#10;Tokens: characters generated (char-level model, so 1 token ≈ 1 character)&#10;Tok/s: generation speed measured server-side&#10;MFLOPs: total compute = tokens × FLOPs/token ÷ 1M">
+      <span class="tk">last&nbsp;response</span>
+      <span class="tv green" id="t-last-tok">—</span>
+      <span class="tk">tok</span>
+      <span class="tv green" id="t-last-tps">—</span>
+      <span class="tk">tok/s</span>
+      <span class="tv orange" id="t-last-mflop">—</span>
+      <span class="tk">MFLOPs</span>
+    </div>
+  </div>
+
+  <main id="log"></main>
+  <footer>
+    <form id="form" class="composer">
+      <input id="input" placeholder="Try: 47 + 58   |   7x = 56   |   3(x + 2) = 18"/>
+      <button type="submit" class="send-btn" id="send">Send</button>
+    </form>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const log = $('log'), model = $('model'), status = $('status');
+
+    // ── Model input hints ─────────────────────────────────────────────────────
+    const PLACEHOLDERS = {
+      'arith-generalist-v1': 'Mixed arithmetic e.g. "7 + 8", "53 - 27", "8 * 7", "24 / 6"',
+      'curriculum-v1':       'Mixed arithmetic e.g. "12 * 34", "82 - 47"',
+      'word-problem-v1':     'Word problem e.g. "Sara has 3 apples and gets 4 more. How many?"',
+      'add_1d-v2':           'Addition: e.g. "7 + 8"  (single digits)',
+      'add_2d-v2':           'Addition: e.g. "47 + 58"  (2-digit with carry)',
+      'mul_1d-v2':           'Multiplication: e.g. "8 * 7"  (single digits)',
+      'mul_2d-v2':           'Multiplication: e.g. "23 * 46"  (2-digit × 2-digit)',
+      'div_1d-v2':           'Division: e.g. "56 / 7"  (quotient 0–9)',
+      'sub_2d_borrow-v2':    'Subtraction: e.g. "82 - 47"  (requires borrow)',
+      'sub_2d_no_borrow-v2': 'Subtraction: e.g. "87 - 34"  (no borrow)',
+      'mod_1d-v2':           'Modulo: e.g. "17 % 5"  (1-digit divisor)',
+      'add_3d-v3':           'Addition: e.g. "920 + 138"  (3-digit)',
+      'div_1d_exp-v3':       'Division: e.g. "84 / 7"  (quotient up to 12)',
+      'alg_1step-v3':        'Algebra: e.g. "7x = 56"',
+      'alg_2step-v3':        'Algebra: e.g. "2x + 3 = 11"',
+      'div_1d-v4':           'Division: e.g. "96 / 8"  (quotient up to 15)',
+      'alg_1step-v4':        'Algebra: e.g. "15x = 45"  (supports negative x)',
+      'alg_2step_hard-v4':   'Algebra: e.g. "4x - 7 = 13" or "3x + 4 = 2x + 9"',
+      'alg_distribute-v4':   'Algebra: e.g. "3(x + 2) = 18" or "3x + 2x = 20"',
+    };
+    function updatePlaceholder() {
+      const h = PLACEHOLDERS[model.value];
+      if (h) $('input').placeholder = h;
+    }
+    model.addEventListener('change', updatePlaceholder);
+
+    // ── System telemetry ──────────────────────────────────────────────────────
+    let _sysInfo = null;
+    let _modelMeta = {};
+
+    function fmt(n, unit, decimals=1) {
+      return n != null ? n.toFixed(decimals) + ' ' + unit : '—';
+    }
+
+    async function fetchSystem() {
+      try {
+        const r = await fetch($('base').value + '/system');
+        if (!r.ok) return;
+        const s = await r.json();
+        _sysInfo = s;
+
+        $('dot-server').classList.add('live');
+        $('t-device').textContent  = s.device === 'cuda'
+          ? (s.gpu_name ? s.gpu_name.replace('NVIDIA GeForce ','') : 'GPU')
+          : `CPU (${s.platform?.split('-')[0] || ''})`;
+        $('t-device').className    = 'tv ' + (s.device === 'cuda' ? 'green' : 'blue');
+        $('t-cores').textContent   = s.cpu_cores + ' cores';
+        $('t-ram').textContent     = s.ram_avail_gb != null
+          ? `${s.ram_avail_gb}/${s.ram_total_gb} GB free`
+          : '—';
+
+        // Capacity: prefer GPU TFLOPS, fall back to CPU GFLOPS est
+        if (s.gpu_tflops_est) {
+          $('t-cap').textContent = s.gpu_tflops_est.toFixed(1) + ' TFLOPS (GPU)';
+        } else {
+          $('t-cap').textContent = (s.cpu_gflops_est || '—') + ' GFLOPS (CPU est)';
+        }
+        $('t-params').textContent  = s.param_count
+          ? (s.param_count / 1e6).toFixed(2) + 'M'
+          : '—';
+        $('t-flops').textContent   = s.flops_per_token
+          ? (s.flops_per_token / 1e6).toFixed(2) + ' MFLOP'
+          : '—';
+      } catch(e) {
+        $('dot-server').style.background = '#ff6b6b';
+      }
+    }
+
+    // All fetched models, unfiltered
+    let _allModels = [];
+
+    function getVersion(id) {
+      const m = id.match(/-(v\d+)$/);
+      return m ? m[1] : 'v1'; // v1-era have no suffix
+    }
+
+    function populateModelSelect() {
+      const ver = $('version').value;
+      const filtered = ver === 'all' ? _allModels
+                     : _allModels.filter(m => getVersion(m.id) === ver);
+      model.innerHTML = '';
+      for (const m of filtered) {
+        const o = document.createElement('option');
+        o.value = m.id;
+        // Short label inside dropdown: strip version suffix from display
+        o.textContent = m.id;
+        model.append(o);
+      }
+      updatePlaceholder();
+      // Update status count
+      status.textContent = filtered.length + ' models' + (ver !== 'all' ? ' (' + ver + ')' : '');
+    }
+
+    async function refreshModels() {
+      status.textContent = 'fetching…';
+      try {
+        const r = await fetch($('base').value + '/models');
+        const j = await r.json();
+        _allModels = j.data;
+        _modelMeta = {};
+        for (const m of j.data) _modelMeta[m.id] = m;
+        populateModelSelect();
+      } catch(e) {
+        status.textContent = 'connect error: ' + e.message;
+      }
+    }
+
+    $('version').addEventListener('change', populateModelSelect);
+
+    function updateTelemetryFromStats(usage) {
+      if (!usage) return;
+      if (usage.completion_tokens != null)
+        $('t-last-tok').textContent = usage.completion_tokens;
+      if (usage.tokens_per_sec != null)
+        $('t-last-tps').textContent = usage.tokens_per_sec.toFixed(1);
+      if (usage.mflops_total != null)
+        $('t-last-mflop').textContent = usage.mflops_total.toFixed(1);
+    }
+
+    // ── Input normalizer ──────────────────────────────────────────────────────
+    function normalizeInput(raw) {
+      let s = raw.trim();
+      s = s.replace(/\s*=\s*/g, ' = ');
+      s = s.replace(/\s*\+\s*/g, ' + ');
+      s = s.replace(/\s*\*\s*/g, ' * ');
+      s = s.replace(/\s*%\s*/g, ' % ');
+      s = s.replace(/\s*\/\s*/g, ' / ');
+      s = s.replace(/([0-9a-zA-Z)])\s*-\s*/g, '$1 - ');
+      s = s.replace(/\(([^)]+)\)/g, (_, inner) => {
+        let ni = inner.trim()
+          .replace(/\s*\+\s*/g, ' + ')
+          .replace(/([0-9a-zA-Z)])\s*-\s*/g, '$1 - ')
+          .replace(/\s*\*\s*/g, ' * ')
+          .replace(/\s*\/\s*/g, ' / ');
+        return '(' + ni + ')';
+      });
+      s = s.replace(/  +/g, ' ').trim();
+      return s;
+    }
+
+    // ── Response rendering ────────────────────────────────────────────────────
+    function renderStructured(container, rawText, usage) {
+      container.innerHTML = '';
+      const COMMIT = '####';
+      const ci = rawText.indexOf(COMMIT);
+      const before   = ci >= 0 ? rawText.slice(0, ci).trimEnd() : rawText;
+      const afterRaw = ci >= 0 ? rawText.slice(ci + COMMIT.length).trim() : null;
+
+      let exText = '', rsText = before;
+      if (before.startsWith('Example:')) {
+        const nl = before.indexOf('\n');
+        if (nl >= 0) { exText = before.slice(0, nl).trim(); rsText = before.slice(nl+1).trimStart(); }
+        else { exText = before.trim(); rsText = ''; }
+      }
+
+      if (exText) {
+        const ex = document.createElement('div');
+        ex.className = 'resp-example';
+        ex.textContent = exText;
+        container.appendChild(ex);
+      }
+      if (rsText) {
+        const rs = document.createElement('div');
+        rs.className = 'resp-reasoning';
+        rs.textContent = rsText;
+        container.appendChild(rs);
+      }
+      if (afterRaw !== null) {
+        const num = afterRaw.match(/^-?\d+(\.\d+)?/)?.[0] ?? afterRaw;
+        const box = document.createElement('div');
+        box.className = 'resp-answer';
+        box.innerHTML = `
+          <span class="alabel">Answer</span>
+          <span class="aval">${num}</span>
+          <span class="araw">#### ${afterRaw}</span>`;
+        container.appendChild(box);
+      }
+
+      // Stats badge
+      if (usage) {
+        const m = _modelMeta[model.value] || {};
+        const flopsPerTok = usage.flops_per_token || m.flops_per_token || 0;
+        const toks  = usage.completion_tokens ?? '—';
+        const tps   = usage.tokens_per_sec != null ? usage.tokens_per_sec.toFixed(1) : '—';
+        const mf    = usage.mflops_total != null ? usage.mflops_total.toFixed(1) : '—';
+        const ms    = usage.elapsed_s != null ? (usage.elapsed_s * 1000).toFixed(0) : '—';
+        const fpt   = flopsPerTok ? (flopsPerTok/1e6).toFixed(2) : '—';
+
+        // Compute utilisation %: (actual FLOPs/s) vs (system peak FLOPs/s)
+        let utilPct = '—';
+        if (_sysInfo && usage.tokens_per_sec && flopsPerTok) {
+          const actualGFLOPS = usage.tokens_per_sec * flopsPerTok / 1e9;
+          const peakGFLOPS   = _sysInfo.gpu_tflops_est ? _sysInfo.gpu_tflops_est * 1000
+                                                         : _sysInfo.cpu_gflops_est;
+          utilPct = (actualGFLOPS / peakGFLOPS * 100).toFixed(3) + '%';
+        }
+
+        const stats = document.createElement('div');
+        stats.className = 'resp-stats';
+        stats.innerHTML = `
+          <div class="stat-chip" data-tip="Total characters/tokens generated in this response.&#10;&#10;This model is char-level, so 1 token = 1 character.&#10;A typical math CoT response is 80–200 tokens."><span class="sc-lbl">tokens</span><span class="sc-val b">${toks}</span></div>
+          <div class="stat-chip" data-tip="Generation speed: tokens produced per second.&#10;&#10;Measured server-side from first to last token.&#10;CPU: typically 1–8 tok/s&#10;GPU (3080/3090): typically 60–300 tok/s&#10;&#10;Higher = faster, but does not affect answer quality."><span class="sc-lbl">tok/s</span><span class="sc-val g">${tps}</span></div>
+          <div class="stat-chip" data-tip="Total wall-clock time to generate this response (ms).&#10;&#10;Includes all token generation steps.&#10;Does not include network round-trip from browser to server."><span class="sc-lbl">latency</span><span class="sc-val y">${ms} ms</span></div>
+          <div class="stat-chip" data-tip="Total floating-point operations for this response.&#10;&#10;= tokens × FLOPs/token&#10;= tokens × (2 × 5.16M params)&#10;&#10;Gives a sense of absolute compute consumed,&#10;independent of hardware speed."><span class="sc-lbl">total FLOPs</span><span class="sc-val o">${mf} MF</span></div>
+          <div class="stat-chip" data-tip="Compute cost per single output token (MegaFLOPs).&#10;&#10;Formula: 2 × param_count (standard transformer estimate)&#10;= 2 × 5.16M ≈ 10.32 MFLOP/token&#10;&#10;This is fixed per model architecture — it does not change between responses."><span class="sc-lbl">FLOPs/tok</span><span class="sc-val o">${fpt} MF</span></div>
+          <div class="stat-chip" data-tip="Hardware utilisation: what fraction of the server's peak compute was used.&#10;&#10;= (actual GFLOPS) ÷ (rated peak GFLOPS)&#10;&#10;CPU runs at &lt;0.01% of GPU peak — normal for single-request inference.&#10;Even on GPU this is &lt;1% because batch size = 1 and memory bandwidth is the bottleneck, not FLOPS."><span class="sc-lbl">hw util</span><span class="sc-val muted">${utilPct}</span></div>`;
+        container.appendChild(stats);
+      }
+
+      // Rating widget
+      container.appendChild(buildRatingWidget(rawText));
+    }
+
+    // ── Rating widget ─────────────────────────────────────────────────────────
+    const SESSION_ID = 'sess_' + Math.random().toString(36).slice(2,10);
+
+    function buildRatingWidget(responseText) {
+      const panel = document.createElement('div');
+      panel.className = 'rating-panel';
+
+      let thumb = null, stars = 0;
+
+      // Row 1: thumbs
+      const thumbRow = document.createElement('div'); thumbRow.className='rating-row';
+      const tLbl = document.createElement('span'); tLbl.className='rlbl'; tLbl.textContent='rate';
+      const upChip   = document.createElement('span');
+      upChip.className='chip';
+      upChip.textContent='👍 helpful';
+      upChip.dataset.tip = 'Mark this response as helpful.\n\nSaved with the full response text,\nmodel ID, and your username.';
+      const downChip = document.createElement('span');
+      downChip.className='chip';
+      downChip.textContent='👎 wrong';
+      downChip.dataset.tip = 'Mark this response as incorrect or unhelpful.\n\nUseful for identifying which problems\nand models need more training data.';
+      upChip.onclick = () => {
+        thumb = thumb==='up' ? null : 'up';
+        upChip.className   = 'chip' + (thumb==='up'   ? ' act-up'   : '');
+        downChip.className = 'chip' + (thumb==='down' ? ' act-down' : '');
+      };
+      downChip.onclick = () => {
+        thumb = thumb==='down' ? null : 'down';
+        upChip.className   = 'chip' + (thumb==='up'   ? ' act-up'   : '');
+        downChip.className = 'chip' + (thumb==='down' ? ' act-down' : '');
+      };
+      thumbRow.append(tLbl, upChip, downChip);
+
+      // Row 2: stars
+      const starRow = document.createElement('div'); starRow.className='rating-row';
+      const sLbl = document.createElement('span'); sLbl.className='rlbl'; sLbl.textContent='stars';
+      const starChips = [1,2,3,4,5].map(n => {
+        const c = document.createElement('span');
+        c.className = 'chip'; c.textContent = '★'.repeat(n);
+        const tips = [
+          '★ — Poor. Reasoning or answer was clearly wrong.',
+          '★★ — Below average. Some steps correct but answer off.',
+          '★★★ — Average. Correct answer but reasoning unclear.',
+          '★★★★ — Good. Correct with clear reasoning.',
+          '★★★★★ — Excellent. Correct, clear, and well-structured.',
+        ];
+        c.dataset.tip = tips[n-1];
+        c.onclick = () => {
+          stars = stars===n ? 0 : n;
+          starChips.forEach((sc, i) => sc.className = 'chip' + (i === stars - 1 ? ' act-star' : ''));
+        };
+        return c;
+      });
+      starRow.append(sLbl, ...starChips);
+
+      // Row 3: comment
+      const commentRow = document.createElement('div'); commentRow.className='rating-row';
+      const cLbl = document.createElement('span'); cLbl.className='rlbl'; cLbl.textContent='comment';
+      const commentBox = document.createElement('textarea');
+      commentBox.className='rating-comment'; commentBox.placeholder='Optional notes…';
+      commentBox.style.flex='1';
+      commentRow.append(cLbl, commentBox);
+
+      // Row 4: submit
+      const submitRow = document.createElement('div'); submitRow.className='rating-row';
+      const submitBtn = document.createElement('button');
+      submitBtn.className='rating-submit'; submitBtn.textContent='Save rating';
+      const savedSpan = document.createElement('span'); savedSpan.className='rating-saved';
+      submitRow.append(submitBtn, savedSpan);
+
+      submitBtn.onclick = async () => {
+        submitBtn.disabled = true;
+        const payload = {
+          model_id:   model.value,
+          problem:    $('input').value || '',          // last typed (cleared after send)
+          response:   responseText,
+          thumb,
+          stars:      stars || null,
+          comment:    commentBox.value.trim() || null,
+          user:       $('username').value.trim() || 'anon',
+          session_id: SESSION_ID,
+          ts:         new Date().toISOString(),
+        };
+        try {
+          const r = await fetch($('base').value + '/feedback', {
+            method:'POST', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(payload),
+          });
+          if (r.ok) {
+            const ts = new Date().toLocaleString();
+            panel.innerHTML = `<span class="rating-saved">✓ Saved | ${
+              thumb ? (thumb==='up'?'👍':'👎') : ''} ${
+              stars ? '★'.repeat(stars) : ''} ${
+              payload.comment ? '“'+payload.comment.slice(0,60)+'”' : ''} — ${payload.user} ${ts}</span>`;
+          } else {
+            savedSpan.textContent = 'save failed (' + r.status + ')';
+            submitBtn.disabled = false;
+          }
+        } catch(e) {
+          savedSpan.textContent = 'error: ' + e.message;
+          submitBtn.disabled = false;
+        }
+      };
+
+      panel.append(thumbRow, starRow, commentRow, submitRow);
+      return panel;
+    }
+
+    // ── Bubble factories ──────────────────────────────────────────────────────
+    function userBubble(text) {
+      const div = document.createElement('div');
+      div.className = 'msg user';
+      const role = document.createElement('div'); role.className='role'; role.textContent='you';
+      const c = document.createElement('span'); c.textContent = text;
+      div.append(role, c); log.append(div); log.scrollTop = log.scrollHeight;
+    }
+
+    function assistantBubble() {
+      const div = document.createElement('div'); div.className = 'msg assistant';
+      const role = document.createElement('div'); role.className='role'; role.textContent='assistant';
+      const raw = document.createElement('span'); raw.className='resp-raw';
+      const structured = document.createElement('div'); structured.style.display='none';
+      div.append(role, raw, structured);
+      log.append(div); log.scrollTop = log.scrollHeight;
+      return {
+        append(t) { raw.textContent += t; log.scrollTop = log.scrollHeight; },
+        finalize(usage) {
+          raw.style.display = 'none';
+          structured.style.display = '';
+          renderStructured(structured, raw.textContent, usage);
+          updateTelemetryFromStats(usage);
+          log.scrollTop = log.scrollHeight;
+        },
+      };
+    }
+
+    // ── Send ──────────────────────────────────────────────────────────────────
+    async function send(content) {
+      content = normalizeInput(content);
+      userBubble(content);
+      const bubble = assistantBubble();
+      const body = {
+        model: model.value,
+        messages: [{ role: 'user', content }],
+        max_tokens: parseInt($('maxtok').value || '260', 10),
+        stream: true,
+      };
+      const resp = await fetch($('base').value + '/chat/completions', {
+        method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(body),
+      });
+      if (!resp.ok) {
+        bubble.append('HTTP ' + resp.status + ': ' + await resp.text());
+        bubble.finalize(null); return;
+      }
+
+      const reader = resp.body.getReader();
+      const dec = new TextDecoder();
+      let buf = '', lastUsage = null;
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buf += dec.decode(value, { stream: true });
+        let nl;
+        while ((nl = buf.indexOf('\n\n')) !== -1) {
+          const frame = buf.slice(0, nl).trim(); buf = buf.slice(nl + 2);
+          if (!frame.startsWith('data:')) continue;
+          const payload = frame.slice(5).trim();
+          if (payload === '[DONE]') { bubble.finalize(lastUsage); return; }
+          try {
+            const obj = JSON.parse(payload);
+            const delta = obj.choices?.[0]?.delta?.content;
+            if (delta) bubble.append(delta);
+            if (obj.usage) lastUsage = obj.usage;
+          } catch(e) {}
+        }
+      }
+      bubble.finalize(lastUsage);
+    }
+
+    $('form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const v = $('input').value.trim(); if (!v) return;
+      $('input').value = ''; $('send').disabled = true;
+      try { await send(v); }
+      catch(e) { const b = assistantBubble(); b.append('[error] '+e.message); b.finalize(null); }
+      $('send').disabled = false; $('input').focus();
+    });
+
+    $('base').addEventListener('change', () => { refreshModels(); fetchSystem(); });
+
+    // Init — auto-detect API base from window.location
+    // When served via serve.py over LAN: http://10.5.x.x:4321 → use same host
+    // When opened as local file: fall back to 127.0.0.1:4321
+    (function setBase() {
+      const loc = window.location;
+      const host = (loc.protocol === 'file:' || !loc.hostname)
+        ? '127.0.0.1'
+        : loc.hostname;
+      const port = (loc.port && loc.port !== '80' && loc.port !== '443')
+        ? loc.port
+        : '4321';
+      $('base').value = `http://${host}:${port}/v1`;
+    })();
+
+    // Restore username from localStorage
+    const savedUser = localStorage.getItem('mathgpt_user');
+    if (savedUser) $('username').value = savedUser;
+    $('username').addEventListener('change', () =>
+      localStorage.setItem('mathgpt_user', $('username').value.trim()));
+
+    refreshModels();
+    fetchSystem();
+  </script>
+</body>
+</html>

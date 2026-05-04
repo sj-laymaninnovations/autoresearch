@@ -1,0 +1,18 @@
+# algebra_gate.yaml — Algebra-focused gate with arithmetic prerequisite warmup
+# Tests: can a gated generalist match alg_2step_hard-v4 on algebra problems?
+# Overweights algebra records (1.5x) and uses arithmetic as warmup (curriculum step 1).
+
+name: algebra_gate
+active_slugs:
+  - mathematics
+active_sub_areas:
+  mathematics:
+    - Arithmetic       # kept as prerequisite warmup (curriculum step 1)
+    - Algebra          # primary target (curriculum step 2)
+follow_dependencies: false
+curriculum_order: dep_graph
+tier_filter: null      # keep all tiers (algebra spans tier 2-3)
+loss_weight:
+  mathematics: 1.0
+# Per-sub-area weighting is handled by curriculum_step — algebra arrives after
+# arithmetic is established, naturally weighting it as the challenge domain.

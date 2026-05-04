@@ -1,0 +1,22 @@
+# no_stats.yaml — Ablation: mathematics without statistics
+# Tests whether excluding statistics sub-areas hurts arithmetic generalization.
+# Pair this against math_only.yaml to isolate the statistics contribution.
+
+name: no_stats
+active_slugs:
+  - mathematics
+exclude_slugs:
+  - statistics
+active_sub_areas:
+  mathematics:
+    - Arithmetic
+    - Algebra
+    - Geometry
+    - Number Theory
+    - Word Problems
+    # deliberately omitting: Descriptive Statistics, Inferential Statistics, Bayesian
+follow_dependencies: false
+curriculum_order: dep_graph
+tier_filter: null
+loss_weight:
+  mathematics: 1.0

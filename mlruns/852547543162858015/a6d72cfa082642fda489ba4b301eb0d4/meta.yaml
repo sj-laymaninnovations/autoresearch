@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/seanjosiah/Documents/autoresearch/mlruns/852547543162858015/a6d72cfa082642fda489ba4b301eb0d4/artifacts
+end_time: 1777420512987
+entry_point_name: ''
+experiment_id: '852547543162858015'
+lifecycle_stage: active
+run_id: a6d72cfa082642fda489ba4b301eb0d4
+run_name: mlflow_smoke
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1777420512982
+status: 3
+tags: []
+user_id: seanjosiah

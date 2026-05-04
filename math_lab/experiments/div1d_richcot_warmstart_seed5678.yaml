@@ -1,0 +1,26 @@
+name: div1d_richcot_warmstart_seed5678
+notes: "[Phase 3 warm-start v2] Warm-start from cot_blend ep250 (49.1% peak), continue on atomic div_1d rich-CoT, seed 5678. lr=1e-4 (well below cot_blend's peak training LR ~3e-4) + 50-step warmup so weights don't explode immediately."
+python: /Library/Frameworks/Python.framework/Versions/3.14/bin/python3
+init_ckpt: /Users/seanjosiah/Documents/autoresearch/math_lab/results/checkpoints/algebra_canonical/20260425_101652_arith_6x8_256_t12master_cot_blend/epoch_0250.pt
+reset_epoch_counter: true
+train_data: math_lab/results/skills/div_1d_richcot_train_seed5678_20260425_180655.jsonl
+val_data: math_lab/results/skills/div_1d_richcot_val_seed5678_20260425_180655.jsonl
+seed: 5678
+n_layer: 6
+n_head: 8
+n_embd: 256
+seq_len: 128
+epochs: 3000
+batch: 16
+lr: 1e-4
+lr_min: 1e-5
+weight_decay: 1.0
+dropout: 0.0
+label_smoothing: 0.0
+warmup: 50
+restart_period: 0
+val_every: 100
+save_every: 200
+num_workers: 0
+em_every: 0
+em_sample: 32

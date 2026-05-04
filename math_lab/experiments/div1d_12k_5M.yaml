@@ -1,0 +1,24 @@
+name: div1d_12k_5M
+notes: "[Data-scaling test] 6×8×256 (5M) on 12k-record div_1d (2980 pairs × 4 variants, q∈[0,9] d∈[2,299]). Tests upper end of scaling curve — 3136 records hit 95.4% GENERALIZED; does 4× more data push to near-100% or show diminishing returns?"
+python: /Library/Frameworks/Python.framework/Versions/3.14/bin/python3
+train_data: math_lab/results/skills/div_1d_12k_train_seed42_20260426_145655.jsonl
+val_data: math_lab/results/skills/div_1d_12k_val_seed42_20260426_145655.jsonl
+seed: 42
+n_layer: 6
+n_head: 8
+n_embd: 256
+seq_len: 256
+epochs: 200
+batch: 16
+lr: 6e-4
+lr_min: 1e-5
+weight_decay: 1.0
+dropout: 0.0
+label_smoothing: 0.1
+warmup: 100
+restart_period: 0
+val_every: 25
+save_every: 25
+num_workers: 0
+em_every: 0
+em_sample: 32

@@ -52,6 +52,15 @@ import datetime
 import subprocess
 from pathlib import Path
 
+# Layman Agent Platform status reporting (non-blocking — import failure is silent)
+try:
+    from math_lab.status_writer import write_agent_status as _write_status
+except ImportError:
+    try:
+        from status_writer import write_agent_status as _write_status
+    except ImportError:
+        def _write_status(**_kw): return False  # graceful no-op if not found
+
 ROOT         = Path(__file__).parent.parent
 MATH_LAB     = Path(__file__).parent
 RESULTS      = MATH_LAB / "results"
@@ -316,6 +325,16 @@ def main():
     run_dir.mkdir(parents=True, exist_ok=True)
     (run_dir / "config.json").write_text(json.dumps(cfg, indent=2, default=str))
 
+    # ── Status: experiment starting ──────────────────────────────────────────
+    _write_status(
+        current_task=(
+            f"autoresearch_canonical: {cfg['name']} "
+            f"(arch {cfg['n_layer']}x{cfg['n_head']}x{cfg['n_embd']}, "
+            f"ep={cfg['epochs']}, seed={cfg.get('seed', 42)}) — training"
+        ),
+        status="in_progress",
+    )
+
     if args.dry_run:
         print("DRY RUN:")
         print(" ".join(build_cmd(cfg, run_dir, run_dir / "train.log")))
@@ -325,9 +344,23 @@ def main():
     rc, train_s = run_training(cfg, run_dir)
     if rc != 0:
         print(f"  [TRAIN FAILED] rc={rc} — see {run_dir/'train.log'}")
+        _write_status(
+            current_task=f"autoresearch_canonical: {cfg['name']} — TRAIN FAILED rc={rc}",
+            status="blocked",
+            blockers=f"finetune rc={rc} — see {run_dir / 'train.log'}",
+        )
         append_tsv(dict(timestamp=ts, name=cfg["name"], train_s=train_s,
                         exact_match=0.0, notes=f"TRAIN_FAILED rc={rc}"))
         return
+
+    # ── Status: training done, eval starting ─────────────────────────────────
+    _write_status(
+        current_task=(
+            f"autoresearch_canonical: {cfg['name']} — training done "
+            f"in {train_s:.0f}s, running eval"
+        ),
+        status="in_progress",
+    )
 
     # Eval preference: best_em.pt (exact-match winner) > best.pt (val-loss winner) > final.pt
     best_em = run_dir / "best_em.pt"
@@ -385,6 +418,19 @@ def main():
         print(f"  [plot WARNING] {e}")
 
     print(f"\n  [done] logged to {LOG_TSV}")
+
+    # ── Status: experiment complete ───────────────────────────────────────────
+    em_pct = res['exact_match'] * 100
+    _write_status(
+        last_completed=(
+            f"{cfg['name']} — EM={em_pct:.1f}% "
+            f"(arch {cfg['n_layer']}x{cfg['n_head']}x{cfg['n_embd']}, "
+            f"seed={cfg.get('seed', 42)})"
+        ),
+        current_task="autoresearch_canonical: idle — awaiting next directive",
+        status="in_progress",
+        blockers="none",
+    )
 
 
 if __name__ == "__main__":

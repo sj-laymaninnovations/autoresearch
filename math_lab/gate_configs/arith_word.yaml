@@ -1,0 +1,20 @@
+# arith_word.yaml — Arithmetic + Word Problems gate
+# Restricts to the simplest sub-areas (Arithmetic + Word Problems, tiers 1-2).
+# Matches the scope of the original v1/v2 skill models.
+# Key question: does a gated generalist match a specialist trained only on arithmetic?
+
+name: arith_word
+active_slugs:
+  - mathematics
+active_sub_areas:
+  mathematics:
+    - Arithmetic
+    - Number Theory
+    - Word Problems
+follow_dependencies: false
+curriculum_order: dep_graph   # Arithmetic (1) first, Word Problems (3) last
+tier_filter:
+  - 1
+  - 2
+loss_weight:
+  mathematics: 1.0

@@ -1,0 +1,23 @@
+# full_stem.yaml — All Formal + Natural Sciences gate
+# Broadest generalist experiment. Activates mathematics, statistics, computer-science,
+# physics, chemistry, biology. Tests whether cross-domain knowledge helps math reasoning.
+# Hypothesis: statistical reasoning + algorithmic thinking may improve word problem accuracy.
+
+name: full_stem
+active_slugs:
+  - mathematics
+  - statistics
+  - computer-science
+  - physics
+  - chemistry
+  - biology
+follow_dependencies: false
+curriculum_order: dep_graph
+tier_filter: null
+loss_weight:
+  mathematics: 1.5      # upweight — primary target domain
+  statistics: 1.0
+  computer-science: 0.8 # downweight — algorithmic problems less useful
+  physics: 0.6
+  chemistry: 0.3
+  biology: 0.3

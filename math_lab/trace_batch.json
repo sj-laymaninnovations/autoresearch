@@ -1,0 +1,68 @@
+[
+  {
+    "label": "add_1d-v2 | 7+8",
+    "ckpt":  "results/checkpoints_v2/v2_add1d_best.pt",
+    "problem": "7 + 8",
+    "answer": 15
+  },
+  {
+    "label": "add_2d-v2 | 47+58",
+    "ckpt":  "results/checkpoints_v2/v2_add2d_best.pt",
+    "problem": "47 + 58",
+    "answer": 105
+  },
+  {
+    "label": "mul_1d-v2 | 8*7",
+    "ckpt":  "results/checkpoints_v2/v2_mul1d_best.pt",
+    "problem": "8 * 7",
+    "answer": 56
+  },
+  {
+    "label": "mul_2d-v2 | 23*46 (gap case)",
+    "ckpt":  "results/checkpoints_v2/v2_mul2d_best.pt",
+    "problem": "23 * 46",
+    "answer": 1058
+  },
+  {
+    "label": "mul_2d-v2 | 12*15",
+    "ckpt":  "results/checkpoints_v2/v2_mul2d_best.pt",
+    "problem": "12 * 15",
+    "answer": 180
+  },
+  {
+    "label": "div_1d-v2 | 56/7",
+    "ckpt":  "results/checkpoints_v2/v2_div1d_best.pt",
+    "problem": "56 / 7",
+    "answer": 8
+  },
+  {
+    "label": "sub_2d_borrow-v2 | 82-47",
+    "ckpt":  "results/checkpoints_v2/v2_sub2d_borrow_best.pt",
+    "problem": "82 - 47",
+    "answer": 35
+  },
+  {
+    "label": "mod_1d-v2 | 17 % 5",
+    "ckpt":  "results/checkpoints_v2/v2_mod1d_best.pt",
+    "problem": "17 % 5",
+    "answer": 2
+  },
+  {
+    "label": "mod_1d-v2 | 23 % 7",
+    "ckpt":  "results/checkpoints_v2/v2_mod1d_best.pt",
+    "problem": "23 % 7",
+    "answer": 2
+  },
+  {
+    "label": "sub_2d_no_borrow-v2 | 87-34",
+    "ckpt":  "results/checkpoints_v2/v2_sub2d_no_borrow_best.pt",
+    "problem": "87 - 34",
+    "answer": 53
+  },
+  {
+    "label": "sub_2d_no_borrow-v2 | 96-51",
+    "ckpt":  "results/checkpoints_v2/v2_sub2d_no_borrow_best.pt",
+    "problem": "96 - 51",
+    "answer": 45
+  }
+]

@@ -1,0 +1,352 @@
+:root {
+  --bg: #0d0e10;
+  --surface: #17191d;
+  --surface-2: #1e2026;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #d9dbe0;
+  --text-muted: #7f8592;
+  --text-tertiary: #5a5f6c;
+  --accent: #7f77dd;
+  --info: #6aa6e0;
+  --warning: #ef9f27;
+  --danger: #e24b4a;
+  --success: #5dcaa5;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #fafaf8;
+    --surface: #ffffff;
+    --surface-2: #f1efe8;
+    --border: rgba(0, 0, 0, 0.08);
+    --text: #2c2c2a;
+    --text-muted: #5f5e5a;
+    --text-tertiary: #8a8884;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Header */
+
+.hud-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  border-bottom: 0.5px solid var(--border);
+  flex-shrink: 0;
+}
+
+.hud-title h1 {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.02em;
+  display: inline;
+}
+
+.hud-subtitle {
+  color: var(--text-tertiary);
+  font-size: 11px;
+  margin-left: 10px;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+.hud-stats {
+  display: flex;
+  gap: 14px;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-warn {
+  color: var(--warning);
+}
+
+.warning-bar {
+  background: rgba(239, 159, 39, 0.1);
+  color: var(--warning);
+  padding: 6px 18px;
+  font-size: 11px;
+  border-bottom: 0.5px solid rgba(239, 159, 39, 0.2);
+}
+
+/* Main grid */
+
+.hud-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  padding: 14px 18px;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.hud-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.col-title {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 4px;
+}
+
+.empty-state {
+  color: var(--text-muted);
+  font-size: 12px;
+  padding: 10px;
+  text-align: center;
+  border: 0.5px dashed var(--border);
+  border-radius: 6px;
+  margin: 0;
+}
+
+/* Footer */
+
+.hud-footer {
+  border-top: 0.5px solid var(--border);
+  padding: 6px 18px;
+  font-size: 10px;
+  color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+/* Tiles — shared */
+
+.tile {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.tile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  gap: 8px;
+}
+
+.tile-label {
+  margin: 0;
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: lowercase;
+  letter-spacing: 0.03em;
+}
+
+.tile-title {
+  margin: 2px 0 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.tile-meta {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.tile-meta-warn {
+  color: var(--warning);
+}
+
+.tile-notes {
+  margin: 6px 0 0;
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: pre-wrap;
+  border-left: 2px solid var(--border);
+  padding-left: 8px;
+}
+
+.blockers {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: var(--danger);
+}
+
+details {
+  margin-top: 6px;
+}
+
+.tile-summary {
+  font-size: 11px;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.tile-summary:hover {
+  color: var(--text);
+}
+
+.mermaid-source {
+  margin: 6px 0 0;
+  padding: 8px;
+  background: var(--surface-2);
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  color: var(--text-muted);
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+/* Stall badges */
+
+.stall-badge {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 999px;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+
+.stall-healthy {
+  background: rgba(93, 202, 165, 0.15);
+  color: var(--success);
+}
+
+.stall-over_threshold {
+  background: rgba(239, 159, 39, 0.15);
+  color: var(--warning);
+}
+
+.stall-stalled {
+  background: rgba(226, 75, 74, 0.18);
+  color: var(--danger);
+}
+
+.stall-unknown {
+  background: var(--surface-2);
+  color: var(--text-muted);
+}
+
+/* Agent tile borders by stall */
+
+.agent.stall-stalled {
+  border-color: rgba(226, 75, 74, 0.4);
+}
+
+.agent.stall-over_threshold {
+  border-color: rgba(239, 159, 39, 0.35);
+}
+
+/* Directive tile */
+
+.dstatus-badge {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 999px;
+  text-transform: lowercase;
+  background: var(--surface-2);
+  color: var(--text-muted);
+}
+
+.dstatus-pending {
+  background: rgba(239, 159, 39, 0.15);
+  color: var(--warning);
+}
+
+.dstatus-acknowledged {
+  background: rgba(106, 166, 224, 0.15);
+  color: var(--info);
+}
+
+.dstatus-complete {
+  background: rgba(93, 202, 165, 0.15);
+  color: var(--success);
+}
+
+.dstatus-failed {
+  background: rgba(226, 75, 74, 0.18);
+  color: var(--danger);
+}
+
+.directive.priority-high {
+  border-left: 3px solid var(--danger);
+}
+
+.directive.priority-medium {
+  border-left: 3px solid var(--warning);
+}
+
+.directive.priority-low {
+  border-left: 3px solid var(--accent);
+}
+
+/* Project tile overall status */
+
+.overall-in_progress {
+  background: rgba(106, 166, 224, 0.15);
+  color: var(--info);
+}
+
+.overall-done {
+  background: rgba(93, 202, 165, 0.15);
+  color: var(--success);
+}
+
+.overall-blocked {
+  background: rgba(226, 75, 74, 0.18);
+  color: var(--danger);
+}
+
+.overall-pending {
+  background: var(--surface-2);
+  color: var(--text-muted);
+}
+
+.overall-stalled {
+  background: rgba(226, 75, 74, 0.18);
+  color: var(--danger);
+}
+
+.overall-unknown {
+  background: var(--surface-2);
+  color: var(--text-muted);
+}
+
+.project.overall-stalled {
+  border-color: rgba(226, 75, 74, 0.4);
+}

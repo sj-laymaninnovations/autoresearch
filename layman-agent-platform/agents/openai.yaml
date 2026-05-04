@@ -1,0 +1,4 @@
+interface:
+  display_name: "Layman Agent Platform"
+  short_description: "Coordinate agents with git-backed status files"
+  default_prompt: "Use $layman-agent-platform to summarize project health and write safe agent directives."

@@ -1,0 +1,26 @@
+name: arith_6x8_256_t12master_cot_blend_div80
+notes: "[CoT + blend + div80] 6×8×256 + rule-CoT + blend math-PCA init, with div_1d expanded to 80 unique pairs (was 23). Tests if div balance fixes the 13% comprehensive-quiz weakness while preserving the 49.1% peak."
+python: /Library/Frameworks/Python.framework/Versions/3.14/bin/python3
+train_data: /Users/seanjosiah/Documents/autoresearch/math_lab/results/canonical_arith_train_t12master_cotrule_div80_20260425_115353.jsonl
+val_data: /Users/seanjosiah/Documents/autoresearch/math_lab/results/canonical_arith_val_t12master_plain_div80_20260425_115353.jsonl
+init_embeddings: /Users/seanjosiah/Documents/autoresearch/math_lab/results/embeddings/blend_math_concepts_256d.npy
+init_embeddings_labels: /Users/seanjosiah/Documents/autoresearch/math_lab/results/embeddings/blend_math_concepts_labels.txt
+init_embeddings_scale: 0.5
+n_layer: 6
+n_head: 8
+n_embd: 256
+seq_len: 256
+epochs: 400
+batch: 16
+lr: 6e-4
+lr_min: 1e-5
+weight_decay: 1.0
+dropout: 0.0
+label_smoothing: 0.1
+warmup: 100
+restart_period: 0
+val_every: 50
+save_every: 50
+num_workers: 0
+em_every: 0
+em_sample: 32
