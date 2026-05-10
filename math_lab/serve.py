@@ -146,6 +146,7 @@ DEFAULT_SKILLS: dict[str, dict] = {
 LOADED: dict[str, MathGPT] = {}
 DEVICE: str = "cuda"
 USE_KV_CACHE: bool = True
+COMPILE_MODE: str = "off"   # "off" | "reduce-overhead" | "default"
 
 # Model architecture constants (all our models share the same config)
 _ARCH = {"n_layer": 6, "n_head": 8, "n_embd": 256, "vocab_size": 96}
@@ -174,6 +175,11 @@ def get_model(model_id: str, registry: dict) -> MathGPT:
         raise HTTPException(status_code=500,
                             detail=f"Checkpoint missing for {model_id}: {ckpt}")
     m, _ = load_model(ckpt, DEVICE)
+    if COMPILE_MODE != "off":
+        try:
+            m = torch.compile(m, mode=COMPILE_MODE)
+        except Exception as e:
+            print(f"  warn: torch.compile({COMPILE_MODE}) failed for {model_id}: {e}")
     LOADED[model_id] = m
     return m
 
@@ -328,6 +334,7 @@ def make_app(registry: dict) -> FastAPI:
             "cpu_cores":    multiprocessing.cpu_count(),
             "device":       DEVICE,
             "inference_path": "kv-cached" if USE_KV_CACHE else "uncached",
+            "compile_mode": COMPILE_MODE,
             "loaded_models": list(LOADED.keys()),
             "registered_models": len(registry),
             "param_count":  _PARAM_COUNT,
@@ -522,9 +529,13 @@ def main():
     ap.add_argument("--kv-cache", action=argparse.BooleanOptionalAction, default=None,
                     help="use KV-cached decode path (default: on for MPS/CPU, off for CUDA — "
                          "CUDA is launch-bound, KV cache slightly hurts there)")
+    ap.add_argument("--compile", action=argparse.BooleanOptionalAction, default=None,
+                    help="wrap models in torch.compile(mode='reduce-overhead') after load. "
+                         "Default: on for CUDA (uses CUDA Graphs underneath), off otherwise. "
+                         "First request to each model is slow (compilation).")
     args = ap.parse_args()
 
-    global DEVICE, USE_KV_CACHE
+    global DEVICE, USE_KV_CACHE, COMPILE_MODE
     DEVICE = args.device
     # Platform-aware default: KV cache helps on compute-bound platforms (CPU,
     # MPS) but hurts on launch-bound CUDA. User can override either way.
@@ -532,7 +543,13 @@ def main():
         USE_KV_CACHE = (DEVICE != "cuda")
     else:
         USE_KV_CACHE = args.kv_cache
-    print(f"  device={DEVICE}  kv_cache={USE_KV_CACHE}", flush=True)
+    # torch.compile default: on for CUDA, off elsewhere (MPS support is
+    # immature; CPU compile can help marginally but isn't the bottleneck).
+    if args.compile is None:
+        COMPILE_MODE = "reduce-overhead" if DEVICE == "cuda" else "off"
+    else:
+        COMPILE_MODE = "reduce-overhead" if args.compile else "off"
+    print(f"  device={DEVICE}  kv_cache={USE_KV_CACHE}  compile={COMPILE_MODE}", flush=True)
 
     app = make_app(DEFAULT_SKILLS)
 
