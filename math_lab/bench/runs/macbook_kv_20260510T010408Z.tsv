@@ -1,0 +1,96 @@
+timestamp	git_commit	platform	host	device	gpu_name	cpu_cores	ram_total_gb	param_count	model_id	prompt	rep	tokens	elapsed_s	tokens_per_sec	note
+2026-05-10T01:04:09.076271+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	arith-generalist-v1	47 + 58	0	51	0.096	533.8	
+2026-05-10T01:04:09.171808+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	arith-generalist-v1	47 + 58	1	51	0.094	542.7	
+2026-05-10T01:04:09.269149+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	arith-generalist-v1	47 + 58	2	51	0.096	530.7	
+2026-05-10T01:04:09.358117+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	arith-generalist-v1	47 + 58	3	51	0.088	580.9	
+2026-05-10T01:04:09.455042+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	arith-generalist-v1	47 + 58	4	51	0.096	533.2	
+2026-05-10T01:04:10.474352+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	curriculum-v1	12 * 34	0	80	0.16	499.8	
+2026-05-10T01:04:10.614534+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	curriculum-v1	12 * 34	1	80	0.139	575.6	
+2026-05-10T01:04:10.754230+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	curriculum-v1	12 * 34	2	80	0.138	577.8	
+2026-05-10T01:04:10.885123+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	curriculum-v1	12 * 34	3	80	0.13	616.9	
+2026-05-10T01:04:11.022772+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	curriculum-v1	12 * 34	4	80	0.136	587.1	
+2026-05-10T01:04:11.477203+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	word-problem-v1	Sara has 3 apples and gets 4 more. How many?	0	58	0.133	435.6	
+2026-05-10T01:04:11.582753+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	word-problem-v1	Sara has 3 apples and gets 4 more. How many?	1	58	0.104	558.2	
+2026-05-10T01:04:11.688708+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	word-problem-v1	Sara has 3 apples and gets 4 more. How many?	2	58	0.105	553.7	
+2026-05-10T01:04:11.793175+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	word-problem-v1	Sara has 3 apples and gets 4 more. How many?	3	58	0.103	561.7	
+2026-05-10T01:04:11.900148+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	word-problem-v1	Sara has 3 apples and gets 4 more. How many?	4	58	0.106	548.1	
+2026-05-10T01:04:12.224460+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_1d-v2	7 + 8	0	81	0.145	560.1	
+2026-05-10T01:04:12.372847+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_1d-v2	7 + 8	1	81	0.147	550.4	
+2026-05-10T01:04:12.522997+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_1d-v2	7 + 8	2	81	0.149	544.3	
+2026-05-10T01:04:12.671544+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_1d-v2	7 + 8	3	81	0.147	550.0	
+2026-05-10T01:04:12.814543+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_1d-v2	7 + 8	4	81	0.142	571.4	
+2026-05-10T01:04:13.145508+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_2d-v2	47 + 58	0	92	0.162	567.8	
+2026-05-10T01:04:13.304052+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_2d-v2	47 + 58	1	92	0.157	586.0	
+2026-05-10T01:04:13.467443+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_2d-v2	47 + 58	2	92	0.162	567.3	
+2026-05-10T01:04:13.633070+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_2d-v2	47 + 58	3	92	0.164	559.5	
+2026-05-10T01:04:13.797828+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_2d-v2	47 + 58	4	92	0.164	562.5	
+2026-05-10T01:04:14.135525+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mul_1d-v2	8 * 7	0	95	0.17	559.0	
+2026-05-10T01:04:14.303485+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mul_1d-v2	8 * 7	1	95	0.166	571.9	
+2026-05-10T01:04:14.475870+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mul_1d-v2	8 * 7	2	95	0.171	555.6	
+2026-05-10T01:04:14.636950+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mul_1d-v2	8 * 7	3	95	0.16	595.3	
+2026-05-10T01:04:14.801576+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mul_1d-v2	8 * 7	4	95	0.163	581.8	
+2026-05-10T01:04:15.812347+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mul_2d-v2	23 * 46	0	129	0.238	543.0	
+2026-05-10T01:04:16.030649+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mul_2d-v2	23 * 46	1	129	0.217	594.6	
+2026-05-10T01:04:16.259389+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mul_2d-v2	23 * 46	2	129	0.228	567.0	
+2026-05-10T01:04:16.489610+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mul_2d-v2	23 * 46	3	129	0.229	563.3	
+2026-05-10T01:04:16.722495+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mul_2d-v2	23 * 46	4	129	0.232	556.9	
+2026-05-10T01:04:16.944919+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d-v2	56 / 7	0	57	0.098	584.1	
+2026-05-10T01:04:17.047394+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d-v2	56 / 7	1	57	0.101	563.2	
+2026-05-10T01:04:17.150790+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d-v2	56 / 7	2	57	0.102	557.5	
+2026-05-10T01:04:17.253673+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d-v2	56 / 7	3	57	0.102	561.1	
+2026-05-10T01:04:17.354446+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d-v2	56 / 7	4	57	0.099	572.9	
+2026-05-10T01:04:17.672101+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	sub_2d_borrow-v2	82 - 47	0	89	0.155	572.5	
+2026-05-10T01:04:17.833216+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	sub_2d_borrow-v2	82 - 47	1	89	0.16	556.5	
+2026-05-10T01:04:17.984474+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	sub_2d_borrow-v2	82 - 47	2	89	0.15	592.9	
+2026-05-10T01:04:18.138883+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	sub_2d_borrow-v2	82 - 47	3	89	0.153	581.1	
+2026-05-10T01:04:18.297261+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	sub_2d_borrow-v2	82 - 47	4	89	0.157	566.2	
+2026-05-10T01:04:18.628617+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	sub_2d_no_borrow-v2	87 - 34	0	89	0.157	567.1	
+2026-05-10T01:04:18.789958+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	sub_2d_no_borrow-v2	87 - 34	1	89	0.16	556.1	
+2026-05-10T01:04:18.942187+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	sub_2d_no_borrow-v2	87 - 34	2	89	0.151	589.1	
+2026-05-10T01:04:19.107171+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	sub_2d_no_borrow-v2	87 - 34	3	89	0.159	559.0	
+2026-05-10T01:04:19.264393+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	sub_2d_no_borrow-v2	87 - 34	4	89	0.156	570.4	
+2026-05-10T01:04:19.397009+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mod_1d-v2	17 % 5	0	35	0.061	569.4	
+2026-05-10T01:04:19.471281+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mod_1d-v2	17 % 5	1	35	0.073	479.6	
+2026-05-10T01:04:19.538052+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mod_1d-v2	17 % 5	2	35	0.065	535.1	
+2026-05-10T01:04:19.599816+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mod_1d-v2	17 % 5	3	35	0.061	577.7	
+2026-05-10T01:04:19.665154+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	mod_1d-v2	17 % 5	4	35	0.064	545.5	
+2026-05-10T01:04:20.182629+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_3d-v3	920 + 138	0	132	0.237	555.9	
+2026-05-10T01:04:20.409217+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_3d-v3	920 + 138	1	132	0.225	585.5	
+2026-05-10T01:04:20.658094+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_3d-v3	920 + 138	2	132	0.248	533.0	
+2026-05-10T01:04:20.895857+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_3d-v3	920 + 138	3	132	0.236	558.3	
+2026-05-10T01:04:21.123190+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	add_3d-v3	920 + 138	4	132	0.226	583.9	
+2026-05-10T01:04:21.682808+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d_exp-v3	84 / 7	0	133	0.264	504.1	
+2026-05-10T01:04:21.928737+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d_exp-v3	84 / 7	1	133	0.245	543.8	
+2026-05-10T01:04:22.183292+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d_exp-v3	84 / 7	2	133	0.253	525.1	
+2026-05-10T01:04:22.433614+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d_exp-v3	84 / 7	3	133	0.249	533.9	
+2026-05-10T01:04:22.689056+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d_exp-v3	84 / 7	4	133	0.254	523.1	
+2026-05-10T01:04:23.077093+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_1step-v3	7x = 56	0	98	0.195	502.9	
+2026-05-10T01:04:23.258028+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_1step-v3	7x = 56	1	98	0.179	546.4	
+2026-05-10T01:04:23.444095+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_1step-v3	7x = 56	2	98	0.185	530.3	
+2026-05-10T01:04:23.644145+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_1step-v3	7x = 56	3	98	0.199	493.5	
+2026-05-10T01:04:23.828563+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_1step-v3	7x = 56	4	98	0.183	536.9	
+2026-05-10T01:04:24.360524+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_2step-v3	2x + 3 = 11	0	139	0.25	555.3	
+2026-05-10T01:04:24.618900+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_2step-v3	2x + 3 = 11	1	139	0.257	541.4	
+2026-05-10T01:04:24.871937+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_2step-v3	2x + 3 = 11	2	139	0.251	552.7	
+2026-05-10T01:04:25.118880+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_2step-v3	2x + 3 = 11	3	139	0.246	565.7	
+2026-05-10T01:04:25.373015+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_2step-v3	2x + 3 = 11	4	139	0.253	550.4	
+2026-05-10T01:04:25.706177+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d-v4	96 / 8	0	81	0.163	495.4	
+2026-05-10T01:04:25.869811+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d-v4	96 / 8	1	81	0.162	499.6	
+2026-05-10T01:04:26.028102+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d-v4	96 / 8	2	81	0.157	516.7	
+2026-05-10T01:04:26.192628+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d-v4	96 / 8	3	81	0.163	496.3	
+2026-05-10T01:04:26.354500+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	div_1d-v4	96 / 8	4	81	0.161	504.3	
+2026-05-10T01:04:26.795491+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_1step-v4	15x = 45	0	117	0.203	577.7	
+2026-05-10T01:04:27.010097+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_1step-v4	15x = 45	1	117	0.213	548.4	
+2026-05-10T01:04:27.228847+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_1step-v4	15x = 45	2	117	0.217	539.0	
+2026-05-10T01:04:27.441081+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_1step-v4	15x = 45	3	117	0.211	554.6	
+2026-05-10T01:04:27.656816+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_1step-v4	15x = 45	4	117	0.214	545.5	
+2026-05-10T01:04:28.074035+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_2step_hard-v4	4x - 7 = 13	0	116	0.204	568.9	
+2026-05-10T01:04:28.283580+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_2step_hard-v4	4x - 7 = 13	1	116	0.208	556.7	
+2026-05-10T01:04:28.497238+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_2step_hard-v4	4x - 7 = 13	2	116	0.212	546.2	
+2026-05-10T01:04:28.715997+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_2step_hard-v4	4x - 7 = 13	3	116	0.218	533.1	
+2026-05-10T01:04:28.928169+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_2step_hard-v4	4x - 7 = 13	4	116	0.211	550.7	
+2026-05-10T01:04:29.494794+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_distribute-v4	3(x + 2) = 18	0	143	0.262	544.8	
+2026-05-10T01:04:29.751130+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_distribute-v4	3(x + 2) = 18	1	143	0.255	561.5	
+2026-05-10T01:04:30.005370+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_distribute-v4	3(x + 2) = 18	2	143	0.253	565.2	
+2026-05-10T01:04:30.260500+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_distribute-v4	3(x + 2) = 18	3	143	0.254	563.2	
+2026-05-10T01:04:30.531558+00:00	3819072	macbook-mps	Seans-MacBook-Pro.local	mps		14	25.8	5160960	alg_distribute-v4	3(x + 2) = 18	4	143	0.27	530.3	
