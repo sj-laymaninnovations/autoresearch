@@ -519,13 +519,20 @@ def main():
     ap.add_argument("--device", default="cuda")
     ap.add_argument("--preload", action="store_true",
                     help="load all registered models at startup")
-    ap.add_argument("--kv-cache", action=argparse.BooleanOptionalAction, default=True,
-                    help="use KV-cached decode path (default on; --no-kv-cache disables)")
+    ap.add_argument("--kv-cache", action=argparse.BooleanOptionalAction, default=None,
+                    help="use KV-cached decode path (default: on for MPS/CPU, off for CUDA — "
+                         "CUDA is launch-bound, KV cache slightly hurts there)")
     args = ap.parse_args()
 
     global DEVICE, USE_KV_CACHE
     DEVICE = args.device
-    USE_KV_CACHE = args.kv_cache
+    # Platform-aware default: KV cache helps on compute-bound platforms (CPU,
+    # MPS) but hurts on launch-bound CUDA. User can override either way.
+    if args.kv_cache is None:
+        USE_KV_CACHE = (DEVICE != "cuda")
+    else:
+        USE_KV_CACHE = args.kv_cache
+    print(f"  device={DEVICE}  kv_cache={USE_KV_CACHE}", flush=True)
 
     app = make_app(DEFAULT_SKILLS)
 
