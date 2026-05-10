@@ -145,6 +145,7 @@ DEFAULT_SKILLS: dict[str, dict] = {
 
 LOADED: dict[str, MathGPT] = {}
 DEVICE: str = "cuda"
+USE_KV_CACHE: bool = True
 
 # Model architecture constants (all our models share the same config)
 _ARCH = {"n_layer": 6, "n_head": 8, "n_embd": 256, "vocab_size": 96}
@@ -178,7 +179,12 @@ def get_model(model_id: str, registry: dict) -> MathGPT:
 
 
 def stream_generate(model: MathGPT, prompt: str, max_new: int) -> Iterable[str]:
-    """Yields one decoded character per emitted token (char-level tokenizer)."""
+    """Yields one decoded character per emitted token (char-level tokenizer).
+
+    Uncached path: re-runs the full forward over the trailing seq_len context
+    every step. O(N²) total compute for an N-token completion. Kept as a
+    correctness oracle for the KV-cached path below.
+    """
     device = next(model.parameters()).device
     ids = torch.tensor(char_encode(prompt)[:-1], dtype=torch.long,
                        device=device).unsqueeze(0)
@@ -194,6 +200,45 @@ def stream_generate(model: MathGPT, prompt: str, max_new: int) -> Iterable[str]:
         if ch:
             yield ch
         ids = torch.cat([ids, torch.tensor([[next_id]], device=device)], dim=1)
+
+
+def stream_generate_kv(model: MathGPT, prompt: str, max_new: int) -> Iterable[str]:
+    """KV-cached greedy decode: one prefill forward, then per-token decode.
+
+    O(N) per step instead of O(N²) total — the dominant win on CUDA where
+    per-kernel-launch overhead is the bottleneck for tiny models.
+    """
+    device = next(model.parameters()).device
+    ids = torch.tensor(char_encode(prompt)[:-1], dtype=torch.long,
+                       device=device).unsqueeze(0)
+
+    # Prefill: one forward over the full prompt seeds the K/V cache.
+    with torch.no_grad():
+        logits, past_kvs = model(ids, use_cache=True)
+
+    next_id = int(torch.argmax(logits[:, -1, :], dim=-1).item())
+    if next_id == EOS_ID:
+        return
+    ch = char_decode([next_id])
+    if ch:
+        yield ch
+
+    # Decode: one token at a time, reusing and growing the cache.
+    seq_len = model.cfg.seq_len
+    next_input = torch.tensor([[next_id]], device=device, dtype=torch.long)
+    for _ in range(max_new - 1):
+        # pos_emb is bounded by seq_len; stop before we'd index out of range.
+        if past_kvs[0][0].shape[2] >= seq_len:
+            break
+        with torch.no_grad():
+            logits, past_kvs = model(next_input, past_kvs=past_kvs, use_cache=True)
+        next_id = int(torch.argmax(logits[:, -1, :], dim=-1).item())
+        if next_id == EOS_ID:
+            break
+        ch = char_decode([next_id])
+        if ch:
+            yield ch
+        next_input = torch.tensor([[next_id]], device=device, dtype=torch.long)
 
 
 # ---------------------------------------------------------------------------
@@ -282,6 +327,7 @@ def make_app(registry: dict) -> FastAPI:
             "python":       platform.python_version(),
             "cpu_cores":    multiprocessing.cpu_count(),
             "device":       DEVICE,
+            "inference_path": "kv-cached" if USE_KV_CACHE else "uncached",
             "loaded_models": list(LOADED.keys()),
             "registered_models": len(registry),
             "param_count":  _PARAM_COUNT,
@@ -382,7 +428,8 @@ def make_app(registry: dict) -> FastAPI:
                 # token deltas — track timing
                 t0 = time.perf_counter()
                 token_count = 0
-                for ch in stream_generate(model, prompt_text, max_new):
+                gen_fn = stream_generate_kv if USE_KV_CACHE else stream_generate
+                for ch in gen_fn(model, prompt_text, max_new):
                     token_count += 1
                     yield ("data: " + json.dumps({
                         "id": completion_id,
@@ -415,7 +462,8 @@ def make_app(registry: dict) -> FastAPI:
             return StreamingResponse(sse(), media_type="text/event-stream")
 
         # non-streaming
-        out_chars = list(stream_generate(model, prompt_text, max_new))
+        gen_fn = stream_generate_kv if USE_KV_CACHE else stream_generate
+        out_chars = list(gen_fn(model, prompt_text, max_new))
         content = "".join(out_chars)
         return JSONResponse({
             "id": completion_id,
@@ -441,7 +489,8 @@ def make_app(registry: dict) -> FastAPI:
         prompt_text = PROMPT_TEMPLATE.format(problem=req.prompt.strip())
         max_new = req.max_tokens or registry[req.model].get("max_new_default", 200)
 
-        out_chars = list(stream_generate(model, prompt_text, max_new))
+        gen_fn = stream_generate_kv if USE_KV_CACHE else stream_generate
+        out_chars = list(gen_fn(model, prompt_text, max_new))
         content = "".join(out_chars)
         return JSONResponse({
             "id": f"cmpl-{uuid.uuid4().hex[:12]}",
@@ -470,10 +519,13 @@ def main():
     ap.add_argument("--device", default="cuda")
     ap.add_argument("--preload", action="store_true",
                     help="load all registered models at startup")
+    ap.add_argument("--kv-cache", action=argparse.BooleanOptionalAction, default=True,
+                    help="use KV-cached decode path (default on; --no-kv-cache disables)")
     args = ap.parse_args()
 
-    global DEVICE
+    global DEVICE, USE_KV_CACHE
     DEVICE = args.device
+    USE_KV_CACHE = args.kv_cache
 
     app = make_app(DEFAULT_SKILLS)
 
