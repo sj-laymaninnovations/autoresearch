@@ -1,0 +1,96 @@
+timestamp	platform	host	device	gpu_name	cpu_cores	ram_total_gb	param_count	model_id	prompt	rep	tokens	elapsed_s	tokens_per_sec	note
+2026-05-09T18:03:51.058472+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	arith-generalist-v1	47 + 58	0	51	0.101	503.4	
+2026-05-09T18:03:51.223380+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	arith-generalist-v1	47 + 58	1	51	0.146	349.5	
+2026-05-09T18:03:51.406375+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	arith-generalist-v1	47 + 58	2	51	0.161	316.4	
+2026-05-09T18:03:51.627317+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	arith-generalist-v1	47 + 58	3	51	0.204	249.6	
+2026-05-09T18:03:51.883754+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	arith-generalist-v1	47 + 58	4	51	0.235	216.8	
+2026-05-09T18:03:53.116802+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	curriculum-v1	12 * 34	0	80	0.188	424.6	
+2026-05-09T18:03:53.366612+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	curriculum-v1	12 * 34	1	80	0.229	348.9	
+2026-05-09T18:03:53.671486+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	curriculum-v1	12 * 34	2	80	0.284	281.2	
+2026-05-09T18:03:54.012491+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	curriculum-v1	12 * 34	3	80	0.322	248.2	
+2026-05-09T18:03:54.371580+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	curriculum-v1	12 * 34	4	80	0.34	235.0	
+2026-05-09T18:03:55.246064+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	word-problem-v1	Sara has 3 apples and gets 4 more. How many?	0	58	0.128	451.5	
+2026-05-09T18:03:55.370522+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	word-problem-v1	Sara has 3 apples and gets 4 more. How many?	1	58	0.108	538.3	
+2026-05-09T18:03:55.541409+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	word-problem-v1	Sara has 3 apples and gets 4 more. How many?	2	58	0.152	380.7	
+2026-05-09T18:03:55.675603+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	word-problem-v1	Sara has 3 apples and gets 4 more. How many?	3	58	0.115	503.4	
+2026-05-09T18:03:55.887859+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	word-problem-v1	Sara has 3 apples and gets 4 more. How many?	4	58	0.193	300.3	
+2026-05-09T18:03:56.951003+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_1d-v2	7 + 8	0	81	0.197	411.9	
+2026-05-09T18:03:57.150740+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_1d-v2	7 + 8	1	81	0.178	455.1	
+2026-05-09T18:03:57.453312+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_1d-v2	7 + 8	2	81	0.284	284.9	
+2026-05-09T18:03:57.852499+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_1d-v2	7 + 8	3	81	0.378	214.2	
+2026-05-09T18:03:58.249589+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_1d-v2	7 + 8	4	81	0.379	213.7	
+2026-05-09T18:03:59.170161+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_2d-v2	47 + 58	0	92	0.404	227.6	
+2026-05-09T18:03:59.629228+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_2d-v2	47 + 58	1	92	0.436	210.8	
+2026-05-09T18:04:00.094351+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_2d-v2	47 + 58	2	92	0.446	206.3	
+2026-05-09T18:04:00.531546+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_2d-v2	47 + 58	3	92	0.417	220.6	
+2026-05-09T18:04:00.996427+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_2d-v2	47 + 58	4	92	0.444	207.1	
+2026-05-09T18:04:01.938235+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mul_1d-v2	8 * 7	0	95	0.452	210.2	
+2026-05-09T18:04:02.396389+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mul_1d-v2	8 * 7	1	95	0.437	217.5	
+2026-05-09T18:04:02.857542+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mul_1d-v2	8 * 7	2	95	0.444	213.9	
+2026-05-09T18:04:03.338481+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mul_1d-v2	8 * 7	3	95	0.459	206.9	
+2026-05-09T18:04:03.810896+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mul_1d-v2	8 * 7	4	95	0.452	210.4	
+2026-05-09T18:04:05.299809+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mul_2d-v2	23 * 46	0	129	0.266	484.4	
+2026-05-09T18:04:05.616019+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mul_2d-v2	23 * 46	1	129	0.299	431.8	
+2026-05-09T18:04:06.139706+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mul_2d-v2	23 * 46	2	129	0.506	254.9	
+2026-05-09T18:04:06.679276+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mul_2d-v2	23 * 46	3	129	0.513	251.4	
+2026-05-09T18:04:07.266812+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mul_2d-v2	23 * 46	4	129	0.57	226.3	
+2026-05-09T18:04:07.832451+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d-v2	56 / 7	0	57	0.266	214.4	
+2026-05-09T18:04:08.119082+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d-v2	56 / 7	1	57	0.266	213.9	
+2026-05-09T18:04:08.408603+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d-v2	56 / 7	2	57	0.271	210.5	
+2026-05-09T18:04:08.679777+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d-v2	56 / 7	3	57	0.252	226.0	
+2026-05-09T18:04:08.970896+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d-v2	56 / 7	4	57	0.274	208.2	
+2026-05-09T18:04:09.841762+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	sub_2d_borrow-v2	82 - 47	0	89	0.411	216.5	
+2026-05-09T18:04:10.266611+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	sub_2d_borrow-v2	82 - 47	1	89	0.405	219.6	
+2026-05-09T18:04:10.712271+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	sub_2d_borrow-v2	82 - 47	2	89	0.424	209.8	
+2026-05-09T18:04:11.163613+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	sub_2d_borrow-v2	82 - 47	3	89	0.43	206.7	
+2026-05-09T18:04:11.517633+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	sub_2d_borrow-v2	82 - 47	4	89	0.333	267.3	
+2026-05-09T18:04:12.394823+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	sub_2d_no_borrow-v2	87 - 34	0	89	0.414	215.1	
+2026-05-09T18:04:12.803163+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	sub_2d_no_borrow-v2	87 - 34	1	89	0.389	228.7	
+2026-05-09T18:04:13.238577+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	sub_2d_no_borrow-v2	87 - 34	2	89	0.418	213.1	
+2026-05-09T18:04:13.679956+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	sub_2d_no_borrow-v2	87 - 34	3	89	0.419	212.6	
+2026-05-09T18:04:14.121906+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	sub_2d_no_borrow-v2	87 - 34	4	89	0.423	210.5	
+2026-05-09T18:04:14.517904+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mod_1d-v2	17 % 5	0	35	0.178	196.1	
+2026-05-09T18:04:14.714616+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mod_1d-v2	17 % 5	1	35	0.175	199.8	
+2026-05-09T18:04:14.931434+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mod_1d-v2	17 % 5	2	35	0.198	176.8	
+2026-05-09T18:04:15.132297+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mod_1d-v2	17 % 5	3	35	0.18	194.4	
+2026-05-09T18:04:15.322756+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	mod_1d-v2	17 % 5	4	35	0.173	202.6	
+2026-05-09T18:04:16.488749+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_3d-v3	920 + 138	0	132	0.315	419.1	
+2026-05-09T18:04:17.024624+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_3d-v3	920 + 138	1	132	0.518	254.7	
+2026-05-09T18:04:17.700099+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_3d-v3	920 + 138	2	132	0.654	201.8	
+2026-05-09T18:04:18.386559+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_3d-v3	920 + 138	3	132	0.663	199.1	
+2026-05-09T18:04:19.080487+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	add_3d-v3	920 + 138	4	132	0.671	196.6	
+2026-05-09T18:04:20.258945+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d_exp-v3	84 / 7	0	133	0.306	435.0	
+2026-05-09T18:04:20.892585+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d_exp-v3	84 / 7	1	133	0.615	216.3	
+2026-05-09T18:04:21.654944+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d_exp-v3	84 / 7	2	133	0.74	179.8	
+2026-05-09T18:04:22.424590+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d_exp-v3	84 / 7	3	133	0.749	177.5	
+2026-05-09T18:04:23.207009+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d_exp-v3	84 / 7	4	133	0.763	174.3	
+2026-05-09T18:04:24.272900+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_1step-v3	7x = 56	0	98	0.504	194.3	
+2026-05-09T18:04:24.799554+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_1step-v3	7x = 56	1	98	0.508	193.1	
+2026-05-09T18:04:25.330886+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_1step-v3	7x = 56	2	98	0.511	191.6	
+2026-05-09T18:04:25.828620+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_1step-v3	7x = 56	3	98	0.48	204.3	
+2026-05-09T18:04:26.352112+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_1step-v3	7x = 56	4	98	0.507	193.4	
+2026-05-09T18:04:27.602589+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_2step-v3	2x + 3 = 11	0	139	0.346	401.4	
+2026-05-09T18:04:28.048674+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_2step-v3	2x + 3 = 11	1	139	0.427	325.2	
+2026-05-09T18:04:28.749838+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_2step-v3	2x + 3 = 11	2	139	0.685	203.0	
+2026-05-09T18:04:29.514465+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_2step-v3	2x + 3 = 11	3	139	0.746	186.4	
+2026-05-09T18:04:30.273916+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_2step-v3	2x + 3 = 11	4	139	0.74	187.8	
+2026-05-09T18:04:31.091982+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d-v4	96 / 8	0	81	0.34	238.3	
+2026-05-09T18:04:31.546867+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d-v4	96 / 8	1	81	0.433	186.9	
+2026-05-09T18:04:31.995034+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d-v4	96 / 8	2	81	0.43	188.5	
+2026-05-09T18:04:32.427164+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d-v4	96 / 8	3	81	0.41	197.3	
+2026-05-09T18:04:32.884825+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	div_1d-v4	96 / 8	4	81	0.438	184.8	
+2026-05-09T18:04:34.126951+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_1step-v4	15x = 45	0	117	0.597	195.9	
+2026-05-09T18:04:34.721602+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_1step-v4	15x = 45	1	117	0.575	203.5	
+2026-05-09T18:04:35.320595+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_1step-v4	15x = 45	2	117	0.578	202.4	
+2026-05-09T18:04:35.908865+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_1step-v4	15x = 45	3	117	0.565	207.1	
+2026-05-09T18:04:36.523244+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_1step-v4	15x = 45	4	117	0.591	197.9	
+2026-05-09T18:04:37.721987+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_2step_hard-v4	4x - 7 = 13	0	116	0.573	202.5	
+2026-05-09T18:04:38.311382+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_2step_hard-v4	4x - 7 = 13	1	116	0.569	203.9	
+2026-05-09T18:04:38.913115+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_2step_hard-v4	4x - 7 = 13	2	116	0.583	199.1	
+2026-05-09T18:04:39.529282+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_2step_hard-v4	4x - 7 = 13	3	116	0.592	195.8	
+2026-05-09T18:04:40.143691+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_2step_hard-v4	4x - 7 = 13	4	116	0.595	195.0	
+2026-05-09T18:04:41.500029+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_distribute-v4	3(x + 2) = 18	0	143	0.457	312.9	
+2026-05-09T18:04:42.249478+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_distribute-v4	3(x + 2) = 18	1	143	0.729	196.2	
+2026-05-09T18:04:43.054215+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_distribute-v4	3(x + 2) = 18	2	143	0.785	182.2	
+2026-05-09T18:04:43.625325+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_distribute-v4	3(x + 2) = 18	3	143	0.552	259.1	
+2026-05-09T18:04:44.375424+00:00	macmini-mps	Mac-mini	mps		12	51.5	5160960	alg_distribute-v4	3(x + 2) = 18	4	143	0.731	195.6	

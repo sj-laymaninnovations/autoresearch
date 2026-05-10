@@ -1,0 +1,7 @@
+[
+  { "name": "macbook-mps", "base": "http://127.0.0.1:4321" },
+  { "name": "macmini-mps", "base": "http://192.168.1.169:4321" },
+  { "name": "win-3080",    "base": "http://192.168.1.210:4321" },
+  { "name": "win-3090",    "base": "http://192.168.1.210:4322" },
+  { "name": "win-cpu",     "base": "http://192.168.1.210:4323" }
+]

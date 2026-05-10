@@ -1,0 +1,24 @@
+[
+  { "model": "arith-generalist-v1",  "prompt": "47 + 58" },
+  { "model": "curriculum-v1",        "prompt": "12 * 34" },
+  { "model": "word-problem-v1",      "prompt": "Sara has 3 apples and gets 4 more. How many?" },
+
+  { "model": "add_1d-v2",            "prompt": "7 + 8" },
+  { "model": "add_2d-v2",            "prompt": "47 + 58" },
+  { "model": "mul_1d-v2",            "prompt": "8 * 7" },
+  { "model": "mul_2d-v2",            "prompt": "23 * 46" },
+  { "model": "div_1d-v2",            "prompt": "56 / 7" },
+  { "model": "sub_2d_borrow-v2",     "prompt": "82 - 47" },
+  { "model": "sub_2d_no_borrow-v2",  "prompt": "87 - 34" },
+  { "model": "mod_1d-v2",            "prompt": "17 % 5" },
+
+  { "model": "add_3d-v3",            "prompt": "920 + 138" },
+  { "model": "div_1d_exp-v3",        "prompt": "84 / 7" },
+  { "model": "alg_1step-v3",         "prompt": "7x = 56" },
+  { "model": "alg_2step-v3",         "prompt": "2x + 3 = 11" },
+
+  { "model": "div_1d-v4",            "prompt": "96 / 8" },
+  { "model": "alg_1step-v4",         "prompt": "15x = 45" },
+  { "model": "alg_2step_hard-v4",    "prompt": "4x - 7 = 13" },
+  { "model": "alg_distribute-v4",    "prompt": "3(x + 2) = 18" }
+]

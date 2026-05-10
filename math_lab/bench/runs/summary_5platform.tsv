@@ -1,0 +1,96 @@
+platform	hardware	model	median_tps	n
+macbook-mps	M4 Pro 14C	add_1d-v2	519.2	5
+macbook-mps	M4 Pro 14C	add_2d-v2	502.9	5
+macbook-mps	M4 Pro 14C	add_3d-v3	513.7	5
+macbook-mps	M4 Pro 14C	alg_1step-v3	432.5	5
+macbook-mps	M4 Pro 14C	alg_1step-v4	530.1	5
+macbook-mps	M4 Pro 14C	alg_2step-v3	526.6	5
+macbook-mps	M4 Pro 14C	alg_2step_hard-v4	535.7	5
+macbook-mps	M4 Pro 14C	alg_distribute-v4	558.1	5
+macbook-mps	M4 Pro 14C	arith-generalist-v1	473.6	5
+macbook-mps	M4 Pro 14C	curriculum-v1	453.8	5
+macbook-mps	M4 Pro 14C	div_1d-v2	448.6	5
+macbook-mps	M4 Pro 14C	div_1d-v4	401.8	5
+macbook-mps	M4 Pro 14C	div_1d_exp-v3	452.6	5
+macbook-mps	M4 Pro 14C	mod_1d-v2	450.9	5
+macbook-mps	M4 Pro 14C	mul_1d-v2	546.4	5
+macbook-mps	M4 Pro 14C	mul_2d-v2	562.2	5
+macbook-mps	M4 Pro 14C	sub_2d_borrow-v2	501.9	5
+macbook-mps	M4 Pro 14C	sub_2d_no_borrow-v2	591.6	5
+macbook-mps	M4 Pro 14C	word-problem-v1	494.8	5
+macmini-mps	M4 Pro 12C	add_1d-v2	284.9	5
+macmini-mps	M4 Pro 12C	add_2d-v2	210.8	5
+macmini-mps	M4 Pro 12C	add_3d-v3	201.8	5
+macmini-mps	M4 Pro 12C	alg_1step-v3	193.4	5
+macmini-mps	M4 Pro 12C	alg_1step-v4	202.4	5
+macmini-mps	M4 Pro 12C	alg_2step-v3	203.0	5
+macmini-mps	M4 Pro 12C	alg_2step_hard-v4	199.1	5
+macmini-mps	M4 Pro 12C	alg_distribute-v4	196.2	5
+macmini-mps	M4 Pro 12C	arith-generalist-v1	316.4	5
+macmini-mps	M4 Pro 12C	curriculum-v1	281.2	5
+macmini-mps	M4 Pro 12C	div_1d-v2	213.9	5
+macmini-mps	M4 Pro 12C	div_1d-v4	188.5	5
+macmini-mps	M4 Pro 12C	div_1d_exp-v3	179.8	5
+macmini-mps	M4 Pro 12C	mod_1d-v2	196.1	5
+macmini-mps	M4 Pro 12C	mul_1d-v2	210.4	5
+macmini-mps	M4 Pro 12C	mul_2d-v2	254.9	5
+macmini-mps	M4 Pro 12C	sub_2d_borrow-v2	216.5	5
+macmini-mps	M4 Pro 12C	sub_2d_no_borrow-v2	213.1	5
+macmini-mps	M4 Pro 12C	word-problem-v1	451.5	5
+win-3080	RTX 3080	add_1d-v2	257.0	5
+win-3080	RTX 3080	add_2d-v2	264.4	5
+win-3080	RTX 3080	add_3d-v3	228.6	5
+win-3080	RTX 3080	alg_1step-v3	218.6	5
+win-3080	RTX 3080	alg_1step-v4	243.3	5
+win-3080	RTX 3080	alg_2step-v3	231.1	5
+win-3080	RTX 3080	alg_2step_hard-v4	229.7	5
+win-3080	RTX 3080	alg_distribute-v4	228.3	5
+win-3080	RTX 3080	arith-generalist-v1	263.4	5
+win-3080	RTX 3080	curriculum-v1	253.4	5
+win-3080	RTX 3080	div_1d-v2	253.2	5
+win-3080	RTX 3080	div_1d-v4	215.9	5
+win-3080	RTX 3080	div_1d_exp-v3	204.9	5
+win-3080	RTX 3080	mod_1d-v2	224.7	5
+win-3080	RTX 3080	mul_1d-v2	273.7	5
+win-3080	RTX 3080	mul_2d-v2	261.6	5
+win-3080	RTX 3080	sub_2d_borrow-v2	223.5	5
+win-3080	RTX 3080	sub_2d_no_borrow-v2	230.5	5
+win-3080	RTX 3080	word-problem-v1	259.9	5
+win-3090	RTX 3090	add_1d-v2	265.8	5
+win-3090	RTX 3090	add_2d-v2	260.4	5
+win-3090	RTX 3090	add_3d-v3	266.1	5
+win-3090	RTX 3090	alg_1step-v3	269.0	5
+win-3090	RTX 3090	alg_1step-v4	255.8	5
+win-3090	RTX 3090	alg_2step-v3	255.0	5
+win-3090	RTX 3090	alg_2step_hard-v4	266.0	5
+win-3090	RTX 3090	alg_distribute-v4	259.5	5
+win-3090	RTX 3090	arith-generalist-v1	268.9	5
+win-3090	RTX 3090	curriculum-v1	262.3	5
+win-3090	RTX 3090	div_1d-v2	246.0	5
+win-3090	RTX 3090	div_1d-v4	235.2	5
+win-3090	RTX 3090	div_1d_exp-v3	233.6	5
+win-3090	RTX 3090	mod_1d-v2	272.6	5
+win-3090	RTX 3090	mul_1d-v2	255.7	5
+win-3090	RTX 3090	mul_2d-v2	263.9	5
+win-3090	RTX 3090	sub_2d_borrow-v2	240.4	5
+win-3090	RTX 3090	sub_2d_no_borrow-v2	264.0	5
+win-3090	RTX 3090	word-problem-v1	253.6	5
+win-cpu	Ryzen 5900X	add_1d-v2	188.5	5
+win-cpu	Ryzen 5900X	add_2d-v2	165.6	5
+win-cpu	Ryzen 5900X	add_3d-v3	147.9	5
+win-cpu	Ryzen 5900X	alg_1step-v3	166.2	5
+win-cpu	Ryzen 5900X	alg_1step-v4	141.7	5
+win-cpu	Ryzen 5900X	alg_2step-v3	125.9	5
+win-cpu	Ryzen 5900X	alg_2step_hard-v4	141.7	5
+win-cpu	Ryzen 5900X	alg_distribute-v4	126.5	5
+win-cpu	Ryzen 5900X	arith-generalist-v1	182.5	5
+win-cpu	Ryzen 5900X	curriculum-v1	215.3	5
+win-cpu	Ryzen 5900X	div_1d-v2	142.8	5
+win-cpu	Ryzen 5900X	div_1d-v4	135.4	5
+win-cpu	Ryzen 5900X	div_1d_exp-v3	140.3	5
+win-cpu	Ryzen 5900X	mod_1d-v2	179.2	5
+win-cpu	Ryzen 5900X	mul_1d-v2	165.6	5
+win-cpu	Ryzen 5900X	mul_2d-v2	140.6	5
+win-cpu	Ryzen 5900X	sub_2d_borrow-v2	146.0	5
+win-cpu	Ryzen 5900X	sub_2d_no_borrow-v2	143.4	5
+win-cpu	Ryzen 5900X	word-problem-v1	149.3	5
