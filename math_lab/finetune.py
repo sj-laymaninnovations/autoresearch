@@ -179,17 +179,29 @@ class CausalSelfAttention(nn.Module):
         self.attn_drop = nn.Dropout(cfg.dropout)
         self.resid_drop = nn.Dropout(cfg.dropout)
 
-    def forward(self, x):
+    def forward(self, x, past_kv=None, use_cache: bool = False):
         B, T, C = x.shape
         q, k, v = self.c_attn(x).split(self.n_embd, dim=2)
         q = q.view(B, T, self.n_head, self.head_dim).transpose(1, 2)
         k = k.view(B, T, self.n_head, self.head_dim).transpose(1, 2)
         v = v.view(B, T, self.n_head, self.head_dim).transpose(1, 2)
-        # Flash attention (PyTorch 2.0+) or manual scaled dot-product
-        y = F.scaled_dot_product_attention(q, k, v, is_causal=True,
-                                            dropout_p=self.attn_drop.p if self.training else 0.0)
+
+        if past_kv is not None:
+            past_k, past_v = past_kv
+            k = torch.cat([past_k, k], dim=2)
+            v = torch.cat([past_v, v], dim=2)
+        new_kv = (k, v) if use_cache else None
+
+        # is_causal=True is correct only when q and k share the same length
+        # (prefill / training). With a cache, k extends past q and the new
+        # query naturally attends to all prior cached positions.
+        is_causal = past_kv is None
+        y = F.scaled_dot_product_attention(
+            q, k, v, is_causal=is_causal,
+            dropout_p=self.attn_drop.p if self.training else 0.0,
+        )
         y = y.transpose(1, 2).contiguous().view(B, T, C)
-        return self.resid_drop(self.c_proj(y))
+        return self.resid_drop(self.c_proj(y)), new_kv
 
 
 class MLP(nn.Module):
@@ -211,10 +223,11 @@ class Block(nn.Module):
         self.ln2  = nn.RMSNorm(cfg.n_embd)
         self.mlp  = MLP(cfg)
 
-    def forward(self, x):
-        x = x + self.attn(self.ln1(x))
+    def forward(self, x, past_kv=None, use_cache: bool = False):
+        attn_out, new_kv = self.attn(self.ln1(x), past_kv=past_kv, use_cache=use_cache)
+        x = x + attn_out
         x = x + self.mlp(self.ln2(x))
-        return x
+        return x, new_kv
 
 
 class MathGPT(nn.Module):
@@ -237,16 +250,25 @@ class MathGPT(nn.Module):
             nn.init.normal_(module.weight, mean=0.0, std=0.02)
 
     def forward(self, idx: torch.Tensor,
-                loss_mask: Optional[torch.Tensor] = None):
+                loss_mask: Optional[torch.Tensor] = None,
+                past_kvs: Optional[list] = None,
+                use_cache: bool = False):
         B, T = idx.shape
-        pos  = torch.arange(T, device=idx.device)
+        position_offset = past_kvs[0][0].shape[2] if past_kvs is not None else 0
+        pos  = torch.arange(position_offset, position_offset + T, device=idx.device)
         x    = self.drop(self.tok_emb(idx) + self.pos_emb(pos))
-        for block in self.blocks:
-            x = block(x)
+        new_kvs = [] if use_cache else None
+        for i, block in enumerate(self.blocks):
+            past_kv = past_kvs[i] if past_kvs is not None else None
+            x, new_kv = block(x, past_kv=past_kv, use_cache=use_cache)
+            if use_cache:
+                new_kvs.append(new_kv)
         x = self.ln_f(x)
         logits = self.lm_head(x)          # (B, T, vocab)
 
         if loss_mask is None:
+            if use_cache:
+                return logits, new_kvs
             return logits
 
         # Shift: predict next token at each position
