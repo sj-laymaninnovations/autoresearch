@@ -177,6 +177,14 @@ def get_model(model_id: str, registry: dict) -> MathGPT:
     m, _ = load_model(ckpt, DEVICE)
     if COMPILE_MODE != "off":
         try:
+            # Default cache_size_limit=8 falls back to eager once 8 shapes are seen.
+            # The decode loop generates one new shape per token, so for any
+            # completion >8 tokens we'd lose all compile gain. Bump well above
+            # the longest completion we expect (~250 tokens).
+            import torch._dynamo
+            torch._dynamo.config.cache_size_limit = 256
+            if hasattr(torch._dynamo.config, "recompile_limit"):
+                torch._dynamo.config.recompile_limit = 256
             m = torch.compile(m, mode=COMPILE_MODE)
         except Exception as e:
             print(f"  warn: torch.compile({COMPILE_MODE}) failed for {model_id}: {e}")
