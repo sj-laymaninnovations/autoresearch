@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MathGPT chat</title>
+  <title>EraGPT chat</title>
   <style>
     :root {
       --bg: #0e0f12;
@@ -13,8 +13,9 @@
       --txt: #e6e8ec;
       --muted: #8a90a0;
       --muted2: #555d6e;
-      --accent: #5dabff;
-      --accent2: #3d8ce0;
+      /* Amber accent — distinct from math_lab/chat.html's blue */
+      --accent: #ffc857;
+      --accent2: #d4a73a;
       --user: #2a3550;
       --asst: #1a2030;
       --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -63,7 +64,7 @@
     select:focus, input:focus { outline: 1px solid var(--accent); }
     button.send-btn {
       background: var(--accent);
-      color: #001828;
+      color: #2a1a00;
       border: none;
       border-radius: 5px;
       padding: .4rem .9rem;
@@ -316,28 +317,26 @@
 </head>
 <body>
   <header>
-    <h1>Math<span>GPT</span></h1>
+    <h1>Era<span>GPT</span></h1>
     <div class="ctrl-row">
       <span class="lbl">server</span>
       <input type="text" id="base" value="" size="32"/>
       <span class="lbl">user</span>
       <input type="text" id="username" placeholder="your name" style="width:8em"/>
-      <span class="lbl">version</span>
+      <span class="lbl">config</span>
       <select id="version">
         <option value="all">all</option>
-        <option value="v1">v1</option>
-        <option value="v2">v2</option>
-        <option value="v3">v3</option>
-        <option value="v4">v4</option>
+        <option value="a">A (~7M)</option>
+        <option value="b">B (~25M)</option>
       </select>
       <span class="lbl">model</span>
       <select id="model"></select>
       <span class="lbl">max&nbsp;tokens</span>
-      <input type="number" id="maxtok" value="260" style="width:5em"/>
+      <input type="number" id="maxtok" value="400" style="width:5em"/>
       <span id="status" style="font-size:.75rem;color:var(--muted);"></span>
-      <a href="../Data_Triage/chat.html"
+      <a href="../math_lab/chat.html"
          style="font-size:.72rem;color:var(--muted);text-decoration:underline;margin-left:auto"
-         title="Open the EraGPT chat UI (era-curriculum SLM, cl100k BPE, port 4322)">→ EraGPT chat</a>
+         title="Open the math experts chat UI">→ math chat</a>
     </div>
   </header>
 
@@ -361,15 +360,15 @@
       <span class="tk">capacity est</span>
       <span class="tv yellow" id="t-cap">—</span>
     </div>
-    <div class="tsec tip-below" data-tip="Total trainable parameters in the currently selected model.&#10;&#10;All MathGPT models share the same architecture:&#10;  6 layers · 8 heads · 256 embed dim&#10;  Char-level vocab (~96 tokens)&#10;&#10;≈ 5.16M parameters&#10;  Embedding:   24 K&#10;  6× layers:   4.72 M&#10;  LM head:     24 K&#10;&#10;Larger = more expressive but slower and uses more memory.">
+    <div class="tsec tip-below" data-tip="Total trainable parameters in the currently selected era model.&#10;&#10;Configs vary across era models:&#10;  Config A: 6L · 4H · 128 embed · cl100k_base BPE  →  ~7M params&#10;  Config B: 10L · 10H · 640 embed · cl100k_base BPE → ~25M params&#10;&#10;BitNet variants use BitLinear weights (1.58-bit ternary {-1,0,1}) but&#10;same effective shape as their dense Config A counterpart.">
       <span class="tk">model params</span>
       <span class="tv blue" id="t-params">—</span>
     </div>
-    <div class="tsec tip-below" data-tip="Estimated floating-point operations required to generate one output token.&#10;&#10;Calculated as: 2 × param_count (2× rule of thumb for transformer forward pass)&#10;&#10;≈ 10.32 MFLOP/token for this model&#10;&#10;Multiply by tokens/response to get total compute per query.">
+    <div class="tsec tip-below" data-tip="Estimated floating-point operations required to generate one output token.&#10;&#10;Calculated as: 2 × param_count (2× rule of thumb for transformer forward pass)&#10;&#10;~14 MFLOP/tok for Config A (7M params)&#10;~50 MFLOP/tok for Config B (25M params)&#10;&#10;Multiply by tokens/response to get total compute per query.">
       <span class="tk">FLOPs/tok</span>
       <span class="tv orange" id="t-flops">—</span>
     </div>
-    <div class="tsec tip-below" data-tip="Live stats from the most recent model response.&#10;&#10;Tokens: characters generated (char-level model, so 1 token ≈ 1 character)&#10;Tok/s: generation speed measured server-side&#10;MFLOPs: total compute = tokens × FLOPs/token ÷ 1M">
+    <div class="tsec tip-below" data-tip="Live stats from the most recent model response.&#10;&#10;Tokens: BPE tokens generated (cl100k_base; ~4 characters per token avg for English)&#10;Tok/s: generation speed measured server-side&#10;MFLOPs: total compute = tokens × FLOPs/token ÷ 1M">
       <span class="tk">last&nbsp;response</span>
       <span class="tv green" id="t-last-tok">—</span>
       <span class="tk">tok</span>
@@ -383,7 +382,7 @@
   <main id="log"></main>
   <footer>
     <form id="form" class="composer">
-      <input id="input" placeholder="Try: 47 + 58   |   7x = 56   |   3(x + 2) = 18"/>
+      <input id="input" placeholder="Try: Who built the Great Pyramid?   |   What stone tools did Paleolithic humans use?"/>
       <button type="submit" class="send-btn" id="send">Send</button>
     </form>
   </footer>
@@ -392,27 +391,33 @@
     const $ = id => document.getElementById(id);
     const log = $('log'), model = $('model'), status = $('status');
 
+    // ── Static fleet — always populates the dropdown, even when no serve.py
+    // is reachable. /v1/models response is merged on top when the backend
+    // (Data_Triage SLM serve, port 4322) is up.
+    //
+    // Era models use cl100k_base BPE tokenizer + a GPT with RoPE — different
+    // architecture from math_lab's char-level MathGPT.
+    const STATIC_MODELS = [
+      'prehistoric-a-era',
+      'mixed-b-era',
+      'egypt-a-era',
+      'bitnet-a-era',
+    ];
+
+    // Param counts per model id (~values; used for telemetry / FLOPs/tok).
+    const ARCH_PARAMS = {
+      'prehistoric-a-era': 7_000_000,
+      'mixed-b-era':       25_000_000,
+      'egypt-a-era':       7_000_000,
+      'bitnet-a-era':      7_000_000,  // BitNet 1.58 effective
+    };
+
     // ── Model input hints ─────────────────────────────────────────────────────
     const PLACEHOLDERS = {
-      'arith-generalist-v1': 'Mixed arithmetic e.g. "7 + 8", "53 - 27", "8 * 7", "24 / 6"',
-      'curriculum-v1':       'Mixed arithmetic e.g. "12 * 34", "82 - 47"',
-      'word-problem-v1':     'Word problem e.g. "Sara has 3 apples and gets 4 more. How many?"',
-      'add_1d-v2':           'Addition: e.g. "7 + 8"  (single digits)',
-      'add_2d-v2':           'Addition: e.g. "47 + 58"  (2-digit with carry)',
-      'mul_1d-v2':           'Multiplication: e.g. "8 * 7"  (single digits)',
-      'mul_2d-v2':           'Multiplication: e.g. "23 * 46"  (2-digit × 2-digit)',
-      'div_1d-v2':           'Division: e.g. "56 / 7"  (quotient 0–9)',
-      'sub_2d_borrow-v2':    'Subtraction: e.g. "82 - 47"  (requires borrow)',
-      'sub_2d_no_borrow-v2': 'Subtraction: e.g. "87 - 34"  (no borrow)',
-      'mod_1d-v2':           'Modulo: e.g. "17 % 5"  (1-digit divisor)',
-      'add_3d-v3':           'Addition: e.g. "920 + 138"  (3-digit)',
-      'div_1d_exp-v3':       'Division: e.g. "84 / 7"  (quotient up to 12)',
-      'alg_1step-v3':        'Algebra: e.g. "7x = 56"',
-      'alg_2step-v3':        'Algebra: e.g. "2x + 3 = 11"',
-      'div_1d-v4':           'Division: e.g. "96 / 8"  (quotient up to 15)',
-      'alg_1step-v4':        'Algebra: e.g. "15x = 45"  (supports negative x)',
-      'alg_2step_hard-v4':   'Algebra: e.g. "4x - 7 = 13" or "3x + 4 = 2x + 9"',
-      'alg_distribute-v4':   'Algebra: e.g. "3(x + 2) = 18" or "3x + 2x = 20"',
+      'prehistoric-a-era': 'Paleolithic (-30000 to -10000 BCE). e.g. "What stone tools did Paleolithic humans use?"',
+      'mixed-b-era':       'Paleo + Ancient + foundation (Config B, ~25M). e.g. "How did Bronze Age cities emerge?"',
+      'egypt-a-era':       'Ancient Egypt teacher-distilled (Config A, ckpt 9999). e.g. "Who built the Great Pyramid and when?"',
+      'bitnet-a-era':      'BitNet 1.58 broad pretrain (Config A, ckpt 9999). e.g. open-domain natural language.',
     };
     function updatePlaceholder() {
       const h = PLACEHOLDERS[model.value];
@@ -465,9 +470,11 @@
     // All fetched models, unfiltered
     let _allModels = [];
 
+    // Era models follow the suffix convention `<name>-<config>-era` where
+    // <config> ∈ {a, b, c, d}. Returns 'a' / 'b' / etc. for filtering.
     function getVersion(id) {
-      const m = id.match(/-(v\d+)$/);
-      return m ? m[1] : 'v1'; // v1-era have no suffix
+      const m = id.match(/-([abcd])-era$/);
+      return m ? m[1] : 'unknown';
     }
 
     function populateModelSelect() {
@@ -489,15 +496,31 @@
 
     async function refreshModels() {
       status.textContent = 'fetching…';
+      let api_models = [];
+      let api_ok = false;
       try {
         const r = await fetch($('base').value + '/models');
         const j = await r.json();
-        _allModels = j.data;
-        _modelMeta = {};
-        for (const m of j.data) _modelMeta[m.id] = m;
-        populateModelSelect();
+        api_models = j.data || [];
+        api_ok = true;
       } catch(e) {
-        status.textContent = 'connect error: ' + e.message;
+        // Backend (Data_Triage serve.py on :4322) unreachable — fall through.
+      }
+      const seen = new Set(api_models.map(m => m.id));
+      const static_extras = STATIC_MODELS
+        .filter(id => !seen.has(id))
+        .map(id => ({
+          id,
+          description: '(static; Data_Triage serve.py not running)',
+          param_count: ARCH_PARAMS[id] || null,
+          flops_per_token: ARCH_PARAMS[id] ? 2 * ARCH_PARAMS[id] : null,
+        }));
+      _allModels = api_models.concat(static_extras);
+      _modelMeta = {};
+      for (const m of _allModels) _modelMeta[m.id] = m;
+      populateModelSelect();
+      if (!api_ok) {
+        status.textContent += ' — backend offline, static fleet only';
       }
     }
 
@@ -594,11 +617,11 @@
         const stats = document.createElement('div');
         stats.className = 'resp-stats';
         stats.innerHTML = `
-          <div class="stat-chip" data-tip="Total characters/tokens generated in this response.&#10;&#10;This model is char-level, so 1 token = 1 character.&#10;A typical math CoT response is 80–200 tokens."><span class="sc-lbl">tokens</span><span class="sc-val b">${toks}</span></div>
+          <div class="stat-chip" data-tip="Total tokens generated in this response.&#10;&#10;EraGPT uses cl100k_base BPE tokenization (~4 chars per token avg for English).&#10;A typical natural-language reply is 50–300 tokens."><span class="sc-lbl">tokens</span><span class="sc-val b">${toks}</span></div>
           <div class="stat-chip" data-tip="Generation speed: tokens produced per second.&#10;&#10;Measured server-side from first to last token.&#10;CPU: typically 1–8 tok/s&#10;GPU (3080/3090): typically 60–300 tok/s&#10;&#10;Higher = faster, but does not affect answer quality."><span class="sc-lbl">tok/s</span><span class="sc-val g">${tps}</span></div>
           <div class="stat-chip" data-tip="Total wall-clock time to generate this response (ms).&#10;&#10;Includes all token generation steps.&#10;Does not include network round-trip from browser to server."><span class="sc-lbl">latency</span><span class="sc-val y">${ms} ms</span></div>
-          <div class="stat-chip" data-tip="Total floating-point operations for this response.&#10;&#10;= tokens × FLOPs/token&#10;= tokens × (2 × 5.16M params)&#10;&#10;Gives a sense of absolute compute consumed,&#10;independent of hardware speed."><span class="sc-lbl">total FLOPs</span><span class="sc-val o">${mf} MF</span></div>
-          <div class="stat-chip" data-tip="Compute cost per single output token (MegaFLOPs).&#10;&#10;Formula: 2 × param_count (standard transformer estimate)&#10;= 2 × 5.16M ≈ 10.32 MFLOP/token&#10;&#10;This is fixed per model architecture — it does not change between responses."><span class="sc-lbl">FLOPs/tok</span><span class="sc-val o">${fpt} MF</span></div>
+          <div class="stat-chip" data-tip="Total floating-point operations for this response.&#10;&#10;= tokens × FLOPs/token&#10;= tokens × (2 × param_count of selected model)&#10;&#10;Gives a sense of absolute compute consumed,&#10;independent of hardware speed."><span class="sc-lbl">total FLOPs</span><span class="sc-val o">${mf} MF</span></div>
+          <div class="stat-chip" data-tip="Compute cost per single output token (MegaFLOPs).&#10;&#10;Formula: 2 × param_count (standard transformer estimate)&#10;&#10;Config A (~7M params)  → ~14 MFLOP/token&#10;Config B (~25M params) → ~50 MFLOP/token&#10;&#10;Fixed per model architecture; varies across era checkpoints."><span class="sc-lbl">FLOPs/tok</span><span class="sc-val o">${fpt} MF</span></div>
           <div class="stat-chip" data-tip="Hardware utilisation: what fraction of the server's peak compute was used.&#10;&#10;= (actual GFLOPS) ÷ (rated peak GFLOPS)&#10;&#10;CPU runs at &lt;0.01% of GPU peak — normal for single-request inference.&#10;Even on GPU this is &lt;1% because batch size = 1 and memory bandwidth is the bottleneck, not FLOPS."><span class="sc-lbl">hw util</span><span class="sc-val muted">${utilPct}</span></div>`;
         container.appendChild(stats);
       }
@@ -797,8 +820,8 @@
     $('base').addEventListener('change', () => { refreshModels(); fetchSystem(); });
 
     // Init — auto-detect API base from window.location
-    // When served via serve.py over LAN: http://10.5.x.x:4321 → use same host
-    // When opened as local file: fall back to 127.0.0.1:4321
+    // Data_Triage SLM serve.py listens on :4322 (math_lab serve.py uses :4321).
+    // When opened as local file: fall back to 127.0.0.1:4322.
     (function setBase() {
       const loc = window.location;
       const host = (loc.protocol === 'file:' || !loc.hostname)
@@ -806,7 +829,7 @@
         : loc.hostname;
       const port = (loc.port && loc.port !== '80' && loc.port !== '443')
         ? loc.port
-        : '4321';
+        : '4322';
       $('base').value = `http://${host}:${port}/v1`;
     })();
 
