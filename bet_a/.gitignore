@@ -1,0 +1,9 @@
+# Don't commit the harvested upstream repos — they're cloned via `git clone`
+# and have their own .git history. Each weighs ~10-30 MB. If we ever want a
+# pinned snapshot, we'll record commit SHAs in `reports/` instead.
+raw/
+
+# Local Python bytecode and editor cruft
+__pycache__/
+*.pyc
+.DS_Store
