@@ -254,20 +254,55 @@ def main():
         stats["teacher_latency_ms"].append(r["latency_ms"])
 
         if not r["ok"]:
-            stats["n_parse_failed"] += 1
-            fskip.write(json.dumps({"sha": sha, "reason": "http_error",
-                                     "error": r.get("error")}) + "\n")
-            fskip.flush()
-            print(f"  [{idx+1}/{len(iter_commits)}] {sha[:8]}  HTTP ERROR  {r.get('error')}")
-            continue
+            # One retry on HTTP error
+            time.sleep(1)
+            r2 = call_lm(TEACHER, SYSTEM_PROMPT, user_msg)
+            stats["n_called_teacher"] += 1
+            stats["teacher_latency_ms"].append(r2["latency_ms"])
+            if not r2["ok"]:
+                stats["n_parse_failed"] += 1
+                stats["n_retries_used"] = stats.get("n_retries_used", 0) + 1
+                stats["n_retries_failed"] = stats.get("n_retries_failed", 0) + 1
+                fskip.write(json.dumps({"sha": sha, "reason": "http_error",
+                                         "error": r2.get("error"),
+                                         "retried": True}) + "\n")
+                fskip.flush()
+                print(f"  [{idx+1}/{len(iter_commits)}] {sha[:8]}  HTTP ERROR (retry failed)  {r2.get('error')}")
+                continue
+            r = r2
+            stats["n_retries_used"] = stats.get("n_retries_used", 0) + 1
+            stats["n_retries_recovered"] = stats.get("n_retries_recovered", 0) + 1
 
         parsed, usage, parse_err = parse_response(r["raw"])
         if parsed is None:
+            # One retry on parse failure — gpt-oss-20b sometimes emits malformed
+            # JSON; a second call with same inputs usually succeeds.
+            time.sleep(1)
+            r2 = call_lm(TEACHER, SYSTEM_PROMPT, user_msg)
+            stats["n_called_teacher"] += 1
+            stats["teacher_latency_ms"].append(r2["latency_ms"])
+            if r2["ok"]:
+                parsed2, usage2, parse_err2 = parse_response(r2["raw"])
+                if parsed2 is not None:
+                    parsed = parsed2
+                    usage  = usage2
+                    parse_err = None
+                    stats["n_retries_used"] = stats.get("n_retries_used", 0) + 1
+                    stats["n_retries_recovered"] = stats.get("n_retries_recovered", 0) + 1
+                else:
+                    stats["n_retries_used"] = stats.get("n_retries_used", 0) + 1
+                    stats["n_retries_failed"] = stats.get("n_retries_failed", 0) + 1
+            else:
+                stats["n_retries_used"] = stats.get("n_retries_used", 0) + 1
+                stats["n_retries_failed"] = stats.get("n_retries_failed", 0) + 1
+
+        if parsed is None:
             stats["n_parse_failed"] += 1
             fskip.write(json.dumps({"sha": sha, "reason": "parse_failed",
-                                     "error": parse_err}) + "\n")
+                                     "error": parse_err,
+                                     "retried": True}) + "\n")
             fskip.flush()
-            print(f"  [{idx+1}/{len(iter_commits)}] {sha[:8]}  PARSE FAIL  {parse_err}")
+            print(f"  [{idx+1}/{len(iter_commits)}] {sha[:8]}  PARSE FAIL (retry failed)  {parse_err}")
             continue
 
         pairs = parsed.get("pairs", [])

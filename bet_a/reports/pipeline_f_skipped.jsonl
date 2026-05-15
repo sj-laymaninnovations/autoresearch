@@ -32,3 +32,21 @@
 {"sha": "ec5c3052cfcd", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 661 (char 660)"}
 {"sha": "fc4012fb6788", "reason": "too_short", "body_stats": {"body_chars": 0}}
 {"sha": "fe9e4a7f39d7", "subject": "Provide implementations for functions using the instructions SDOT/UDOT in the DotProd Armv8 extension.", "reason": "type_D", "body_stats": {"body_chars": 1075, "n_lines": 46, "n_bench": 38, "n_prose": 2, "bench_ratio": 0.83}}
+{"sha": "037430193a2a", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "2272a19ab056", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "241a6b236a9c", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "29efbb949639", "reason": "too_short", "body_stats": {"body_chars": 52}}
+{"sha": "32bf6cde06d9", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "3d8aff7e26b2", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "436be41fc17f", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "4db1a05aadaa", "subject": "AArch64: Optimize ipred_smooth_h_8bpc_neon", "reason": "type_D", "body_stats": {"body_chars": 731, "n_lines": 13, "n_bench": 10, "n_prose": 2, "bench_ratio": 0.77}}
+{"sha": "87476b4c4d50", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "8e993f4d0ba3", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "a354f11f8f01", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "a6b561792f42", "reason": "too_short", "body_stats": {"body_chars": 71}}
+{"sha": "b35605ace3dd", "subject": "i8mm & neon hpel_filter optimization", "reason": "type_D", "body_stats": {"body_chars": 172, "n_lines": 6, "n_bench": 4, "n_prose": 1, "bench_ratio": 0.67}}
+{"sha": "c5726277ffa8", "subject": "AArch64: Optimize ipred_h_8bpc_neon", "reason": "type_D", "body_stats": {"body_chars": 761, "n_lines": 14, "n_bench": 11, "n_prose": 2, "bench_ratio": 0.79}}
+{"sha": "da2cc7817cff", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "e7c280e4cde4", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "fc4012fb6788", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "fe9e4a7f39d7", "subject": "Provide implementations for functions using the instructions SDOT/UDOT in the DotProd Armv8 extension.", "reason": "type_D", "body_stats": {"body_chars": 1075, "n_lines": 46, "n_bench": 38, "n_prose": 2, "bench_ratio": 0.83}}

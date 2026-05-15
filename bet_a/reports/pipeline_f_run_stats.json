@@ -1,16 +1,18 @@
 {
-  "started": "2026-05-15 18:27:30",
+  "started": "2026-05-15 18:52:35",
   "n_commits_total": 87,
-  "n_already_done": 0,
+  "n_already_done": 53,
   "n_skipped_too_short": 12,
   "n_skipped_type_d": 4,
-  "n_called_teacher": 71,
-  "n_parse_failed": 14,
+  "n_called_teacher": 21,
+  "n_parse_failed": 0,
   "n_validation_failed": 0,
-  "n_pairs_written": 57,
-  "n_refused_by_teacher": 4,
-  "finished": "2026-05-15 18:35:03",
-  "wall_time_s": 453.0,
+  "n_pairs_written": 17,
+  "n_refused_by_teacher": 2,
+  "n_retries_used": 3,
+  "n_retries_recovered": 3,
+  "finished": "2026-05-15 18:55:33",
+  "wall_time_s": 178.6,
   "teacher_latency_median_s": 5.7,
-  "teacher_latency_p95_s": 10.9
+  "teacher_latency_p95_s": 17.1
 }
