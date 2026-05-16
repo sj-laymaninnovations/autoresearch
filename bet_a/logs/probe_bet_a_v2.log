@@ -1,0 +1,21 @@
+﻿loaded 5.02M params
+---
+PROBLEM: When optimizing ARM64 NEON code for performance, what is the difference in benefit between in-order cores like Cortex-A53 and out-of-order cores like Cortex-A72?
+COMPLETION:
+Using a ARM64 instruction a parameter in a parameter of the stack are path are instruction and a single of the stack in a single of the stack. This convention allows the code by a single stack in a single stack in a single of the stack in a single stack in a single stack in a single stack. This change allows the context in a single stack and at the stack are accumulated accumulated and registers a
+---
+PROBLEM: Why is the ARM64 SVE2 SDOT instruction well-suited for 4-tap or 8-tap convolution filters in video codecs?
+COMPLETION:
+When a single instructions a single instruction and size instructions and a single the stack in a single instruction and simplifies the code by and reduces the need for execution and size. This common also the compiler to a single the code by a single the code by a single the code by and instruction and simplifies the code by and improves the code size. This approach also also the code code by a s
+---
+PROBLEM: What is the performance cost of partial-register lane writes in ARM64 NEON code on out-of-order cores, and how can it be mitigated?
+COMPLETION:
+When a function is a single instruction a single instruction and a single the need for a single instruction are address the need to registers and a single stack. This convention allows the context to the stack and stack and stack allows the stack in a single to the stack at are pointer the stack at are stack. This allows the context the context and stack to the stack are address the stack and stac
+---
+PROBLEM: When should you prefer a rounded right-shift instruction over a manual rounding constant added before a plain right-shift in ARM64 NEON?
+COMPLETION:
+When a function is a single instruction and a single the code to the stack and a single the code to stack and addresss the code to the stack address and a single the code to a stack as a single the code to the stack at addresss the code the code to a single the stack. This approach allows the code to the code to a stack address the code to the code and explicit and addresss the code can be accesse
+---
+PROBLEM: How can a function safely perform multiple independent stack allocations on x86-64 without manual offset bookkeeping?
+COMPLETION:
+When a single instructions a single instruction and instructions that a single the code the code to stack and a single the code to the stack at a single the code the code to a single the code to the code the code to stack. This approach allows the context and a single to the code to the code to the code the code and a single the code and addresss the code context and and simplifies the code cache 

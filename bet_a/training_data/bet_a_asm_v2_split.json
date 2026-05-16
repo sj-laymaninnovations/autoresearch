@@ -1,0 +1,45 @@
+{
+  "sources": [
+    {
+      "path": "/Users/seanjosiah/Documents/autoresearch/bet_a/distilled/qa_records_v1.jsonl",
+      "n_records": 1043,
+      "type": "pipeline_a"
+    },
+    {
+      "path": "/Users/seanjosiah/Documents/autoresearch/bet_a/distilled/qa_records_e_v1.jsonl",
+      "n_records": 163,
+      "type": "pipeline_e"
+    }
+  ],
+  "n_train": 1087,
+  "n_val": 119,
+  "split_seed": 11,
+  "split_val_fraction": 0.1,
+  "train_concepts": {
+    "asm_kernel_arm64": 614,
+    "asm_codec_ffmpeg": 229,
+    "asm_ml_qnnpack": 151,
+    "asm_codec_x264": 64,
+    "asm_codec_dav1d": 29
+  },
+  "val_concepts": {
+    "asm_kernel_arm64": 64,
+    "asm_codec_ffmpeg": 29,
+    "asm_ml_qnnpack": 12,
+    "asm_codec_dav1d": 8,
+    "asm_codec_x264": 6
+  },
+  "train_sources": {
+    "pipeline_a": 936,
+    "pipeline_e": 151
+  },
+  "val_sources": {
+    "pipeline_a": 107,
+    "pipeline_e": 12
+  },
+  "char_length_p50": 756,
+  "char_length_p95": 1020,
+  "char_length_p99": 1168,
+  "char_length_max": 1407,
+  "recommend_seq_len": 2048
+}
