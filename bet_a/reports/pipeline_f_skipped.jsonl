@@ -50,3 +50,72 @@
 {"sha": "e7c280e4cde4", "reason": "too_short", "body_stats": {"body_chars": 0}}
 {"sha": "fc4012fb6788", "reason": "too_short", "body_stats": {"body_chars": 0}}
 {"sha": "fe9e4a7f39d7", "subject": "Provide implementations for functions using the instructions SDOT/UDOT in the DotProd Armv8 extension.", "reason": "type_D", "body_stats": {"body_chars": 1075, "n_lines": 46, "n_bench": 38, "n_prose": 2, "bench_ratio": 0.83}}
+{"sha": "00b8e3b9cd0e", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "01da36ebdf9e", "subject": "riscv64/mc: Add 8bpc RVV blend_v function", "reason": "type_D", "body_stats": {"body_chars": 414, "n_lines": 11, "n_bench": 10, "n_prose": 0, "bench_ratio": 0.91}}
+{"sha": "037430193a2a", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "0cdf1b4be546", "subject": "ipred_paeth", "reason": "type_D", "body_stats": {"body_chars": 1028, "n_lines": 23, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.87}}
+{"sha": "0e3f70e898f4", "subject": "riscv64/mc: Add VLEN=256 8bpc RVV blend_v function", "reason": "type_D", "body_stats": {"body_chars": 412, "n_lines": 11, "n_bench": 10, "n_prose": 0, "bench_ratio": 0.91}}
+{"sha": "162622863ad2", "reason": "too_short", "body_stats": {"body_chars": 20}}
+{"sha": "1718ff9aded9", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "2272a19ab056", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "257b04f91c1c", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "25ffd616b148", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "28d1c21779cb", "subject": "riscv64/mc16: Add VLEN=256 8bpc RVV blend_v function", "reason": "type_D", "body_stats": {"body_chars": 748, "n_lines": 11, "n_bench": 10, "n_prose": 1, "bench_ratio": 0.91}}
+{"sha": "29efbb949639", "reason": "too_short", "body_stats": {"body_chars": 52}}
+{"sha": "2da8107ec15d", "subject": "riscv64/mc: Branchless vsetvl in blend_h function", "reason": "type_D", "body_stats": {"body_chars": 1176, "n_lines": 30, "n_bench": 28, "n_prose": 0, "bench_ratio": 0.93}}
+{"sha": "2f5bfc37b08c", "subject": "riscv64/cdef: filter functions", "reason": "type_D", "body_stats": {"body_chars": 3577, "n_lines": 75, "n_bench": 72, "n_prose": 0, "bench_ratio": 0.96}}
+{"sha": "3437a26b3db7", "subject": "riscv64/mc16: Add VLEN=256 8bpc RVV blend function", "reason": "type_D", "body_stats": {"body_chars": 612, "n_lines": 9, "n_bench": 8, "n_prose": 1, "bench_ratio": 0.89}}
+{"sha": "38dd16e10856", "subject": "riscv64/mc: Add VLEN=512 8bpc RVV blend_{,h,v} functions", "reason": "type_D", "body_stats": {"body_chars": 2279, "n_lines": 33, "n_bench": 32, "n_prose": 1, "bench_ratio": 0.97}}
+{"sha": "3d8aff7e26b2", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "3d96175df2b5", "subject": "loongarch: refactor loopfilter", "reason": "type_D", "body_stats": {"body_chars": 449, "n_lines": 11, "n_bench": 8, "n_prose": 2, "bench_ratio": 0.73}}
+{"sha": "3e5aed95cc47", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "436be41fc17f", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "44541dfa6b6f", "subject": "ipred_smooth", "reason": "type_D", "body_stats": {"body_chars": 1064, "n_lines": 23, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.87}}
+{"sha": "4db1a05aadaa", "subject": "AArch64: Optimize ipred_smooth_h_8bpc_neon", "reason": "type_D", "body_stats": {"body_chars": 731, "n_lines": 13, "n_bench": 10, "n_prose": 2, "bench_ratio": 0.77}}
+{"sha": "526b6b5488fb", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "56f6d166023c", "reason": "too_short", "body_stats": {"body_chars": 69}}
+{"sha": "58dcf16f1bf0", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "5f84d403fcaf", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "62a51df14ef5", "reason": "too_short", "body_stats": {"body_chars": 52}}
+{"sha": "67c60d76e182", "subject": "riscv64/mc16: Branchless vsetvl in blend function", "reason": "type_D", "body_stats": {"body_chars": 1226, "n_lines": 18, "n_bench": 16, "n_prose": 2, "bench_ratio": 0.89}}
+{"sha": "70582027e7b0", "subject": "loongarch: add lasx implementation of sgr_3x3 for 8 bpc", "reason": "type_D", "body_stats": {"body_chars": 254, "n_lines": 4, "n_bench": 3, "n_prose": 0, "bench_ratio": 0.75}}
+{"sha": "72db437770fd", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "757f294a496b", "subject": "LoongArch: Add save_tmvs_lsx", "reason": "type_D", "body_stats": {"body_chars": 107, "n_lines": 3, "n_bench": 2, "n_prose": 1, "bench_ratio": 0.67}}
+{"sha": "789a1f652b89", "reason": "http_error", "error": "HTTP 400", "retried": true}
+{"sha": "7ed753b10a61", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "7f2bb2fbc9c5", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "82721eae6edd", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "83485c5092e5", "subject": "riscv64/mc: Add VLEN=256 8bpc RVV blend function", "reason": "type_D", "body_stats": {"body_chars": 316, "n_lines": 9, "n_bench": 8, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "87476b4c4d50", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "8b2721d27702", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "907dd8719139", "subject": "riscv64/mc16: Unroll 16bpc RVV blend_v 2x", "reason": "type_D", "body_stats": {"body_chars": 1498, "n_lines": 22, "n_bench": 20, "n_prose": 2, "bench_ratio": 0.91}}
+{"sha": "9710e7de9c1f", "subject": "riscv64/mc16: Branchless vsetvl in blend_v function", "reason": "type_D", "body_stats": {"body_chars": 1498, "n_lines": 22, "n_bench": 20, "n_prose": 2, "bench_ratio": 0.91}}
+{"sha": "982d32400f24", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "9981ea837fe4", "reason": "too_short", "body_stats": {"body_chars": 20}}
+{"sha": "9eea4fe842f9", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "a0a08d854349", "subject": "Scalar dc calculation", "reason": "type_D", "body_stats": {"body_chars": 280, "n_lines": 7, "n_bench": 4, "n_prose": 0, "bench_ratio": 0.57}}
+{"sha": "a31e4bd75787", "subject": "riscv64/mc16: Add VLEN=512 16bpc RVV blend_{,v} functions", "reason": "type_D", "body_stats": {"body_chars": 1312, "n_lines": 19, "n_bench": 18, "n_prose": 1, "bench_ratio": 0.95}}
+{"sha": "a354f11f8f01", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "a5b9544866c5", "subject": "riscv64/mc: Add VLEN=256 8bpc RVV blend_h function", "reason": "type_D", "body_stats": {"body_chars": 586, "n_lines": 15, "n_bench": 14, "n_prose": 0, "bench_ratio": 0.93}}
+{"sha": "a6b561792f42", "reason": "too_short", "body_stats": {"body_chars": 71}}
+{"sha": "a6cbc9886986", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "aa2deb898ebb", "subject": "riscv64/mc16: Add 16bpc RVV blend_v function", "reason": "type_D", "body_stats": {"body_chars": 848, "n_lines": 22, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.91}}
+{"sha": "b2e7f06c72ca", "subject": "riscv64/mc: warp_8x8 and warp_8x8t 8bpc", "reason": "type_D", "body_stats": {"body_chars": 353, "n_lines": 11, "n_bench": 8, "n_prose": 0, "bench_ratio": 0.73}}
+{"sha": "b35605ace3dd", "subject": "i8mm & neon hpel_filter optimization", "reason": "type_D", "body_stats": {"body_chars": 172, "n_lines": 6, "n_bench": 4, "n_prose": 1, "bench_ratio": 0.67}}
+{"sha": "b374b24c0f98", "subject": "riscv64/mc: Branchless vsetvl in blend function", "reason": "type_D", "body_stats": {"body_chars": 636, "n_lines": 18, "n_bench": 16, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "b830ac82bb74", "subject": "pal_pred", "reason": "type_D", "body_stats": {"body_chars": 1730, "n_lines": 43, "n_bench": 40, "n_prose": 0, "bench_ratio": 0.93}}
+{"sha": "c5726277ffa8", "subject": "AArch64: Optimize ipred_h_8bpc_neon", "reason": "type_D", "body_stats": {"body_chars": 761, "n_lines": 14, "n_bench": 11, "n_prose": 2, "bench_ratio": 0.79}}
+{"sha": "c783088fe7bb", "subject": "riscv64/mc16: Unroll 16bpc RVV blend 2x", "reason": "type_D", "body_stats": {"body_chars": 1226, "n_lines": 18, "n_bench": 16, "n_prose": 2, "bench_ratio": 0.89}}
+{"sha": "c8749f06e5d2", "subject": "riscv64/itx: Special case 16x16 8bpc dct_dct eob=0", "reason": "type_D", "body_stats": {"body_chars": 495, "n_lines": 7, "n_bench": 4, "n_prose": 2, "bench_ratio": 0.57}}
+{"sha": "ca489d8aab3b", "subject": "riscv64/mc16: Add 16bpc RVV blend function", "reason": "type_D", "body_stats": {"body_chars": 668, "n_lines": 18, "n_bench": 16, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "cc7d8773eeb0", "subject": "riscv64/mc: Branchless vsetvl in blend_v function", "reason": "type_D", "body_stats": {"body_chars": 828, "n_lines": 22, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.91}}
+{"sha": "d26f298ce2e0", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "d3a94f11948b", "subject": "riscv64/mc: Add 8bpc RVV blend_h function", "reason": "type_D", "body_stats": {"body_chars": 588, "n_lines": 15, "n_bench": 14, "n_prose": 0, "bench_ratio": 0.93}}
+{"sha": "d711f974ebeb", "subject": "ipred cfl functions", "reason": "type_D", "body_stats": {"body_chars": 6578, "n_lines": 131, "n_bench": 128, "n_prose": 0, "bench_ratio": 0.98}}
+{"sha": "d78c1e83a1a9", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "e7c280e4cde4", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "ed004fe95d47", "reason": "too_short", "body_stats": {"body_chars": 52}}
+{"sha": "f223436bb674", "subject": "pal_idx_finish", "reason": "type_D", "body_stats": {"body_chars": 890, "n_lines": 23, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.87}}
+{"sha": "f851fcd0b44c", "subject": "riscv64/mc: Add 8bpc RVV blend function", "reason": "type_D", "body_stats": {"body_chars": 318, "n_lines": 9, "n_bench": 8, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "fc4012fb6788", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "fe9e4a7f39d7", "subject": "Provide implementations for functions using the instructions SDOT/UDOT in the DotProd Armv8 extension.", "reason": "type_D", "body_stats": {"body_chars": 1075, "n_lines": 46, "n_bench": 38, "n_prose": 2, "bench_ratio": 0.83}}
