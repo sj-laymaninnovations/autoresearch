@@ -1,0 +1,55 @@
+{"id": "cba1c5c3b710", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 845 (char 844)"}
+{"id": "63e8700e7934", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "5c23da0a7b7b", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "dfb184ae2265", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "add9eab2ff55", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "63e8700e7934", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "5c23da0a7b7b", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "dfb184ae2265", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "8ce4274a942f", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "9bbb7dbc9dbb", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 958 (char 957)"}
+{"id": "6949a1911582", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 860 (char 859)"}
+{"id": "9dfea1fe765b", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "293cbbf86c1d", "granularity": "function", "reason": "function_too_long"}
+{"id": "37273e6b33a2", "granularity": "function", "reason": "function_too_long"}
+{"id": "ac30aa33176d", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "86312464ffda", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "f0fcd7ac9a14", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 1104 (char 1103)"}
+{"id": "c37c0cc661a7", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 927 (char 926)"}
+{"id": "ac30aa33176d", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "1e93c0f56bf6", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 936 (char 935)"}
+{"id": "c41125add43a", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 789 (char 788)"}
+{"id": "c8c3ac001f1b", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 741 (char 740)"}
+{"id": "86312464ffda", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "ec6c4ce698a9", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 776 (char 775)"}
+{"id": "2173d50d4bf1", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 804 (char 803)"}
+{"id": "9dfea1fe765b", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "3164be9bacd7", "granularity": "function", "reason": "function_too_long"}
+{"id": "2173d50d4bf1", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 891 (char 890)"}
+{"id": "8ce4274a942f", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "4072f1923618", "granularity": "function", "reason": "function_too_long"}
+{"id": "fba473e032a8", "reason": "teacher_refused", "teacher_notes": "The comment refers to a specific PyTorch function signature, which is too narrow to generalize into a reusable ARM64 idiom or convention."}
+{"id": "597f0d513896", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 796 (char 795)"}
+{"id": "5eaaff82d7bf", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "e6c1b952e6df", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "e70277b26814", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "1d77e53dadff", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "6715239fe0fe", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "38eb01146380", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "0e7d9adfdcf0", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "8ce4274a942f", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "b0be25862eca", "granularity": "function", "reason": "function_too_long"}
+{"id": "3d4d55c8d7e7", "granularity": "function", "reason": "function_too_long"}
+{"id": "5a632453d31b", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 870 (char 869)"}
+{"id": "09c7ac6e0ac1", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 868 (char 867)"}
+{"id": "458b7379acc7", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "458b7379acc7", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "a47658e6af5a", "reason": "teacher_refused", "teacher_notes": "The comment block contains only macro undefinitions and does not provide sufficient information to infer a reusable ARM64 idiom or convention."}
+{"id": "b97fc117daee", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 869 (char 868)"}
+{"id": "824a73b2ca06", "reason": "teacher_refused", "teacher_notes": "The comment block contains only preprocessor undef directives with no substantive content to derive a general ARM64 idiom or convention."}
+{"id": "c439d8750856", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 691 (char 690)"}
+{"id": "35ed5c724a5f", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ':' delimiter: line 1 column 1067 (char 1066)"}
+{"id": "2088462190d0", "granularity": "comment_block", "reason": "comment_too_short"}
+{"id": "823749124e41", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ':' delimiter: line 1 column 1010 (char 1009)"}
+{"id": "b1753a46fa67", "reason": "teacher_refused", "teacher_notes": "The comment block contains only macro undefinitions and does not convey a reusable ARM64 idiom or convention."}
+{"id": "320389884d22", "reason": "teacher_refused", "teacher_notes": "The comment block contains only macro undefinitions and does not provide sufficient context to infer a reusable ARM64 idiom or convention."}

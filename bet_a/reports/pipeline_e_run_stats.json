@@ -1,0 +1,23 @@
+{
+  "started": "2026-05-16 14:56:40",
+  "n_units_total": 208,
+  "n_already_done": 0,
+  "n_skipped_preprocessor": 32,
+  "n_called_teacher": 227,
+  "n_parse_failed": 18,
+  "n_validation_failed": 0,
+  "n_pairs_written": 163,
+  "n_refused_by_teacher": 5,
+  "n_retries_used": 51,
+  "n_retries_recovered": 33,
+  "n_retries_failed": 18,
+  "by_granularity": {
+    "comment_block": 142,
+    "function": 20,
+    "block": 1
+  },
+  "finished": "2026-05-16 15:20:14",
+  "wall_time_s": 1414.6,
+  "teacher_latency_median_s": 5.3,
+  "teacher_latency_p95_s": 13.4
+}
