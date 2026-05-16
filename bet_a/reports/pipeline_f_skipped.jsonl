@@ -119,3 +119,339 @@
 {"sha": "f851fcd0b44c", "subject": "riscv64/mc: Add 8bpc RVV blend function", "reason": "type_D", "body_stats": {"body_chars": 318, "n_lines": 9, "n_bench": 8, "n_prose": 0, "bench_ratio": 0.89}}
 {"sha": "fc4012fb6788", "reason": "too_short", "body_stats": {"body_chars": 0}}
 {"sha": "fe9e4a7f39d7", "subject": "Provide implementations for functions using the instructions SDOT/UDOT in the DotProd Armv8 extension.", "reason": "type_D", "body_stats": {"body_chars": 1075, "n_lines": 46, "n_bench": 38, "n_prose": 2, "bench_ratio": 0.83}}
+{"sha": "00b8e3b9cd0e", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "01da36ebdf9e", "subject": "riscv64/mc: Add 8bpc RVV blend_v function", "reason": "type_D", "body_stats": {"body_chars": 414, "n_lines": 11, "n_bench": 10, "n_prose": 0, "bench_ratio": 0.91}}
+{"sha": "037430193a2a", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "0cdf1b4be546", "subject": "ipred_paeth", "reason": "type_D", "body_stats": {"body_chars": 1028, "n_lines": 23, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.87}}
+{"sha": "0e3f70e898f4", "subject": "riscv64/mc: Add VLEN=256 8bpc RVV blend_v function", "reason": "type_D", "body_stats": {"body_chars": 412, "n_lines": 11, "n_bench": 10, "n_prose": 0, "bench_ratio": 0.91}}
+{"sha": "162622863ad2", "reason": "too_short", "body_stats": {"body_chars": 20}}
+{"sha": "1718ff9aded9", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "2272a19ab056", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "257b04f91c1c", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "25ffd616b148", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "28d1c21779cb", "subject": "riscv64/mc16: Add VLEN=256 8bpc RVV blend_v function", "reason": "type_D", "body_stats": {"body_chars": 748, "n_lines": 11, "n_bench": 10, "n_prose": 1, "bench_ratio": 0.91}}
+{"sha": "29efbb949639", "reason": "too_short", "body_stats": {"body_chars": 52}}
+{"sha": "2da8107ec15d", "subject": "riscv64/mc: Branchless vsetvl in blend_h function", "reason": "type_D", "body_stats": {"body_chars": 1176, "n_lines": 30, "n_bench": 28, "n_prose": 0, "bench_ratio": 0.93}}
+{"sha": "2f5bfc37b08c", "subject": "riscv64/cdef: filter functions", "reason": "type_D", "body_stats": {"body_chars": 3577, "n_lines": 75, "n_bench": 72, "n_prose": 0, "bench_ratio": 0.96}}
+{"sha": "3437a26b3db7", "subject": "riscv64/mc16: Add VLEN=256 8bpc RVV blend function", "reason": "type_D", "body_stats": {"body_chars": 612, "n_lines": 9, "n_bench": 8, "n_prose": 1, "bench_ratio": 0.89}}
+{"sha": "38dd16e10856", "subject": "riscv64/mc: Add VLEN=512 8bpc RVV blend_{,h,v} functions", "reason": "type_D", "body_stats": {"body_chars": 2279, "n_lines": 33, "n_bench": 32, "n_prose": 1, "bench_ratio": 0.97}}
+{"sha": "3d8aff7e26b2", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "3d96175df2b5", "subject": "loongarch: refactor loopfilter", "reason": "type_D", "body_stats": {"body_chars": 449, "n_lines": 11, "n_bench": 8, "n_prose": 2, "bench_ratio": 0.73}}
+{"sha": "3e5aed95cc47", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "436be41fc17f", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "44541dfa6b6f", "subject": "ipred_smooth", "reason": "type_D", "body_stats": {"body_chars": 1064, "n_lines": 23, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.87}}
+{"sha": "4db1a05aadaa", "subject": "AArch64: Optimize ipred_smooth_h_8bpc_neon", "reason": "type_D", "body_stats": {"body_chars": 731, "n_lines": 13, "n_bench": 10, "n_prose": 2, "bench_ratio": 0.77}}
+{"sha": "526b6b5488fb", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "56f6d166023c", "reason": "too_short", "body_stats": {"body_chars": 69}}
+{"sha": "58dcf16f1bf0", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "5f84d403fcaf", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "62a51df14ef5", "reason": "too_short", "body_stats": {"body_chars": 52}}
+{"sha": "67c60d76e182", "subject": "riscv64/mc16: Branchless vsetvl in blend function", "reason": "type_D", "body_stats": {"body_chars": 1226, "n_lines": 18, "n_bench": 16, "n_prose": 2, "bench_ratio": 0.89}}
+{"sha": "70582027e7b0", "subject": "loongarch: add lasx implementation of sgr_3x3 for 8 bpc", "reason": "type_D", "body_stats": {"body_chars": 254, "n_lines": 4, "n_bench": 3, "n_prose": 0, "bench_ratio": 0.75}}
+{"sha": "72db437770fd", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "757f294a496b", "subject": "LoongArch: Add save_tmvs_lsx", "reason": "type_D", "body_stats": {"body_chars": 107, "n_lines": 3, "n_bench": 2, "n_prose": 1, "bench_ratio": 0.67}}
+{"sha": "789a1f652b89", "reason": "http_error", "error": "HTTP 400", "retried": true}
+{"sha": "7f2bb2fbc9c5", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "82721eae6edd", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "83485c5092e5", "subject": "riscv64/mc: Add VLEN=256 8bpc RVV blend function", "reason": "type_D", "body_stats": {"body_chars": 316, "n_lines": 9, "n_bench": 8, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "87476b4c4d50", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "8b2721d27702", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "907dd8719139", "subject": "riscv64/mc16: Unroll 16bpc RVV blend_v 2x", "reason": "type_D", "body_stats": {"body_chars": 1498, "n_lines": 22, "n_bench": 20, "n_prose": 2, "bench_ratio": 0.91}}
+{"sha": "9710e7de9c1f", "subject": "riscv64/mc16: Branchless vsetvl in blend_v function", "reason": "type_D", "body_stats": {"body_chars": 1498, "n_lines": 22, "n_bench": 20, "n_prose": 2, "bench_ratio": 0.91}}
+{"sha": "982d32400f24", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "9981ea837fe4", "reason": "too_short", "body_stats": {"body_chars": 20}}
+{"sha": "9eea4fe842f9", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "a0a08d854349", "subject": "Scalar dc calculation", "reason": "type_D", "body_stats": {"body_chars": 280, "n_lines": 7, "n_bench": 4, "n_prose": 0, "bench_ratio": 0.57}}
+{"sha": "a31e4bd75787", "subject": "riscv64/mc16: Add VLEN=512 16bpc RVV blend_{,v} functions", "reason": "type_D", "body_stats": {"body_chars": 1312, "n_lines": 19, "n_bench": 18, "n_prose": 1, "bench_ratio": 0.95}}
+{"sha": "a354f11f8f01", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "a5b9544866c5", "subject": "riscv64/mc: Add VLEN=256 8bpc RVV blend_h function", "reason": "type_D", "body_stats": {"body_chars": 586, "n_lines": 15, "n_bench": 14, "n_prose": 0, "bench_ratio": 0.93}}
+{"sha": "a6b561792f42", "reason": "too_short", "body_stats": {"body_chars": 71}}
+{"sha": "a6cbc9886986", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "aa2deb898ebb", "subject": "riscv64/mc16: Add 16bpc RVV blend_v function", "reason": "type_D", "body_stats": {"body_chars": 848, "n_lines": 22, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.91}}
+{"sha": "b2e7f06c72ca", "subject": "riscv64/mc: warp_8x8 and warp_8x8t 8bpc", "reason": "type_D", "body_stats": {"body_chars": 353, "n_lines": 11, "n_bench": 8, "n_prose": 0, "bench_ratio": 0.73}}
+{"sha": "b35605ace3dd", "subject": "i8mm & neon hpel_filter optimization", "reason": "type_D", "body_stats": {"body_chars": 172, "n_lines": 6, "n_bench": 4, "n_prose": 1, "bench_ratio": 0.67}}
+{"sha": "b374b24c0f98", "subject": "riscv64/mc: Branchless vsetvl in blend function", "reason": "type_D", "body_stats": {"body_chars": 636, "n_lines": 18, "n_bench": 16, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "b830ac82bb74", "subject": "pal_pred", "reason": "type_D", "body_stats": {"body_chars": 1730, "n_lines": 43, "n_bench": 40, "n_prose": 0, "bench_ratio": 0.93}}
+{"sha": "c5726277ffa8", "subject": "AArch64: Optimize ipred_h_8bpc_neon", "reason": "type_D", "body_stats": {"body_chars": 761, "n_lines": 14, "n_bench": 11, "n_prose": 2, "bench_ratio": 0.79}}
+{"sha": "c783088fe7bb", "subject": "riscv64/mc16: Unroll 16bpc RVV blend 2x", "reason": "type_D", "body_stats": {"body_chars": 1226, "n_lines": 18, "n_bench": 16, "n_prose": 2, "bench_ratio": 0.89}}
+{"sha": "c8749f06e5d2", "subject": "riscv64/itx: Special case 16x16 8bpc dct_dct eob=0", "reason": "type_D", "body_stats": {"body_chars": 495, "n_lines": 7, "n_bench": 4, "n_prose": 2, "bench_ratio": 0.57}}
+{"sha": "ca489d8aab3b", "subject": "riscv64/mc16: Add 16bpc RVV blend function", "reason": "type_D", "body_stats": {"body_chars": 668, "n_lines": 18, "n_bench": 16, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "cc7d8773eeb0", "subject": "riscv64/mc: Branchless vsetvl in blend_v function", "reason": "type_D", "body_stats": {"body_chars": 828, "n_lines": 22, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.91}}
+{"sha": "d26f298ce2e0", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "d3a94f11948b", "subject": "riscv64/mc: Add 8bpc RVV blend_h function", "reason": "type_D", "body_stats": {"body_chars": 588, "n_lines": 15, "n_bench": 14, "n_prose": 0, "bench_ratio": 0.93}}
+{"sha": "d711f974ebeb", "subject": "ipred cfl functions", "reason": "type_D", "body_stats": {"body_chars": 6578, "n_lines": 131, "n_bench": 128, "n_prose": 0, "bench_ratio": 0.98}}
+{"sha": "d78c1e83a1a9", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "e7c280e4cde4", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "ed004fe95d47", "reason": "too_short", "body_stats": {"body_chars": 52}}
+{"sha": "f223436bb674", "subject": "pal_idx_finish", "reason": "type_D", "body_stats": {"body_chars": 890, "n_lines": 23, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.87}}
+{"sha": "f851fcd0b44c", "subject": "riscv64/mc: Add 8bpc RVV blend function", "reason": "type_D", "body_stats": {"body_chars": 318, "n_lines": 9, "n_bench": 8, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "fc4012fb6788", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "fe9e4a7f39d7", "subject": "Provide implementations for functions using the instructions SDOT/UDOT in the DotProd Armv8 extension.", "reason": "type_D", "body_stats": {"body_chars": 1075, "n_lines": 46, "n_bench": 38, "n_prose": 2, "bench_ratio": 0.83}}
+{"sha": "00b8e3b9cd0e", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "012c25bac4b6", "reason": "too_short", "body_stats": {"body_chars": 66}}
+{"sha": "01da36ebdf9e", "subject": "riscv64/mc: Add 8bpc RVV blend_v function", "reason": "type_D", "body_stats": {"body_chars": 414, "n_lines": 11, "n_bench": 10, "n_prose": 0, "bench_ratio": 0.91}}
+{"sha": "01ff05e4bc0b", "reason": "too_short", "body_stats": {"body_chars": 66}}
+{"sha": "037430193a2a", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "03c054d43c59", "subject": "avcodec/aarch64/vvc: Implement dmvr_v_8", "reason": "type_D", "body_stats": {"body_chars": 428, "n_lines": 8, "n_bench": 6, "n_prose": 0, "bench_ratio": 0.75}}
+{"sha": "0886e50c6b8e", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 1147 (char 1146)", "retried": true}
+{"sha": "0a6388d1da17", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "0b5d46ee1c56", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "0ba9e8d0d492", "subject": "aarch64/vvc: Add w_avg", "reason": "type_D", "body_stats": {"body_chars": 2990, "n_lines": 43, "n_bench": 42, "n_prose": 1, "bench_ratio": 0.98}}
+{"sha": "0cdf1b4be546", "subject": "ipred_paeth", "reason": "type_D", "body_stats": {"body_chars": 1028, "n_lines": 23, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.87}}
+{"sha": "0dcf204e5d7d", "subject": "aarch64/vvc: Add put_epel_h i8mm", "reason": "type_D", "body_stats": {"body_chars": 1259, "n_lines": 18, "n_bench": 18, "n_prose": 0, "bench_ratio": 1.0}}
+{"sha": "0e3f70e898f4", "subject": "riscv64/mc: Add VLEN=256 8bpc RVV blend_v function", "reason": "type_D", "body_stats": {"body_chars": 412, "n_lines": 11, "n_bench": 10, "n_prose": 0, "bench_ratio": 0.91}}
+{"sha": "0edd75e150c2", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "0fd37c00d728", "subject": "lavc/mpegvideoencdsp: R-V V pix_norm1", "reason": "type_D", "body_stats": {"body_chars": 127, "n_lines": 6, "n_bench": 4, "n_prose": 0, "bench_ratio": 0.67}}
+{"sha": "10a061ba9939", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "10a45072fcf2", "reason": "too_short", "body_stats": {"body_chars": 60}}
+{"sha": "1234ad686fb1", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 858 (char 857)", "retried": true}
+{"sha": "154bcd10540f", "subject": "avcodec/x86/huffyuvencdsp: Add AVX2 sub_hfyu_median_pred_int16", "reason": "type_D", "body_stats": {"body_chars": 957, "n_lines": 15, "n_bench": 12, "n_prose": 2, "bench_ratio": 0.8}}
+{"sha": "162622863ad2", "reason": "too_short", "body_stats": {"body_chars": 20}}
+{"sha": "1718ff9aded9", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "17765fe8312c", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "181cd260dbfb", "subject": "swscale/aarch64/yuv2rgb: add neon yuv42{0,2}p -> gbrp unscaled colorspace converters", "reason": "type_D", "body_stats": {"body_chars": 285, "n_lines": 9, "n_bench": 8, "n_prose": 1, "bench_ratio": 0.89}}
+{"sha": "189e841cfdb1", "subject": "avcodec/aarch64/vvc: Implement dmvr_h_8", "reason": "type_D", "body_stats": {"body_chars": 430, "n_lines": 8, "n_bench": 6, "n_prose": 0, "bench_ratio": 0.75}}
+{"sha": "1907dd7f2335", "subject": "lavc/mpegvideoencdsp: R-V V try_8x8basis", "reason": "type_D", "body_stats": {"body_chars": 139, "n_lines": 6, "n_bench": 4, "n_prose": 0, "bench_ratio": 0.67}}
+{"sha": "190f1ca85d07", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 1272 (char 1271)", "retried": true}
+{"sha": "1be5a2374f22", "subject": "aarch64/vvc: Add put_epel_hv", "reason": "type_D", "body_stats": {"body_chars": 2139, "n_lines": 32, "n_bench": 30, "n_prose": 1, "bench_ratio": 0.94}}
+{"sha": "1c385023aade", "subject": "aarch64/vvc: Optimisations of put_chroma_v() functions for 10/12-bit", "reason": "type_D", "body_stats": {"body_chars": 3656, "n_lines": 54, "n_bench": 52, "n_prose": 0, "bench_ratio": 0.96}}
+{"sha": "1ced59326a61", "subject": "aarch64/vvc: Optimisations of put_chroma_hv() functions for 10/12-bit", "reason": "type_D", "body_stats": {"body_chars": 3376, "n_lines": 50, "n_bench": 48, "n_prose": 0, "bench_ratio": 0.96}}
+{"sha": "1fc7464cf7c4", "subject": "libavcodec/huffyuvdsp: Add NEON optimization for the add_int16 function", "reason": "type_D", "body_stats": {"body_chars": 396, "n_lines": 6, "n_bench": 4, "n_prose": 2, "bench_ratio": 0.67}}
+{"sha": "20ab63325830", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 771 (char 770)", "retried": true}
+{"sha": "20f2bf553047", "subject": "aarch64/vvc: Add put_qpel_h_* and put_qpel_uni_h_*", "reason": "type_D", "body_stats": {"body_chars": 1749, "n_lines": 26, "n_bench": 24, "n_prose": 2, "bench_ratio": 0.92}}
+{"sha": "214fad550772", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "22043a3c082a", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 724 (char 723)", "retried": true}
+{"sha": "2240bbb69735", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 848 (char 847)", "retried": true}
+{"sha": "2272a19ab056", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "2325421904f4", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "2475ff9d2c6e", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 802 (char 801)", "retried": true}
+{"sha": "25448d17160f", "subject": "aarch64/vvc: Add put_pel/put_pel_uni/put_pel_uni_w", "reason": "type_D", "body_stats": {"body_chars": 1679, "n_lines": 24, "n_bench": 24, "n_prose": 0, "bench_ratio": 1.0}}
+{"sha": "2570f5d3072c", "subject": "avcodec/x86/vvc/of: Avoid scalar log2", "reason": "type_D", "body_stats": {"body_chars": 2686, "n_lines": 40, "n_bench": 36, "n_prose": 2, "bench_ratio": 0.9}}
+{"sha": "257b04f91c1c", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "25ffd616b148", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "260e1b4b6227", "subject": "aarch64/vvc: Add sad", "reason": "type_D", "body_stats": {"body_chars": 419, "n_lines": 6, "n_bench": 6, "n_prose": 0, "bench_ratio": 1.0}}
+{"sha": "262d41c8042a", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "26752368f04a", "subject": "aarch64/h26x: Add put_hevc_pel_bi_w_pixels", "reason": "type_D", "body_stats": {"body_chars": 1373, "n_lines": 21, "n_bench": 18, "n_prose": 2, "bench_ratio": 0.86}}
+{"sha": "28d1c21779cb", "subject": "riscv64/mc16: Add VLEN=256 8bpc RVV blend_v function", "reason": "type_D", "body_stats": {"body_chars": 748, "n_lines": 11, "n_bench": 10, "n_prose": 1, "bench_ratio": 0.91}}
+{"sha": "29efbb949639", "reason": "too_short", "body_stats": {"body_chars": 52}}
+{"sha": "2ca86c346277", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "2da40904f399", "reason": "too_short", "body_stats": {"body_chars": 66}}
+{"sha": "2da8107ec15d", "subject": "riscv64/mc: Branchless vsetvl in blend_h function", "reason": "type_D", "body_stats": {"body_chars": 1176, "n_lines": 30, "n_bench": 28, "n_prose": 0, "bench_ratio": 0.93}}
+{"sha": "2dc864eb4e05", "reason": "too_short", "body_stats": {"body_chars": 52}}
+{"sha": "2f5bfc37b08c", "subject": "riscv64/cdef: filter functions", "reason": "type_D", "body_stats": {"body_chars": 3577, "n_lines": 75, "n_bench": 72, "n_prose": 0, "bench_ratio": 0.96}}
+{"sha": "3115c0c0e6c2", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "3421e9d88d7a", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "3437a26b3db7", "subject": "riscv64/mc16: Add VLEN=256 8bpc RVV blend function", "reason": "type_D", "body_stats": {"body_chars": 612, "n_lines": 9, "n_bench": 8, "n_prose": 1, "bench_ratio": 0.89}}
+{"sha": "35aaf697e9c8", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 971 (char 970)", "retried": true}
+{"sha": "381cc2b97055", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 866 (char 865)", "retried": true}
+{"sha": "38dd16e10856", "subject": "riscv64/mc: Add VLEN=512 8bpc RVV blend_{,h,v} functions", "reason": "type_D", "body_stats": {"body_chars": 2279, "n_lines": 33, "n_bench": 32, "n_prose": 1, "bench_ratio": 0.97}}
+{"sha": "38ee3c5e36a1", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "39486a2b29dc", "reason": "too_short", "body_stats": {"body_chars": 34}}
+{"sha": "3d8aff7e26b2", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "3d96175df2b5", "subject": "loongarch: refactor loopfilter", "reason": "type_D", "body_stats": {"body_chars": 449, "n_lines": 11, "n_bench": 8, "n_prose": 2, "bench_ratio": 0.73}}
+{"sha": "3e5aed95cc47", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "3e6fa5153e70", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "3ed590c7b9fb", "subject": "avcodec/x86/h264_qpel: Port qpel8or16_hv2_lowpass_op_mmxext to SSE2", "reason": "type_D", "body_stats": {"body_chars": 8555, "n_lines": 124, "n_bench": 120, "n_prose": 2, "bench_ratio": 0.97}}
+{"sha": "3f84d1d1fb75", "subject": "aarch64/vvc: Add avg", "reason": "type_D", "body_stats": {"body_chars": 2939, "n_lines": 42, "n_bench": 42, "n_prose": 0, "bench_ratio": 1.0}}
+{"sha": "41a1885f7adc", "subject": "aarch64/vvc: Add put_epel_h", "reason": "type_D", "body_stats": {"body_chars": 839, "n_lines": 12, "n_bench": 12, "n_prose": 0, "bench_ratio": 1.0}}
+{"sha": "436be41fc17f", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "439dc2a11727", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 904 (char 903)", "retried": true}
+{"sha": "44541dfa6b6f", "subject": "ipred_smooth", "reason": "type_D", "body_stats": {"body_chars": 1064, "n_lines": 23, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.87}}
+{"sha": "459a1512f13a", "subject": "lavc/h264dsp: unroll R-V V weight16", "reason": "type_D", "body_stats": {"body_chars": 380, "n_lines": 7, "n_bench": 4, "n_prose": 1, "bench_ratio": 0.57}}
+{"sha": "46f07ce7d1e6", "reason": "too_short", "body_stats": {"body_chars": 36}}
+{"sha": "472fc011ccd3", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 816 (char 815)", "retried": true}
+{"sha": "47446d7cd423", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 853 (char 852)", "retried": true}
+{"sha": "49477972b717", "subject": "swscale/aarch64/output: Implement neon assembly for yuv2planeX_10_c_template()", "reason": "type_D", "body_stats": {"body_chars": 2363, "n_lines": 35, "n_bench": 32, "n_prose": 1, "bench_ratio": 0.91}}
+{"sha": "4bf8b96ed3f7", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "4c0372281b1e", "reason": "too_short", "body_stats": {"body_chars": 46}}
+{"sha": "4c067d0778c9", "reason": "too_short", "body_stats": {"body_chars": 68}}
+{"sha": "4db1a05aadaa", "subject": "AArch64: Optimize ipred_smooth_h_8bpc_neon", "reason": "type_D", "body_stats": {"body_chars": 731, "n_lines": 13, "n_bench": 10, "n_prose": 2, "bench_ratio": 0.77}}
+{"sha": "4e7b5ac48f37", "subject": "lavc/vp9dsp: R-V V mc bilin hv", "reason": "type_D", "body_stats": {"body_chars": 1404, "n_lines": 22, "n_bench": 20, "n_prose": 1, "bench_ratio": 0.91}}
+{"sha": "4fbacb39440f", "subject": "avcodec/aarch64/vvc: Optimised version of classify function.", "reason": "type_D", "body_stats": {"body_chars": 4481, "n_lines": 62, "n_bench": 60, "n_prose": 0, "bench_ratio": 0.97}}
+{"sha": "510999f6b07b", "subject": "aarch64/vvc: sme2 optimisation of alf_filter_luma() 8/10/12 bit", "reason": "type_D", "body_stats": {"body_chars": 3159, "n_lines": 46, "n_bench": 45, "n_prose": 0, "bench_ratio": 0.98}}
+{"sha": "526b6b5488fb", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "52887683e943", "subject": "swscale/aarch64: add nv24/nv42 to yuv420p unscaled converter", "reason": "type_D", "body_stats": {"body_chars": 465, "n_lines": 9, "n_bench": 8, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "54ae270213b5", "subject": "lavc/rv34dsp: use saturating add/sub for R-V V DC add", "reason": "type_D", "body_stats": {"body_chars": 131, "n_lines": 4, "n_bench": 3, "n_prose": 0, "bench_ratio": 0.75}}
+{"sha": "56a638d83653", "subject": "avcodec/aarch64/vvc: Unroll vvc_bdof_grad_filter_8x_neon", "reason": "type_D", "body_stats": {"body_chars": 1710, "n_lines": 27, "n_bench": 24, "n_prose": 1, "bench_ratio": 0.89}}
+{"sha": "56f6d166023c", "reason": "too_short", "body_stats": {"body_chars": 69}}
+{"sha": "58bcdeb7425e", "subject": "swscale/aarch64/range_convert: saturate output instead of limiting input", "reason": "type_D", "body_stats": {"body_chars": 874, "n_lines": 18, "n_bench": 16, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "58dcf16f1bf0", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "5988a2729bc2", "subject": "aarch64/vvc: Add dmvr", "reason": "type_D", "body_stats": {"body_chars": 890, "n_lines": 13, "n_bench": 12, "n_prose": 1, "bench_ratio": 0.92}}
+{"sha": "59f9dbaa3126", "subject": "swscale/x86/rgb2rgb: add AVX512ICL versions of shuffle_bytes", "reason": "type_D", "body_stats": {"body_chars": 1481, "n_lines": 22, "n_bench": 20, "n_prose": 1, "bench_ratio": 0.91}}
+{"sha": "5ac692580319", "subject": "aarch64/vvc: Add put_qpel_hv", "reason": "type_D", "body_stats": {"body_chars": 2145, "n_lines": 32, "n_bench": 30, "n_prose": 1, "bench_ratio": 0.94}}
+{"sha": "5b33e0ec881c", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 1065 (char 1064)", "retried": true}
+{"sha": "5c1c0325cd1b", "subject": "avcodec/aarch64/me_cmp: add dotprod implementations of sse16 and vsse_intra16", "reason": "type_D", "body_stats": {"body_chars": 159, "n_lines": 7, "n_bench": 6, "n_prose": 1, "bench_ratio": 0.86}}
+{"sha": "5de2c4c89e08", "reason": "too_short", "body_stats": {"body_chars": 66}}
+{"sha": "5e0f1b1edac8", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "5f84d403fcaf", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "617c04209312", "reason": "too_short", "body_stats": {"body_chars": 66}}
+{"sha": "62a51df14ef5", "reason": "too_short", "body_stats": {"body_chars": 52}}
+{"sha": "631a84e49e5b", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 922 (char 921)", "retried": true}
+{"sha": "63d016aea5d9", "subject": "lavc/mpegvideoencdsp: R-V V pix_sum", "reason": "type_D", "body_stats": {"body_chars": 115, "n_lines": 6, "n_bench": 4, "n_prose": 0, "bench_ratio": 0.67}}
+{"sha": "65d4c5bbe21c", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "677f28b310ac", "subject": "lavc/h264dsp: stick R-V V weight to 16-bit precision", "reason": "type_D", "body_stats": {"body_chars": 941, "n_lines": 26, "n_bench": 24, "n_prose": 0, "bench_ratio": 0.92}}
+{"sha": "67ab02dce3ad", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 996 (char 995)", "retried": true}
+{"sha": "67c60d76e182", "subject": "riscv64/mc16: Branchless vsetvl in blend function", "reason": "type_D", "body_stats": {"body_chars": 1226, "n_lines": 18, "n_bench": 16, "n_prose": 2, "bench_ratio": 0.89}}
+{"sha": "68381b2b00f7", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 1282 (char 1281)", "retried": true}
+{"sha": "693d5639b44a", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 733 (char 732)", "retried": true}
+{"sha": "69f63c6210f5", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "6b31e42c47c0", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "6fe4a4ffb635", "subject": "swscale/aarch64/range_convert: update neon range_convert functions to new API", "reason": "type_D", "body_stats": {"body_chars": 862, "n_lines": 18, "n_bench": 16, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "70582027e7b0", "subject": "loongarch: add lasx implementation of sgr_3x3 for 8 bpc", "reason": "type_D", "body_stats": {"body_chars": 254, "n_lines": 4, "n_bench": 3, "n_prose": 0, "bench_ratio": 0.75}}
+{"sha": "70691bbb273c", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "71db4f3cc1a6", "subject": "lavc/llvidencdsp: R-V V sub_median_pred", "reason": "type_D", "body_stats": {"body_chars": 223, "n_lines": 4, "n_bench": 3, "n_prose": 0, "bench_ratio": 0.75}}
+{"sha": "71e70184f1d1", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "72a3656e8468", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "72db437770fd", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "734864c177bc", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "757f294a496b", "subject": "LoongArch: Add save_tmvs_lsx", "reason": "type_D", "body_stats": {"body_chars": 107, "n_lines": 3, "n_bench": 2, "n_prose": 1, "bench_ratio": 0.67}}
+{"sha": "758602c04409", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "789a1f652b89", "reason": "http_error", "error": "HTTP 400", "retried": true}
+{"sha": "78ba06928a69", "reason": "too_short", "body_stats": {"body_chars": 46}}
+{"sha": "7a26e1f51e3c", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 798 (char 797)", "retried": true}
+{"sha": "7b21bde34c43", "subject": "avcodec/aarch64/vvc: Implemented dmvr_h_10", "reason": "type_D", "body_stats": {"body_chars": 850, "n_lines": 14, "n_bench": 12, "n_prose": 0, "bench_ratio": 0.86}}
+{"sha": "7c2e76d87f9c", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "7d1dda4892d9", "subject": "lavc/h264dsp: R-V V loop_filter_chroma", "reason": "type_D", "body_stats": {"body_chars": 102, "n_lines": 3, "n_bench": 2, "n_prose": 0, "bench_ratio": 0.67}}
+{"sha": "7ddb0c3df788", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "7f00e24d7054", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ':' delimiter: line 1 column 1271 (char 1270)", "retried": true}
+{"sha": "7f2bb2fbc9c5", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "82721eae6edd", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "83485c5092e5", "subject": "riscv64/mc: Add VLEN=256 8bpc RVV blend function", "reason": "type_D", "body_stats": {"body_chars": 316, "n_lines": 9, "n_bench": 8, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "840183d82378", "subject": "aarch64/hpeldsp_neon: fix out-of-bounds read", "reason": "type_D", "body_stats": {"body_chars": 670, "n_lines": 14, "n_bench": 8, "n_prose": 1, "bench_ratio": 0.57}}
+{"sha": "8428a412bcda", "subject": "avcodec/x86/h264_deblock: Avoid MMX in deblock_h_luma_8", "reason": "type_D", "body_stats": {"body_chars": 520, "n_lines": 9, "n_bench": 6, "n_prose": 1, "bench_ratio": 0.67}}
+{"sha": "843920d5d6bd", "reason": "too_short", "body_stats": {"body_chars": 70}}
+{"sha": "86aa1b81ec00", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "87052c09336e", "subject": "swscale/x86: add sse4 and avx2 {lum,chr}ConvertRange16", "reason": "type_D", "body_stats": {"body_chars": 507, "n_lines": 12, "n_bench": 12, "n_prose": 0, "bench_ratio": 1.0}}
+{"sha": "87190fff6e42", "subject": "lavc/llvidencdsp: R-V B sub_median_pred", "reason": "type_D", "body_stats": {"body_chars": 306, "n_lines": 6, "n_bench": 4, "n_prose": 0, "bench_ratio": 0.67}}
+{"sha": "872d8327ce89", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 938 (char 937)", "retried": true}
+{"sha": "8744764a4cab", "subject": "swscale/x86/yuv2rgb: add ssse3 yuv42{0,2}p -> gbrp unscaled colorspace converters", "reason": "type_D", "body_stats": {"body_chars": 856, "n_lines": 27, "n_bench": 24, "n_prose": 2, "bench_ratio": 0.89}}
+{"sha": "87476b4c4d50", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "87d1587bef39", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "899475326b09", "reason": "too_short", "body_stats": {"body_chars": 66}}
+{"sha": "8acdffa22cf6", "subject": "aarch64/vvc: Optimisations of put_luma_v() functions for 10/12-bit", "reason": "type_D", "body_stats": {"body_chars": 3429, "n_lines": 50, "n_bench": 48, "n_prose": 0, "bench_ratio": 0.96}}
+{"sha": "8b2721d27702", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "8b647b3f8adb", "subject": "avfilter/vf_colordetect: add x86 SIMD implementation", "reason": "type_D", "body_stats": {"body_chars": 1259, "n_lines": 18, "n_bench": 18, "n_prose": 0, "bench_ratio": 1.0}}
+{"sha": "8c203ea7c794", "subject": "avcodec/aarch64/mpegvideoencdsp: add dotprod implementation for pix_norm1", "reason": "type_D", "body_stats": {"body_chars": 163, "n_lines": 4, "n_bench": 3, "n_prose": 0, "bench_ratio": 0.75}}
+{"sha": "8c2c3df31e3b", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "8c3001b9252d", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "8d27256a747f", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "8d9c1db95d88", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "90431417cb28", "subject": "aarch64/vvc: Optimisations of put_luma_hv() functions for 10/12-bit", "reason": "type_D", "body_stats": {"body_chars": 3096, "n_lines": 46, "n_bench": 44, "n_prose": 0, "bench_ratio": 0.96}}
+{"sha": "905348df9df2", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "907dd8719139", "subject": "riscv64/mc16: Unroll 16bpc RVV blend_v 2x", "reason": "type_D", "body_stats": {"body_chars": 1498, "n_lines": 22, "n_bench": 20, "n_prose": 2, "bench_ratio": 0.91}}
+{"sha": "91436638defe", "reason": "too_short", "body_stats": {"body_chars": 39}}
+{"sha": "91f2d146d418", "subject": "avfilter/x86/scene_sad: add AVX512 implementation", "reason": "type_D", "body_stats": {"body_chars": 330, "n_lines": 5, "n_bench": 4, "n_prose": 1, "bench_ratio": 0.8}}
+{"sha": "9288196c0d82", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "94f9ad806137", "reason": "too_short", "body_stats": {"body_chars": 66}}
+{"sha": "952508ae059d", "subject": "aarch64/vvc: Add apply_bdof", "reason": "type_D", "body_stats": {"body_chars": 1287, "n_lines": 19, "n_bench": 18, "n_prose": 1, "bench_ratio": 0.95}}
+{"sha": "952b426f3bcc", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "9703d9d7f77c", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "9710e7de9c1f", "subject": "riscv64/mc16: Branchless vsetvl in blend_v function", "reason": "type_D", "body_stats": {"body_chars": 1498, "n_lines": 22, "n_bench": 20, "n_prose": 2, "bench_ratio": 0.91}}
+{"sha": "982d32400f24", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "9981ea837fe4", "reason": "too_short", "body_stats": {"body_chars": 20}}
+{"sha": "9993a64d7bcd", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "99ed3ed08d62", "reason": "parse_failed", "error": "inner-json (extract failed): Invalid \\escape: line 1 column 604 (char 603)", "retried": true}
+{"sha": "9e9bb6ede00a", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 996 (char 995)", "retried": true}
+{"sha": "9edd2e723bd8", "subject": "lavc/vp9dsp: R-V V mc bilin h v", "reason": "type_D", "body_stats": {"body_chars": 2744, "n_lines": 42, "n_bench": 40, "n_prose": 1, "bench_ratio": 0.95}}
+{"sha": "9eea4fe842f9", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "9f68a3712eb4", "subject": "avcodec/aarch64/mpegvideoencdsp: add neon implementations for pix_sum and pix_norm1", "reason": "type_D", "body_stats": {"body_chars": 193, "n_lines": 5, "n_bench": 4, "n_prose": 0, "bench_ratio": 0.8}}
+{"sha": "9f6c8eb41226", "subject": "aarch64/vvc: Add put_qpel_hx i8mm", "reason": "type_D", "body_stats": {"body_chars": 1309, "n_lines": 19, "n_bench": 18, "n_prose": 1, "bench_ratio": 0.95}}
+{"sha": "9fdd7e23e3ae", "reason": "too_short", "body_stats": {"body_chars": 66}}
+{"sha": "a0a08d854349", "subject": "Scalar dc calculation", "reason": "type_D", "body_stats": {"body_chars": 280, "n_lines": 7, "n_bench": 4, "n_prose": 0, "bench_ratio": 0.57}}
+{"sha": "a0a89efd0778", "reason": "too_short", "body_stats": {"body_chars": 52}}
+{"sha": "a0b52afd3227", "subject": "aarch64/vvc: Add put_qpel_vx", "reason": "type_D", "body_stats": {"body_chars": 839, "n_lines": 12, "n_bench": 12, "n_prose": 0, "bench_ratio": 1.0}}
+{"sha": "a2e102e20fd6", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 772 (char 771)", "retried": true}
+{"sha": "a31e4bd75787", "subject": "riscv64/mc16: Add VLEN=512 16bpc RVV blend_{,v} functions", "reason": "type_D", "body_stats": {"body_chars": 1312, "n_lines": 19, "n_bench": 18, "n_prose": 1, "bench_ratio": 0.95}}
+{"sha": "a354f11f8f01", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "a4cb6c724b29", "subject": "lavc/llvidencdsp: R-V V sub_left_predict", "reason": "type_D", "body_stats": {"body_chars": 153, "n_lines": 3, "n_bench": 2, "n_prose": 0, "bench_ratio": 0.67}}
+{"sha": "a5b9544866c5", "subject": "riscv64/mc: Add VLEN=256 8bpc RVV blend_h function", "reason": "type_D", "body_stats": {"body_chars": 586, "n_lines": 15, "n_bench": 14, "n_prose": 0, "bench_ratio": 0.93}}
+{"sha": "a65ed248fdcd", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "a66a260ae9da", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "a6b561792f42", "reason": "too_short", "body_stats": {"body_chars": 71}}
+{"sha": "a6cbc9886986", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "aa2deb898ebb", "subject": "riscv64/mc16: Add 16bpc RVV blend_v function", "reason": "type_D", "body_stats": {"body_chars": 848, "n_lines": 22, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.91}}
+{"sha": "ab7d1c64c9aa", "subject": "avcodec/x86/h263_loopfilter: Port loop filter to SSE2", "reason": "type_D", "body_stats": {"body_chars": 660, "n_lines": 11, "n_bench": 8, "n_prose": 1, "bench_ratio": 0.73}}
+{"sha": "abe6ba17faa1", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "adc91ab78541", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "af3f8f5bd2ed", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 953 (char 952)", "retried": true}
+{"sha": "afd45c7ff74c", "subject": "lavc/h264dsp: stick R-V V biweight to 16-bit", "reason": "type_D", "body_stats": {"body_chars": 989, "n_lines": 26, "n_bench": 24, "n_prose": 0, "bench_ratio": 0.92}}
+{"sha": "b137347278fe", "reason": "too_short", "body_stats": {"body_chars": 48}}
+{"sha": "b19bd0de6c3b", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "b27fd61020cc", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "b2e7f06c72ca", "subject": "riscv64/mc: warp_8x8 and warp_8x8t 8bpc", "reason": "type_D", "body_stats": {"body_chars": 353, "n_lines": 11, "n_bench": 8, "n_prose": 0, "bench_ratio": 0.73}}
+{"sha": "b35605ace3dd", "subject": "i8mm & neon hpel_filter optimization", "reason": "type_D", "body_stats": {"body_chars": 172, "n_lines": 6, "n_bench": 4, "n_prose": 1, "bench_ratio": 0.67}}
+{"sha": "b374b24c0f98", "subject": "riscv64/mc: Branchless vsetvl in blend function", "reason": "type_D", "body_stats": {"body_chars": 636, "n_lines": 18, "n_bench": 16, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "b3f74402988f", "subject": "lavc/hevc: R-V V put_pixels(pow2)", "reason": "type_D", "body_stats": {"body_chars": 747, "n_lines": 11, "n_bench": 10, "n_prose": 0, "bench_ratio": 0.91}}
+{"sha": "b5f4a214b802", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 903 (char 902)", "retried": true}
+{"sha": "b830ac82bb74", "subject": "pal_pred", "reason": "type_D", "body_stats": {"body_chars": 1730, "n_lines": 43, "n_bench": 40, "n_prose": 0, "bench_ratio": 0.93}}
+{"sha": "b92577405b40", "subject": "swscale/aarch64/rgb2rgb_neon: Implemented {yuyv, uyvy}toyuv{420, 422}", "reason": "type_D", "body_stats": {"body_chars": 906, "n_lines": 16, "n_bench": 12, "n_prose": 1, "bench_ratio": 0.75}}
+{"sha": "ba959fe96a1b", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 911 (char 910)", "retried": true}
+{"sha": "baac4a1174d2", "reason": "too_short", "body_stats": {"body_chars": 76}}
+{"sha": "bcd65ebd8fcd", "subject": "aarch64/vvc: Add dmvr_hv", "reason": "type_D", "body_stats": {"body_chars": 1310, "n_lines": 19, "n_bench": 18, "n_prose": 1, "bench_ratio": 0.95}}
+{"sha": "be108ebcf48f", "subject": "swscale/x86/range_convert: update sse2 and avx2 range_convert functions to new API", "reason": "type_D", "body_stats": {"body_chars": 647, "n_lines": 12, "n_bench": 12, "n_prose": 0, "bench_ratio": 1.0}}
+{"sha": "be2881824ae9", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ':' delimiter: line 1 column 1243 (char 1242)", "retried": true}
+{"sha": "bed176995787", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "c00721310fda", "reason": "too_short", "body_stats": {"body_chars": 66}}
+{"sha": "c0666d8bedfb", "subject": "swscale/aarch64/rgb2rgb: add neon implementation for rgb24toyv12", "reason": "type_D", "body_stats": {"body_chars": 473, "n_lines": 9, "n_bench": 8, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "c1af56357b09", "reason": "too_short", "body_stats": {"body_chars": 66}}
+{"sha": "c1be2107c96c", "subject": "aarch64/vvc: Optimisations of put_luma_h() functions for 10/12-bit", "reason": "type_D", "body_stats": {"body_chars": 3376, "n_lines": 50, "n_bench": 48, "n_prose": 0, "bench_ratio": 0.96}}
+{"sha": "c4c616db53f0", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "c5726277ffa8", "subject": "AArch64: Optimize ipred_h_8bpc_neon", "reason": "type_D", "body_stats": {"body_chars": 761, "n_lines": 14, "n_bench": 11, "n_prose": 2, "bench_ratio": 0.79}}
+{"sha": "c783088fe7bb", "subject": "riscv64/mc16: Unroll 16bpc RVV blend 2x", "reason": "type_D", "body_stats": {"body_chars": 1226, "n_lines": 18, "n_bench": 16, "n_prose": 2, "bench_ratio": 0.89}}
+{"sha": "c8749f06e5d2", "subject": "riscv64/itx: Special case 16x16 8bpc dct_dct eob=0", "reason": "type_D", "body_stats": {"body_chars": 495, "n_lines": 7, "n_bench": 4, "n_prose": 2, "bench_ratio": 0.57}}
+{"sha": "c898ddb8fede", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "ca2a88c1b3f3", "subject": "swscale/output: Implement yuv2nv12cx neon assembly", "reason": "type_D", "body_stats": {"body_chars": 1243, "n_lines": 19, "n_bench": 16, "n_prose": 1, "bench_ratio": 0.84}}
+{"sha": "ca489d8aab3b", "subject": "riscv64/mc16: Add 16bpc RVV blend function", "reason": "type_D", "body_stats": {"body_chars": 668, "n_lines": 18, "n_bench": 16, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "ca889b1328cd", "subject": "swscale/aarch64: add neon {lum,chr}ConvertRange16", "reason": "type_D", "body_stats": {"body_chars": 698, "n_lines": 18, "n_bench": 16, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "cc7d8773eeb0", "subject": "riscv64/mc: Branchless vsetvl in blend_v function", "reason": "type_D", "body_stats": {"body_chars": 828, "n_lines": 22, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.91}}
+{"sha": "cdf367192766", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 1062 (char 1061)", "retried": true}
+{"sha": "d03c99441dc5", "subject": "lavc/apv: AVX2 transquant for x86-64", "reason": "type_D", "body_stats": {"body_chars": 319, "n_lines": 5, "n_bench": 4, "n_prose": 1, "bench_ratio": 0.8}}
+{"sha": "d0f38f9130b7", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 925 (char 924)", "retried": true}
+{"sha": "d26f298ce2e0", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "d28f6df1305a", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "d355749ca671", "reason": "too_short", "body_stats": {"body_chars": 66}}
+{"sha": "d3a94f11948b", "subject": "riscv64/mc: Add 8bpc RVV blend_h function", "reason": "type_D", "body_stats": {"body_chars": 588, "n_lines": 15, "n_bench": 14, "n_prose": 0, "bench_ratio": 0.93}}
+{"sha": "d46414b46bec", "reason": "too_short", "body_stats": {"body_chars": 66}}
+{"sha": "d633fa0433de", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "d711f974ebeb", "subject": "ipred cfl functions", "reason": "type_D", "body_stats": {"body_chars": 6578, "n_lines": 131, "n_bench": 128, "n_prose": 0, "bench_ratio": 0.98}}
+{"sha": "d727b7a64e90", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 1049 (char 1048)", "retried": true}
+{"sha": "d78c1e83a1a9", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "d87a8e65b510", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 1194 (char 1193)", "retried": true}
+{"sha": "d8848325a618", "subject": "swscale/aarch64/rgb2rgb: add deinterleaveBytes neon implementation", "reason": "type_D", "body_stats": {"body_chars": 279, "n_lines": 5, "n_bench": 4, "n_prose": 0, "bench_ratio": 0.8}}
+{"sha": "d8fb44c0aa2f", "subject": "lavc/mpegvideoencdsp: R-V V add_8x8basis", "reason": "type_D", "body_stats": {"body_chars": 135, "n_lines": 6, "n_bench": 4, "n_prose": 0, "bench_ratio": 0.67}}
+{"sha": "d91b1559e0f6", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 969 (char 968)", "retried": true}
+{"sha": "d94e2b0f7c0b", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "d9e8c8561718", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 834 (char 833)", "retried": true}
+{"sha": "dad062c4f8a9", "subject": "lavc/vvc_mc: R-V V put_pixels", "reason": "type_D", "body_stats": {"body_chars": 2146, "n_lines": 25, "n_bench": 24, "n_prose": 0, "bench_ratio": 0.96}}
+{"sha": "daef34857489", "reason": "too_short", "body_stats": {"body_chars": 61}}
+{"sha": "dbd859a1866f", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "dc843cdd9a67", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "dcc101167ccc", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "de25cb4603f9", "subject": "avcodec/aarch64/vvc: Optimize vvc_apply_bdof_block_8x", "reason": "type_D", "body_stats": {"body_chars": 1296, "n_lines": 22, "n_bench": 18, "n_prose": 1, "bench_ratio": 0.82}}
+{"sha": "e1297f3080eb", "subject": "avcodec/x86/h264_idct: Use tmp reg in SUMSUB_BA if possible", "reason": "type_D", "body_stats": {"body_chars": 704, "n_lines": 12, "n_bench": 8, "n_prose": 2, "bench_ratio": 0.67}}
+{"sha": "e20a32d730de", "reason": "too_short", "body_stats": {"body_chars": 64}}
+{"sha": "e3b0d5839448", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "e4a9d54e4807", "reason": "too_short", "body_stats": {"body_chars": 66}}
+{"sha": "e6e56fd7a773", "reason": "too_short", "body_stats": {"body_chars": 48}}
+{"sha": "e7c280e4cde4", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "e8b22d0f4500", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "eb5ac9fee74d", "reason": "too_short", "body_stats": {"body_chars": 66}}
+{"sha": "ebf81a938dad", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 940 (char 939)", "retried": true}
+{"sha": "ecbb11ab3ebc", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "ed004fe95d47", "reason": "too_short", "body_stats": {"body_chars": 52}}
+{"sha": "ed116bab029c", "subject": "avcodec/x86/me_cmp: Use tmp reg in SUMSUB_BA if possible", "reason": "type_D", "body_stats": {"body_chars": 984, "n_lines": 16, "n_bench": 12, "n_prose": 2, "bench_ratio": 0.75}}
+{"sha": "eda0ac7e5f09", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "eeec7223b697", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "f17a6bd2000a", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "f1a155d9754f", "subject": "avcodec/aarch64/vvc: Optimize dmvr_hv_10", "reason": "type_D", "body_stats": {"body_chars": 865, "n_lines": 13, "n_bench": 12, "n_prose": 1, "bench_ratio": 0.92}}
+{"sha": "f223436bb674", "subject": "pal_idx_finish", "reason": "type_D", "body_stats": {"body_chars": 890, "n_lines": 23, "n_bench": 20, "n_prose": 0, "bench_ratio": 0.87}}
+{"sha": "f263192f0e97", "reason": "too_short", "body_stats": {"body_chars": 76}}
+{"sha": "f27bb139c387", "reason": "teacher_refused", "teacher_notes": "body too vague"}
+{"sha": "f790de2a8788", "subject": "aarch64/vvc: Optimisations of put_luma_h() functions for 10/12-bit", "reason": "type_D", "body_stats": {"body_chars": 3166, "n_lines": 46, "n_bench": 44, "n_prose": 1, "bench_ratio": 0.96}}
+{"sha": "f851fcd0b44c", "subject": "riscv64/mc: Add 8bpc RVV blend function", "reason": "type_D", "body_stats": {"body_chars": 318, "n_lines": 9, "n_bench": 8, "n_prose": 0, "bench_ratio": 0.89}}
+{"sha": "f9b8f30680b6", "reason": "parse_failed", "error": "inner-json (extract failed): Expecting ',' delimiter: line 1 column 1693 (char 1692)", "retried": true}
+{"sha": "fb4407797ee7", "subject": "Replace uxtl with umull in dmvr_hv_8", "reason": "type_D", "body_stats": {"body_chars": 445, "n_lines": 7, "n_bench": 6, "n_prose": 1, "bench_ratio": 0.86}}
+{"sha": "fc4012fb6788", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "fd18ae88ae73", "reason": "too_short", "body_stats": {"body_chars": 0}}
+{"sha": "fe9e4a7f39d7", "subject": "Provide implementations for functions using the instructions SDOT/UDOT in the DotProd Armv8 extension.", "reason": "type_D", "body_stats": {"body_chars": 1075, "n_lines": 46, "n_bench": 38, "n_prose": 2, "bench_ratio": 0.83}}
+{"sha": "ff85a20b7db4", "subject": "avfilter/x86/vf_fspp: Port store_slice to SSE2", "reason": "type_D", "body_stats": {"body_chars": 660, "n_lines": 11, "n_bench": 8, "n_prose": 1, "bench_ratio": 0.73}}

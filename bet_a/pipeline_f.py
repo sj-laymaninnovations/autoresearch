@@ -37,8 +37,10 @@ LM_LOCAL     = "http://127.0.0.1:1234"
 TEACHER      = "openai/gpt-oss-20b"
 
 REPOS = {
-    "x264_src":  CURATED / "x264_hunks.jsonl",
-    "dav1d_src": CURATED / "dav1d_hunks.jsonl",
+    "x264_src":   CURATED / "x264_hunks.jsonl",
+    "dav1d_src":  CURATED / "dav1d_hunks.jsonl",
+    "ffmpeg_src": CURATED / "ffmpeg_hunks.jsonl",
+    "linux_src":  CURATED / "linux_arm64_hunks.jsonl",
 }
 
 # v4 prompt — locked in distillation_prompt_v4.md
