@@ -1,0 +1,22 @@
+﻿loaded 5.02M params
+  config: layers=6 heads=8 embd=256 seq_len=1024
+---
+PROBLEM: When optimizing ARM64 NEON code for performance, what is the difference in benefit between in-order cores like Cortex-A53 and out-of-order cores like Cortex-A72?
+COMPLETION:
+When the CPU instruction a size of a size of a size of a size of a size of a size of a size of the CPU instruction and a simplementation and a size of the CPU instruction and a size of the CPU instruction and a size of the CPU. This approach allows the code the code code be of the CPU implementation and and a simplementation and a simplementation and a simple for a single the CPU is a a simple the
+---
+PROBLEM: Why is the ARM64 SVE2 SDOT instruction well-suited for 4-tap or 8-tap convolution filters in video codecs?
+COMPLETION:
+ARM64 instructions a size and a simplementation and and size of a single instruction and and reduces the size of a size of a size of a size of a size operation. This reduces the compiler and a simpler of the size of a size of a size of a size of a size of a size of a size offficient and and reduces the need of the need of a size one of a single one a size. This reduces the code and simple of the c
+---
+PROBLEM: What is the performance cost of partial-register lane writes in ARM64 NEON code on out-of-order cores, and how can it be mitigated?
+COMPLETION:
+When the processor a single instruction and a simplementation and a single the stack and a single the stack and a single the stack and a single the stack and a single the stack and stack and a stack all stack and and a stack addresss the stack and a stack all the stack allows the stack and and stack ack the stack addresss the stack and and restore the stack addresss and restore the stack at stack 
+---
+PROBLEM: When should you prefer a rounded right-shift instruction over a manual rounding constant added before a plain right-shift in ARM64 NEON?
+COMPLETION:
+When a simplementation a simplify a simplementation and and a simplifies the code and and reduces the code and and a single instruction and and reduces the code and a single the stack and a single the stack allows the stack and and a single the stack address and a single the stack addresss and and restore the stack allows the stack and and restore the stack address and and restore the stack allows
+---
+PROBLEM: How can a function safely perform multiple independent stack allocations on x86-64 without manual offset bookkeeping?
+COMPLETION:
+A simplementation a simplementation the compiler instruction and simplifies the compiler instructions and a simplementation and simplementation the compiler compiler compations. This compare the compiler instruction compare and a size of the compiler compation and size of the compiler compation and size of the compiler compiler compation. This change improves the compare improves the compation com

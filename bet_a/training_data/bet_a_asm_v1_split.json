@@ -1,0 +1,25 @@
+{
+  "source_file": "/Users/seanjosiah/Documents/autoresearch/bet_a/distilled/qa_records_v1.jsonl",
+  "n_records_total": 1043,
+  "n_train": 936,
+  "n_val": 107,
+  "split_seed": 11,
+  "split_val_fraction": 0.1,
+  "train_concepts": {
+    "asm_kernel_arm64": 614,
+    "asm_codec_ffmpeg": 229,
+    "asm_codec_x264": 64,
+    "asm_codec_dav1d": 29
+  },
+  "val_concepts": {
+    "asm_kernel_arm64": 64,
+    "asm_codec_ffmpeg": 29,
+    "asm_codec_dav1d": 8,
+    "asm_codec_x264": 6
+  },
+  "char_length_p50": 741,
+  "char_length_p95": 1013,
+  "char_length_p99": 1179,
+  "char_length_max": 1407,
+  "recommend_seq_len": 2048
+}
