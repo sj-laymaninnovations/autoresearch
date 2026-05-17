@@ -1,0 +1,14 @@
+{
+  "id": "TRAIN-012",
+  "source": "AIME 2026 I, Problem 12",
+  "source_url": "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_12",
+  "problem_text": "Triangle ABC lies in plane P with AB=6, AC=4, and angle BAC=90 degrees. Let D be the reflection across BC of the centroid of triangle ABC. Four spheres, all on the same side of P, have radii 1, 2, 3, and r and are tangent to P at points A, B, C, and D, respectively. The four spheres are also each tangent to a second plane T and are all on the same side of T. The value of r can be written as m/n, where m and n are relatively prime positive integers. Find m+n.",
+  "answer": "161",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "hard",
+  "category": "geometry",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "r = 122/39, m+n = 161. A=(0,0), B=(6,0), C=(0,4). Centroid G=(2,4/3). BC line: 2x+3y=12. D = reflection of G over BC = (42/13, 124/39). Centers of 4 spheres coplanar; plane through (0,0,1),(6,0,2),(0,4,3): normal (-4,-12,24) or -x-3y+6z=6. Plugging D: r=122/39. Verified by SymPy coordinate computation."
+}

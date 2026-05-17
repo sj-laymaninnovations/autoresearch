@@ -1,0 +1,14 @@
+{
+  "id": "TRAIN-011",
+  "source": "AIME 2026 I, Problem 11",
+  "source_url": "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_11",
+  "problem_text": "The integers from 1 to 64 are placed in some order into an 8\u00d78 grid of cells with one number in each cell. Let a_{i,j} be the number in row i, column j. Let M be the sum of the absolute differences between adjacent cells: M = sum_{i=1}^{8} sum_{j=1}^{7} (|a_{i,j+1}-a_{i,j}| + |a_{j+1,i}-a_{j,i}|). Find the remainder when the maximum possible value of M is divided by 1000.",
+  "answer": "896",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "hard",
+  "category": "combinatorics",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "Max M = 3896 (remainder 896 mod 1000). Checkerboard pattern: {1..32} on dark squares, {33..64} on light squares. Optimal assignment: {31,32,33,34} in corners (weight 2), {19..30, 35..46} on edges (weight 3), {1..18, 47..64} in center (weight 4). M = \u03a3 weight * 2*|x-32.5| = 36*4*23 + 24*3*8 + 4*2*1 = 3312+576+8 = 3896. Verified by decomposition: each x contributes weight*|x-32.5| to M."
+}

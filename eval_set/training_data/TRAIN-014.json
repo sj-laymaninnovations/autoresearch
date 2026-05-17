@@ -1,0 +1,14 @@
+{
+  "id": "TRAIN-014",
+  "source": "AIME 2026 I, Problem 14",
+  "source_url": "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_14",
+  "problem_text": "In an equiangular pentagon, the sum of the squares of the side lengths equals S, and the sum of the squares of the diagonal lengths equals D. The square of the perimeter of the pentagon can be expressed as m*sqrt(n), where m and n are positive integers and n is not divisible by the square of any prime. Find m+n. [NOTE: specific values of S and D were stripped from AoPS paste; re-enter from official source]",
+  "answer": "NEEDS_HUMAN_ENTRY",
+  "answer_type": "integer",
+  "verification_method": "known_key",
+  "difficulty_estimate": "hard",
+  "category": "geometry",
+  "contamination_risk": "low",
+  "status": "needs_verification",
+  "notes": "All solutions conclude P^2 = k*sqrt(5) for some k, so n=5 (squarefree prime). Final answer = m+5 where P^2 = m*sqrt(5). Values of S (sum of side-length squares) and D (sum of diagonal-length squares) were stripped as LaTeX in the AoPS paste. Re-enter from official source to compute m."
+}

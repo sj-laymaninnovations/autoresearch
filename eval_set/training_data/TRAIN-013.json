@@ -1,0 +1,14 @@
+{
+  "id": "TRAIN-013",
+  "source": "AIME 2026 I, Problem 13",
+  "source_url": "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_13",
+  "problem_text": "NEEDS_HUMAN_ENTRY \u2014 LaTeX stripped the prime number p and the full formula for f_k (sum of binomial coefficients). Re-enter from AoPS page.",
+  "answer": "NEEDS_HUMAN_ENTRY",
+  "answer_type": "integer",
+  "verification_method": "known_key",
+  "difficulty_estimate": "hard",
+  "category": "number_theory",
+  "contamination_risk": "low",
+  "status": "needs_verification",
+  "notes": "Problem involves a specific prime p and f_k = sum of certain binomial coefficients mod p. Both solutions conclude f_k = C(p-1, k) reduced modulo p; f_k \u2261 (-1)^k (mod p). The count of k where p|f_k and the specific prime p were stripped in paste. Re-enter full problem from AoPS before computing answer."
+}
