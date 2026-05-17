@@ -1,0 +1,14 @@
+{
+  "id": "TRAIN-009",
+  "source": "AIME 2026 I, Problem 9",
+  "source_url": "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_9",
+  "problem_text": "Joanne has a blank fair six-sided die and six stickers each displaying a different integer from 1 to 6. Joanne rolls the die and then places the sticker labeled 1 on the top face of the die. She then rolls the die again, places the sticker labeled 2 on the top face, and continues this process to place the rest of the stickers in order. If the die ever lands with a sticker already on its top face, the new sticker is placed to cover the old sticker. Let p be the conditional probability that at the end of the process exactly one face has been left blank, given that all the even-numbered stickers are visible on faces of the die. Then p can be written as m/n, where m and n are relatively prime positive integers. Find m+n.",
+  "answer": "29",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "hard",
+  "category": "combinatorics",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "p = 9/20, m+n = 29. Verified by full enumeration: 6^6=46656 total outcomes, 14400 with all evens visible, 6480 with all evens visible AND exactly 1 blank face. 6480/14400 = 9/20. Key insight: odd stickers {1,3,5} can stack on each other; exactly one face must be doubly-occupied (odd under larger) for one blank to remain."
+}
