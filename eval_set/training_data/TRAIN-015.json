@@ -1,0 +1,14 @@
+{
+  "id": "TRAIN-015",
+  "source": "AIME 2026 I, Problem 15",
+  "source_url": "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_15",
+  "problem_text": "Let a, b, and n be positive integers with both a and b >= 2 and <= 2n. Define an a\u00d7b cell loop in a 2n\u00d72n grid to be the 2a+2b-4 cells surrounding an (a-2)\u00d7(b-2) rectangle. Find the number of ways to partition a 10\u00d710 grid into 5 cell loops so that every cell belongs to exactly one cell loop.",
+  "answer": "83",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "hard",
+  "category": "combinatorics",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "83. Catalan: 2*C_5 - 1 = 2*42 - 1 = 83. Casework: 27+2*(14+5+4+5)=83. Both verified. Note: naive geometric sequence 1,3,9,27,... fails; 81 is wrong."
+}
