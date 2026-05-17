@@ -1,0 +1,14 @@
+{
+  "id": "TRAIN-001",
+  "source": "AIME 2026 I, Problem 1",
+  "source_url": "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_1",
+  "problem_text": "Patrick started walking at a constant speed along a straight road from his school to the park. One hour after Patrick left, Tanya started running at a constant speed of 6 miles per hour faster than Patrick walked, following the same straight road from the school to the park. One hour after Tanya left, Jose started bicycling at a constant speed of 10 miles per hour faster than Tanya ran, following the same straight road from the school to the park. All three people arrived at the park at the same time. The distance from the school to the park is p/q miles, where p and q are relatively prime positive integers. Find p + q.",
+  "answer": "121",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "easy",
+  "category": "algebra",
+  "contamination_risk": "high",
+  "status": "verified",
+  "notes": "D=120 miles (120/1), p+q=121. Patrick v=24 mph for 5 hrs; Tanya 30 mph for 4 hrs; Jose 40 mph for 3 hrs. ALL VERIFIED BY SYMPY. CONTAMINATION WARNING: AoPS notes this problem is IDENTICAL to Purple Comet 2020 Middle School #8. May appear in any corpus containing Purple Comet."
+}

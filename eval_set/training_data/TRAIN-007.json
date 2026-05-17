@@ -1,0 +1,14 @@
+{
+  "id": "TRAIN-007",
+  "source": "AIME 2026 I, Problem 7",
+  "source_url": "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_7",
+  "problem_text": "Find the number of functions \u03c0 mapping the set A = {1,2,3,4,5,6} onto A such that for every a in A, \u03c0(\u03c0(\u03c0(\u03c0(\u03c0(\u03c0(a)))))) = a (i.e., the sixth iterate of \u03c0 is the identity).",
+  "answer": "396",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "hard",
+  "category": "combinatorics",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "Cycles must have lengths dividing 6 (1,2,3,6). Eight partition types: 120+40+15+1+40+15+45+120=396. Verified by brute-force enumeration of all 720 permutations of {1..6}."
+}

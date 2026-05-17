@@ -1,0 +1,14 @@
+{
+  "id": "TRAIN-005",
+  "source": "AIME 2026 I, Problem 5",
+  "source_url": "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_5",
+  "problem_text": "A plane contains points A and B with AB = 1. Point A is rotated in the plane counterclockwise through an acute angle \u03b8 around point B to a point A'. Point B is rotated through an angle of \u03b8 around point A' clockwise to a point B'. AB' = 4/3. If cos \u03b8 = m/n where m and n are relatively prime positive integers, find m+n.",
+  "answer": "65",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "medium",
+  "category": "geometry",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "A,B,A',B' form parallelogram with sides 1,1 and diagonals 4/3 and 1. cos \u03b8 = 29/36 via law of cosines on half-diagonal triangle. m+n=29+36=65. Verified by SymPy: (2-cos\u03b8)\u00b2+sin\u00b2\u03b8=(4/3)\u00b2 gives cos\u03b8=29/36."
+}

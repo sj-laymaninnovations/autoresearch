@@ -1,0 +1,14 @@
+{
+  "id": "TRAIN-006",
+  "source": "AIME 2026 I, Problem 6",
+  "source_url": "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_6",
+  "problem_text": "The product of all positive real numbers x satisfying the equation x^(log_{2026} x / 20) = 26x (i.e., the 20th root of x^(log_{2026} x) equals 26x) is an integer P. Find the number of positive integer divisors of P.",
+  "answer": "441",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "hard",
+  "category": "algebra",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "Let y = log_{2026}(x). Equation reduces to y^2 - 20y - 20*log_{2026}(26)=0. By Vieta's, y1+y2=20, so product of x values = 2026^20 = 2^20 * 1013^20. Divisors = (20+1)(20+1) = 441. Verified by SymPy (1013 is prime)."
+}

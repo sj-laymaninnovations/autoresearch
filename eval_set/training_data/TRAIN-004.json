@@ -1,0 +1,14 @@
+{
+  "id": "TRAIN-004",
+  "source": "AIME 2026 I, Problem 4",
+  "source_url": "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_4",
+  "problem_text": "Find the number of integers less than or equal to 100 that are equal to (a+1)(b+1) - 1 for some choice of distinct positive integers a and b.",
+  "answer": "70",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "medium",
+  "category": "number_theory",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "n+1 = (a+1)(b+1) must be expressible as product of two distinct integers >= 2. Invalid n+1 in [2,101]: 26 primes (2..101) + 4 prime squares (4,9,25,49) = 30. Answer = 100 - 30 = 70. Verified by exhaustive enumeration."
+}

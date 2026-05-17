@@ -1,44 +1,48 @@
 {
   "schema_version": "1",
   "generated": "2026-05-17",
-  "total_problems": 30,
-  "verified": 15,
-  "needs_verification": 15,
-  "by_source": {
-    "hand_authored": 15,
-    "aime_2026": 10,
-    "aime_2025": 5
+  "design": "AIME 2026 I \u2192 training_data/  |  AIME 2026 II + hand-authored \u2192 problems/ (held-out)",
+  "training": {
+    "total": 8,
+    "verified": 7,
+    "needs_verification": 1,
+    "by_source": {
+      "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_1": 1,
+      "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_2": 1,
+      "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_3": 1,
+      "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_4": 1,
+      "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_5": 1,
+      "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_6": 1,
+      "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_7": 1,
+      "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_8": 1
+    },
+    "by_category": {
+      "algebra": 2,
+      "combinatorics": 2,
+      "geometry": 2,
+      "number_theory": 2
+    },
+    "contamination_risk_high": [
+      "TRAIN-001"
+    ]
   },
-  "by_category": {
-    "NEEDS_HUMAN_ENTRY": 15,
-    "algebra": 4,
-    "number_theory": 4,
-    "geometry": 3,
-    "combinatorics": 2,
-    "word_problem": 2
+  "eval_held_out": {
+    "total": 30,
+    "verified": 15,
+    "needs_verification": 15,
+    "by_category": {
+      "NEEDS_HUMAN_ENTRY": 15,
+      "algebra": 4,
+      "number_theory": 4,
+      "geometry": 3,
+      "combinatorics": 2,
+      "word_problem": 2
+    }
   },
-  "by_difficulty": {
-    "medium": 22,
-    "easy": 5,
-    "hard": 3
-  },
-  "by_answer_type": {
-    "integer": 28,
-    "fraction": 1,
-    "expression": 1
-  },
-  "by_verification_method": {
-    "known_key": 15,
-    "exact_match": 12,
-    "sympy_equivalence": 3
-  },
-  "contamination_risk_distribution": {
-    "low": 30
-  },
+  "combined_verified": 22,
   "verification_tooling": {
-    "schema_validator": "verification/schema.py (Pydantic v2)",
-    "answer_verifier": "verification/verify_answer.py (SymPy + fraction + float + string)",
-    "contamination_checker": "verification/contamination_check.py (Jaccard TF, 4 corpora \u00d7 10K rows)",
-    "review_generator": "review/generate_review_prompts.py"
+    "schema": "verification/schema.py (Pydantic v2)",
+    "verifier": "verification/verify_answer.py (SymPy + fraction + numeric + string)",
+    "contamination": "verification/contamination_check.py (Jaccard, 4 corpora \u00d7 10K rows)"
   }
 }

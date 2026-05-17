@@ -1,0 +1,14 @@
+{
+  "id": "TRAIN-002",
+  "source": "AIME 2026 I, Problem 2",
+  "source_url": "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_2",
+  "problem_text": "Find the number of positive integer palindromes written in base 10, with no zero digits, and whose digits add up to 13. Recall that a palindrome is a number whose representation reads the same from left to right as from right to left.",
+  "answer": "62",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "medium",
+  "category": "combinatorics",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "Only odd-digit palindromes are possible (sum 13 odd). For each odd center digit c in {1,3,5,7,9}: 2^((13-c)/2-1) palindromes; plus 1 for c=13 (invalid, digit>9) and 1 for c=11 (invalid). Total = 64 - 2 = 62. Brute-force confirmed up to 15-digit palindromes."
+}

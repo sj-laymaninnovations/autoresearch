@@ -1,0 +1,14 @@
+{
+  "id": "TRAIN-008",
+  "source": "AIME 2026 I, Problem 8",
+  "source_url": "https://artofproblemsolving.com/wiki/index.php/2026_AIME_I_Problems/Problem_8",
+  "problem_text": "Let N be the number of positive integer divisors of 17017^17 that leave a remainder of 5 upon division by 12. Find the remainder when N is divided by 1000.",
+  "answer": "244",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "hard",
+  "category": "number_theory",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "17017 = 7*11*13*17. Divisors = 7^a * 11^b * 13^c * 17^d (0<=each<=17). Need \u22615 mod 12 \u2194 \u22611 mod 4 AND \u22612 mod 3. Conditions: a+b even AND b+d odd. For each b: 9 choices for a, 9 for d. 18 free choices for c. N = 18*18*9*9 = 26244. 26244 mod 1000 = 244. Verified by full enumeration."
+}
