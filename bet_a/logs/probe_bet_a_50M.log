@@ -1,0 +1,26 @@
+﻿loaded 49.90M params  (10L x 10H x 640d)
+
+---
+PROBLEM: When optimizing ARM64 NEON code for performance, what is the difference in benefit between in-order cores like Cortex-A53 and out-of-order cores like Cortex-A72?
+COMPLETION:
+In ARM64 CPU NEON processing the processes in pixels in parallel, the code can be accessed and pixel interpreted and a pixel of the pixel interpretions and reduce the number of a pixel instruction. The results the original of a pixel and reduces the operation size of the data interpreted before executions, which is reduces benefit. By leading the NEON implementation and also a single compact of an
+
+---
+PROBLEM: Why is the ARM64 SVE2 SDOT instruction well-suited for 4-tap or 8-tap convolution filters in video codecs?
+COMPLETION:
+Using ARM64 SON instructions that allows the subtrack of the ARM64 SIMD SIMD can processes to perform a completed in parallel. The two replace the number of loads to path and size of a parallel into a single stored in packing, eliminating the need for each lines to state in a single load the SIMD registers. This leads the SIMD registers that and allows the vector to read processes the are of memor
+
+---
+PROBLEM: What is the performance cost of partial-register lane writes in ARM64 NEON code on out-of-order cores, and how can it be mitigated?
+COMPLETION:
+Using a single instruction can be maked the compiler be used in the NEON interleave and the processes multiple pixels in parallel, which is reduces the number of memory and avoids a single size of memory accesses. The reduces the number of memory optimized and allows the optimized to a single size, ensuring that the deblock on a single constant size or be encodeded. This approach reduces instructi
+
+---
+PROBLEM: When should you prefer a rounded right-shift instruction over a manual rounding constant added before a plain right-shift in ARM64 NEON?
+COMPLETION:
+When a function is entry purposed by entry an exit pointer is a state and the preserved before the interrupt and the accurate and preserved by passing the architecture, ensuring that an exception the are post. This approach allows the correct to the address the addresses and instruction and execution correctly and improving the correct or a preserved before the extra preection. This practice is el
+
+---
+PROBLEM: How can a function safely perform multiple independent stack allocations on x86-64 without manual offset bookkeeping?
+COMPLETION:
+When a function is exploce, the can be used by call to the currently be allocating the code to be used for each the processed bytes of the cut be aligned by the pass. This eliminates the need to be aligned a separate and the processors the current address the code that all all already and the code stack pointers and allows the code to be aligned to be pointer to the stack pointer and easier to the
