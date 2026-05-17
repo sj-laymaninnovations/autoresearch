@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-030",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "Workers A, B, and C together complete a job in 4 days. A and B together take 6 days, and B and C together take 9 days. If A working alone takes p/q days (in lowest terms), find p + q.",
+  "answer": "41",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "hard",
+  "category": "word_problem",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "1/A=1/4-1/9=5/36 \u2192 A=36/5 days. p+q=36+5=41."
+}

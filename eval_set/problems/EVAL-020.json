@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-020",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "A quadratic f(x) = ax^2 + bx + c satisfies f(1) = 6, f(-1) = 2, and f(2) = 11. Find f(3).",
+  "answer": "18",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "easy",
+  "category": "algebra",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "System: a=1, b=2, c=3. f(3)=9+6+3=18."
+}

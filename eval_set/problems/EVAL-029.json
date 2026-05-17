@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-029",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "A store sells apples for $0.60 each and oranges for $0.90 each. Sarah spends exactly $9.00 buying a total of 13 fruits. How many apples did she buy?",
+  "answer": "9",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "easy",
+  "category": "word_problem",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "System: 0.6a+0.9o=9, a+o=13. Solving: a=9, o=4."
+}

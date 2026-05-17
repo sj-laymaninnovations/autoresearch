@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-023",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "Two circles with radii 12 and 5 are externally tangent to each other. A common external tangent is drawn touching both circles. Find the length of the segment of the tangent between the two tangent points. Express your answer in simplest radical form.",
+  "answer": "4*sqrt(15)",
+  "answer_type": "expression",
+  "verification_method": "sympy_equivalence",
+  "difficulty_estimate": "hard",
+  "category": "geometry",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "d=17, tangent length=sqrt(d^2-(r1-r2)^2)=sqrt(289-49)=sqrt(240)=4\u221a15."
+}

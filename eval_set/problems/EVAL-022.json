@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-022",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "A regular hexagon has area 54\u221a3. What is its perimeter?",
+  "answer": "36",
+  "answer_type": "integer",
+  "verification_method": "sympy_equivalence",
+  "difficulty_estimate": "medium",
+  "category": "geometry",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "Area=(3\u221a3/2)s^2=54\u221a3 \u2192 s=6 \u2192 perimeter=36."
+}

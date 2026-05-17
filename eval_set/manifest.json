@@ -1,0 +1,44 @@
+{
+  "schema_version": "1",
+  "generated": "2026-05-17",
+  "total_problems": 30,
+  "verified": 15,
+  "needs_verification": 15,
+  "by_source": {
+    "hand_authored": 15,
+    "aime_2026": 10,
+    "aime_2025": 5
+  },
+  "by_category": {
+    "NEEDS_HUMAN_ENTRY": 15,
+    "algebra": 4,
+    "number_theory": 4,
+    "geometry": 3,
+    "combinatorics": 2,
+    "word_problem": 2
+  },
+  "by_difficulty": {
+    "medium": 22,
+    "easy": 5,
+    "hard": 3
+  },
+  "by_answer_type": {
+    "integer": 28,
+    "fraction": 1,
+    "expression": 1
+  },
+  "by_verification_method": {
+    "known_key": 15,
+    "exact_match": 12,
+    "sympy_equivalence": 3
+  },
+  "contamination_risk_distribution": {
+    "low": 30
+  },
+  "verification_tooling": {
+    "schema_validator": "verification/schema.py (Pydantic v2)",
+    "answer_verifier": "verification/verify_answer.py (SymPy + fraction + float + string)",
+    "contamination_checker": "verification/contamination_check.py (Jaccard TF, 4 corpora \u00d7 10K rows)",
+    "review_generator": "review/generate_review_prompts.py"
+  }
+}

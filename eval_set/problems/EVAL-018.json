@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-018",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "Positive integers a and b satisfy a + b = 100 and lcm(a, b) = 495. Find the product a\u00b7b.",
+  "answer": "2475",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "medium",
+  "category": "number_theory",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "gcd=5, a=55, b=45. a*b=lcm*gcd=495*5=2475."
+}

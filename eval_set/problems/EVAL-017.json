@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-017",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "|3x - 7| = 2x + 1. Find the sum of all solutions x satisfying the equation.",
+  "answer": "46/5",
+  "answer_type": "fraction",
+  "verification_method": "sympy_equivalence",
+  "difficulty_estimate": "medium",
+  "category": "algebra",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "Solutions x=8 and x=6/5; both satisfy original equation. Sum = 46/5."
+}

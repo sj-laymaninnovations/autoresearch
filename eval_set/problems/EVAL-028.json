@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-028",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "A fair coin is flipped 8 times. The probability of getting exactly 3 heads is p/q in lowest terms. Find p + q.",
+  "answer": "39",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "medium",
+  "category": "combinatorics",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "P=C(8,3)/256=56/256=7/32. p+q=7+32=39."
+}

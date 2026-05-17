@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-024",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "Find the number of positive divisors of the integer 2^4 \u00b7 3^2 \u00b7 5.",
+  "answer": "30",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "easy",
+  "category": "number_theory",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "\u03c4 = (4+1)(2+1)(1+1) = 30."
+}

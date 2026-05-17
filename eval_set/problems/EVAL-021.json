@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-021",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "A right triangle has legs of length 9 and 12. What is the radius of the inscribed circle?",
+  "answer": "3",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "easy",
+  "category": "geometry",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "Hypotenuse=15. Inradius r=(a+b-c)/2=(9+12-15)/2=3."
+}

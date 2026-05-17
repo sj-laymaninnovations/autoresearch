@@ -1,0 +1,14 @@
+{
+  "source_url": null,
+  "problem_text": "NEEDS_HUMAN_ENTRY \u2014 paste official problem text here",
+  "answer": "NEEDS_HUMAN_ENTRY",
+  "answer_type": "integer",
+  "verification_method": "known_key",
+  "difficulty_estimate": "medium",
+  "category": "NEEDS_HUMAN_ENTRY",
+  "contamination_risk": "low",
+  "status": "needs_verification",
+  "notes": "AIME problems: answer is an integer in [0, 999]. Populate problem_text and answer from the official MAA answer key. Set status to verified once confirmed.",
+  "id": "EVAL-014",
+  "source": "AIME 2025 I, Problem 11"
+}

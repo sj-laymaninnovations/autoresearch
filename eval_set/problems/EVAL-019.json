@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-019",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "The quadratic x^2 - (k+4)x + 4k has two distinct positive integer roots for integer k with 1 \u2264 k \u2264 10 and k \u2260 4. Find the sum of all such valid values of k.",
+  "answer": "51",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "medium",
+  "category": "algebra",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "Roots are always 4 and k. Sum of k in {1..10}\\{4} = 55-4=51."
+}

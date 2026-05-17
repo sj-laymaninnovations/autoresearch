@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-026",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "How many integers n with 1 \u2264 n \u2264 1000 have gcd(n, 1000) > 4?",
+  "answer": "300",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "hard",
+  "category": "number_theory",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "gcd\u2208{1}\u2192400, {2}\u2192200, {4}\u2192100 do NOT satisfy. 1000-700=300 satisfy."
+}

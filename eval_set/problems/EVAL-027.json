@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-027",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "How many 4-digit positive integers (from 1000 to 9999) have digits that sum to exactly 10?",
+  "answer": "219",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "medium",
+  "category": "combinatorics",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "Stars-and-bars with d1\u2208{1..9}: C(12,3)-1 = 220-1 = 219. Verified by exhaustive count."
+}

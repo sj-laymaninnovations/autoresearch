@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-016",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "A rectangle has perimeter 48 and area 128. What is the length of the longer side?",
+  "answer": "16",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "easy",
+  "category": "algebra",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "Roots of t^2 - 24t + 128 = 0 are 16 and 8. Verified by SymPy."
+}

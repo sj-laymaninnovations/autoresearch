@@ -1,0 +1,14 @@
+{
+  "id": "EVAL-025",
+  "source": "Hand-authored",
+  "source_url": null,
+  "problem_text": "Find the remainder when 7^100 is divided by 50.",
+  "answer": "1",
+  "answer_type": "integer",
+  "verification_method": "exact_match",
+  "difficulty_estimate": "medium",
+  "category": "number_theory",
+  "contamination_risk": "low",
+  "status": "verified",
+  "notes": "\u03c6(50)=20; 7^20\u22611 (mod 50) by Euler's theorem; 100=5\u00b720 so 7^100\u22611."
+}
