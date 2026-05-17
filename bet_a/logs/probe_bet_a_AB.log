@@ -1,0 +1,50 @@
+﻿
+========================================================================
+  CHECKPOINT: B-25M
+========================================================================
+  25.77M params, 8L x 8H x 512d, seq_len=1024
+---
+PROBLEM: When optimizing ARM64 NEON code for performance, what is the difference in benefit between in-order cores like Cortex-A53 and out-of-order cores like Cortex-A72?
+COMPLETION:
+The kernel uses a specific often ARM64 kernel code multiple ARM64 CPU (ENEON) instructions and are parallel, which is a single software that is register (EON) and are pointer access. In the benchmark of the processor on a first of the standard are parallel, the stack is of the same register in a single parameter for the standard and are offset. The result is a single path interface of the kernel c
+---
+PROBLEM: Why is the ARM64 SVE2 SDOT instruction well-suited for 4-tap or 8-tap convolution filters in video codecs?
+COMPLETION:
+ARM64 NEON processes the and a single more efficient performance operations and memory more efficiently uses of the processor modern modern and and all extra processing. This commit instruction that allows the same of a single performance operations, and improving parallel functions and improves performance. By reducing the NEON version of the same register instruction count and more efficient or 
+---
+PROBLEM: What is the performance cost of partial-register lane writes in ARM64 NEON code on out-of-order cores, and how can it be mitigated?
+COMPLETION:
+ARM64, the NEON implementation can process more efficient path and explicitly levels in parallel, which is a single block of memory accesses the need for more efficient of scalar CPUs. In this can be speedup of the NEON implementation of the same register of the same of data in a single instruction, which reduces memory accesses and avoids and avoid of the standard and and improve paths. This demo
+---
+PROBLEM: When should you prefer a rounded right-shift instruction over a manual rounding constant added before a plain right-shift in ARM64 NEON?
+COMPLETION:
+When a page is a constant of the MMU is introduced and ensures that are normally of the start of the start are not pointer and ensured to a state of the state is not correctly are or may be instruction. By moving the modern map the instruction can be accessed to a single state instruction and ensures that the same register are pointer and ensures that are correctly are or correctly or addressed in
+---
+PROBLEM: How can a function safely perform multiple independent stack allocations on x86-64 without manual offset bookkeeping?
+COMPLETION:
+The compiler compare to process the stack for a function can be used to the routine compute that the number of a single stored in a single store of the stack in a single performance of the stack. In this case, the compiler to multiple of the filter instruction and and each function can be overhead of the stack in a single parameter, especially of the code can be adding only a single instruction an
+
+========================================================================
+  CHECKPOINT: v3-balanced
+========================================================================
+  5.02M params, 6L x 8H x 256d, seq_len=1024
+---
+PROBLEM: When optimizing ARM64 NEON code for performance, what is the difference in benefit between in-order cores like Cortex-A53 and out-of-order cores like Cortex-A72?
+COMPLETION:
+Using ARM64 NEON instructions can process multiple multiple multiple extra instructions can process multiple memory accesses a reduces in the parallel. This reduces the number of cycles and reduces the number of cycles and reduces lative registers and lowerks on a registers at throughly and improving throughput. In this chmange, the benchmark show the SIMD implementation of reduces in CPU, which i
+---
+PROBLEM: Why is the ARM64 SVE2 SDOT instruction well-suited for 4-tap or 8-tap convolution filters in video codecs?
+COMPLETION:
+Using 16bit NEON instructions can process multiple pixels SIMD parallelism, processing multiple pixels simultaneously with vector instructions. The reduces the number of cycle needed for scalar on avoids of data more peration, leading the number of later sized pointer locality. In the benchmark, the the SIMD runs instruction of run betwen processs multiple can pixels, leading the function a small
+---
+PROBLEM: What is the performance cost of partial-register lane writes in ARM64 NEON code on out-of-order cores, and how can it be mitigated?
+COMPLETION:
+By routing parallel sumbly per stored of parallel standard larges, the compiler can pixels into with the registers and presserve register stack with the loading a 16bit values into registers and the need for a single bit processed on the same layout the of a packed in a single instruction. This eliminates the need to a single of performance operations and can be register and the correct stack at 
+---
+PROBLEM: When should you prefer a rounded right-shift instruction over a manual rounding constant added before a plain right-shift in ARM64 NEON?
+COMPLETION:
+When a function is set interface is the argument set that the caller are allows the are allows the code to registers and the stack a previousld before the code standary addresss and registers stack and the code stack in the callersaved register. This convention is allows the context stack and allows the kernel to the context state and allows the common is the code state and allows the context sta
+---
+PROBLEM: How can a function safely perform multiple independent stack allocations on x86-64 without manual offset bookkeeping?
+COMPLETION:
+ARM64 NEON can transpose the stack from the function remplace stack to replace accesses a function registers and the stack to read to the stack pointer. This calleer removes the compiler and aligned reduces the registers and reduces the context stack and page stack of a filter from the stack pointer. This approach also allows the code function to the stack prevents and caller page the registers an
