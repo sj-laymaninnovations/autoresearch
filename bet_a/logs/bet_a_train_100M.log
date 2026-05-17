@@ -1,0 +1,180 @@
+[2026-05-17 07:42:27] === Bet A ~100M (12Lx12Hx768d, 85.84M) on v2 corpus (3090) ===
+C:\Users\seanj\AppData\Roaming\Python\Python312\site-packages\mlflow\tracking\_tracking_service\utils.py:178: FutureWarning: The filesystem tracking backend (e.g., './mlruns') will be deprecated in February 2026. Consider transitioning to a database backend (e.g., 'sqlite:///mlflow.db') to take advantage of the latest MLflow features. See https://github.com/mlflow/mlflow/issues/18534 for more details and migration guidance. For migrating existing data, https://github.com/mlflow/mlflow-export-import can be used.
+  return FileStore(store_uri, store_uri)
+
+============================================================
+  MathGPT Fine-Tuning
+============================================================
+  Device : cuda  (NVIDIA GeForce RTX 3090)
+  dtype  : torch.bfloat16
+  Data   : F:/projects/autoresearch/bet_a/training_data/bet_a_asm_v2_train.jsonl
+  Pairs  : 1087 train / 119 val  (external val)
+  Params : 85,840,896  (85.84M)
+  Config : n_layer=12 n_head=12 n_embd=768 seq=1024
+
+------------------------------------------------------------
+  Training 100 epochs  |  34 steps/epoch  |  batch=32
+  MLflow run: 47c563e196a94d54819285865f7209b8 @ file:F:\projects\autoresearch\mlruns
+------------------------------------------------------------
+  [2026-05-17 07:43:02] epoch 001/100  train=3.9332  val=3.3853  lr=1.98e-05  18.1s  * BEST
+  [2026-05-17 07:43:21] epoch 002/100  train=3.2457  val=3.0717  lr=4.02e-05  17.4s  * BEST
+  [2026-05-17 07:43:39] epoch 003/100  train=3.0357  val=2.9708  lr=6.06e-05  17.6s  * BEST
+  [2026-05-17 07:43:57] epoch 004/100  train=2.9732  val=2.9509  lr=8.10e-05  17.7s  * BEST
+  [2026-05-17 07:44:16] epoch 005/100  train=2.9518  val=2.9370  lr=1.01e-04  17.8s  * BEST
+  [2026-05-17 07:44:16] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0005.pt
+  [2026-05-17 07:44:35] epoch 006/100  train=2.9361  val=2.9278  lr=1.22e-04  17.9s  * BEST
+  [2026-05-17 07:44:54] epoch 007/100  train=2.9242  val=2.9231  lr=1.42e-04  17.9s  * BEST
+  [2026-05-17 07:45:13] epoch 008/100  train=2.9088  val=2.9148  lr=1.63e-04  17.9s  * BEST
+  [2026-05-17 07:45:31] epoch 009/100  train=2.8962  val=2.9055  lr=1.83e-04  17.9s  * BEST
+  [2026-05-17 07:45:50] epoch 010/100  train=2.8850  val=2.9010  lr=2.03e-04  18.0s  * BEST
+  [2026-05-17 07:45:50] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0010.pt
+  [2026-05-17 07:45:50] exact_match probe: 0.0% (16 samples)
+  [2026-05-17 07:46:22] epoch 011/100  train=2.8727  val=2.8914  lr=2.24e-04  18.0s  * BEST
+  [2026-05-17 07:46:41] epoch 012/100  train=2.8588  val=2.8866  lr=2.44e-04  18.0s  * BEST
+  [2026-05-17 07:47:00] epoch 013/100  train=2.8430  val=2.8798  lr=2.65e-04  18.0s  * BEST
+  [2026-05-17 07:47:19] epoch 014/100  train=2.8234  val=2.8639  lr=2.85e-04  18.0s  * BEST
+  [2026-05-17 07:47:37] epoch 015/100  train=2.7991  val=2.8424  lr=3.00e-04  18.0s  * BEST
+  [2026-05-17 07:47:37] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0015.pt
+  [2026-05-17 07:47:57] epoch 016/100  train=2.7696  val=2.8113  lr=3.00e-04  18.0s  * BEST
+  [2026-05-17 07:48:16] epoch 017/100  train=2.7227  val=2.7347  lr=3.00e-04  18.0s  * BEST
+  [2026-05-17 07:48:35] epoch 018/100  train=2.6333  val=2.6265  lr=2.99e-04  18.0s  * BEST
+  [2026-05-17 07:48:53] epoch 019/100  train=2.5280  val=2.5170  lr=2.98e-04  18.0s  * BEST
+  [2026-05-17 07:49:12] epoch 020/100  train=2.4280  val=2.4168  lr=2.97e-04  18.0s  * BEST
+  [2026-05-17 07:49:12] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0020.pt
+  [2026-05-17 07:49:12] exact_match probe: 0.0% (16 samples)
+  [2026-05-17 07:49:44] epoch 021/100  train=2.3284  val=2.3256  lr=2.96e-04  18.0s  * BEST
+  [2026-05-17 07:50:03] epoch 022/100  train=2.2388  val=2.2531  lr=2.95e-04  18.0s  * BEST
+  [2026-05-17 07:50:22] epoch 023/100  train=2.1554  val=2.1820  lr=2.94e-04  18.0s  * BEST
+  [2026-05-17 07:50:41] epoch 024/100  train=2.0828  val=2.1278  lr=2.92e-04  18.0s  * BEST
+  [2026-05-17 07:51:03] epoch 025/100  train=2.0184  val=2.0747  lr=2.90e-04  21.5s  * BEST
+  [2026-05-17 07:51:03] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0025.pt
+  [2026-05-17 07:51:22] epoch 026/100  train=1.9563  val=2.0335  lr=2.89e-04  18.0s  * BEST
+  [2026-05-17 07:51:42] epoch 027/100  train=1.9043  val=2.0047  lr=2.86e-04  19.0s  * BEST
+  [2026-05-17 07:52:26] epoch 028/100  train=1.8599  val=1.9707  lr=2.84e-04  42.7s  * BEST
+  [2026-05-17 07:53:03] epoch 029/100  train=1.8127  val=1.9642  lr=2.82e-04  36.0s  * BEST
+  [2026-05-17 07:53:21] epoch 030/100  train=1.7766  val=1.9402  lr=2.79e-04  18.0s  * BEST
+  [2026-05-17 07:53:21] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0030.pt
+  [2026-05-17 07:53:21] exact_match probe: 0.0% (16 samples)
+  [2026-05-17 07:53:54] epoch 031/100  train=1.7386  val=1.9263  lr=2.76e-04  18.0s  * BEST
+  [2026-05-17 07:54:12] epoch 032/100  train=1.7070  val=1.9281  lr=2.74e-04  18.0s  
+  [2026-05-17 07:54:30] epoch 033/100  train=1.6776  val=1.9106  lr=2.71e-04  18.0s  * BEST
+  [2026-05-17 07:54:48] epoch 034/100  train=1.6456  val=1.9160  lr=2.67e-04  18.0s  
+  [2026-05-17 07:55:06] epoch 035/100  train=1.6153  val=1.9133  lr=2.64e-04  18.0s  
+  [2026-05-17 07:55:06] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0035.pt
+  [2026-05-17 07:55:25] epoch 036/100  train=1.5878  val=1.9148  lr=2.61e-04  18.0s  
+  [2026-05-17 07:55:43] epoch 037/100  train=1.5646  val=1.9148  lr=2.57e-04  18.0s  
+  [2026-05-17 07:56:02] epoch 038/100  train=1.5345  val=1.9075  lr=2.53e-04  18.0s  * BEST
+  [2026-05-17 07:56:20] epoch 039/100  train=1.5111  val=1.9187  lr=2.50e-04  18.0s  
+  [2026-05-17 07:56:38] epoch 040/100  train=1.4864  val=1.9150  lr=2.46e-04  18.0s  
+  [2026-05-17 07:56:38] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0040.pt
+  [2026-05-17 07:56:38] exact_match probe: 0.0% (16 samples)
+  [2026-05-17 07:57:09] epoch 041/100  train=1.4621  val=1.9364  lr=2.42e-04  18.0s  
+  [2026-05-17 07:57:27] epoch 042/100  train=1.4362  val=1.9488  lr=2.37e-04  18.0s  
+  [2026-05-17 07:57:45] epoch 043/100  train=1.4133  val=1.9531  lr=2.33e-04  18.0s  
+  [2026-05-17 07:58:04] epoch 044/100  train=1.3875  val=1.9629  lr=2.29e-04  18.0s  
+  [2026-05-17 07:58:22] epoch 045/100  train=1.3652  val=1.9705  lr=2.24e-04  18.0s  
+  [2026-05-17 07:58:22] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0045.pt
+  [2026-05-17 07:58:40] epoch 046/100  train=1.3428  val=1.9870  lr=2.20e-04  18.0s  
+  [2026-05-17 07:58:58] epoch 047/100  train=1.3227  val=1.9841  lr=2.15e-04  18.0s  
+  [2026-05-17 07:59:16] epoch 048/100  train=1.2988  val=2.0056  lr=2.11e-04  18.0s  
+  [2026-05-17 07:59:34] epoch 049/100  train=1.2792  val=2.0215  lr=2.06e-04  18.0s  
+  [2026-05-17 07:59:53] epoch 050/100  train=1.2600  val=2.0142  lr=2.01e-04  18.0s  
+  [2026-05-17 07:59:53] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0050.pt
+  [2026-05-17 07:59:53] exact_match probe: 0.0% (16 samples)
+  [2026-05-17 08:00:24] epoch 051/100  train=1.2376  val=2.0468  lr=1.96e-04  18.0s  
+  [2026-05-17 08:00:42] epoch 052/100  train=1.2202  val=2.0540  lr=1.92e-04  18.0s  
+  [2026-05-17 08:01:00] epoch 053/100  train=1.2018  val=2.0712  lr=1.87e-04  18.0s  
+  [2026-05-17 08:01:18] epoch 054/100  train=1.1833  val=2.0733  lr=1.82e-04  18.0s  
+  [2026-05-17 08:01:36] epoch 055/100  train=1.1656  val=2.1092  lr=1.77e-04  18.0s  
+  [2026-05-17 08:01:36] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0055.pt
+  [2026-05-17 08:01:55] epoch 056/100  train=1.1489  val=2.0895  lr=1.72e-04  18.0s  
+  [2026-05-17 08:02:13] epoch 057/100  train=1.1331  val=2.1155  lr=1.67e-04  18.0s  
+  [2026-05-17 08:02:31] epoch 058/100  train=1.1178  val=2.1341  lr=1.62e-04  18.0s  
+  [2026-05-17 08:02:49] epoch 059/100  train=1.1036  val=2.1522  lr=1.57e-04  18.0s  
+  [2026-05-17 08:03:07] epoch 060/100  train=1.0895  val=2.1674  lr=1.52e-04  18.1s  
+  [2026-05-17 08:03:07] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0060.pt
+  [2026-05-17 08:03:07] exact_match probe: 0.0% (16 samples)
+  [2026-05-17 08:03:39] epoch 061/100  train=1.0748  val=2.1866  lr=1.47e-04  18.0s  
+  [2026-05-17 08:03:57] epoch 062/100  train=1.0622  val=2.1774  lr=1.42e-04  18.0s  
+  [2026-05-17 08:04:15] epoch 063/100  train=1.0498  val=2.1901  lr=1.37e-04  18.0s  
+  [2026-05-17 08:04:33] epoch 064/100  train=1.0385  val=2.1908  lr=1.32e-04  18.0s  
+  [2026-05-17 08:04:51] epoch 065/100  train=1.0274  val=2.2164  lr=1.28e-04  18.0s  
+  [2026-05-17 08:04:51] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0065.pt
+  [2026-05-17 08:05:10] epoch 066/100  train=1.0187  val=2.2032  lr=1.23e-04  18.0s  
+  [2026-05-17 08:05:28] epoch 067/100  train=1.0071  val=2.2327  lr=1.18e-04  18.0s  
+  [2026-05-17 08:05:46] epoch 068/100  train=0.9980  val=2.2426  lr=1.14e-04  18.0s  
+  [2026-05-17 08:06:04] epoch 069/100  train=0.9892  val=2.2446  lr=1.09e-04  18.0s  
+  [2026-05-17 08:06:22] epoch 070/100  train=0.9792  val=2.2603  lr=1.04e-04  18.1s  
+  [2026-05-17 08:06:22] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0070.pt
+  [2026-05-17 08:06:22] exact_match probe: 0.0% (16 samples)
+  [2026-05-17 08:06:53] epoch 071/100  train=0.9709  val=2.2772  lr=1.00e-04  18.0s  
+  [2026-05-17 08:07:11] epoch 072/100  train=0.9655  val=2.2871  lr=9.58e-05  18.0s  
+  [2026-05-17 08:07:29] epoch 073/100  train=0.9579  val=2.2698  lr=9.16e-05  18.0s  
+  [2026-05-17 08:07:48] epoch 074/100  train=0.9504  val=2.2784  lr=8.74e-05  18.0s  
+  [2026-05-17 08:08:06] epoch 075/100  train=0.9445  val=2.2903  lr=8.34e-05  18.0s  
+  [2026-05-17 08:08:06] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0075.pt
+  [2026-05-17 08:08:24] epoch 076/100  train=0.9379  val=2.3043  lr=7.95e-05  18.0s  
+  [2026-05-17 08:08:42] epoch 077/100  train=0.9330  val=2.3030  lr=7.57e-05  18.0s  
+  [2026-05-17 08:09:00] epoch 078/100  train=0.9256  val=2.3117  lr=7.21e-05  18.0s  
+  [2026-05-17 08:09:18] epoch 079/100  train=0.9228  val=2.3302  lr=6.85e-05  18.0s  
+  [2026-05-17 08:09:37] epoch 080/100  train=0.9169  val=2.3160  lr=6.51e-05  18.0s  
+  [2026-05-17 08:09:37] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0080.pt
+  [2026-05-17 08:09:37] exact_match probe: 0.0% (16 samples)
+  [2026-05-17 08:10:08] epoch 081/100  train=0.9122  val=2.3237  lr=6.18e-05  18.0s  
+  [2026-05-17 08:10:26] epoch 082/100  train=0.9076  val=2.3279  lr=5.87e-05  18.0s  
+  [2026-05-17 08:10:44] epoch 083/100  train=0.9037  val=2.3415  lr=5.57e-05  18.0s  
+  [2026-05-17 08:11:02] epoch 084/100  train=0.9005  val=2.3422  lr=5.29e-05  18.0s  
+  [2026-05-17 08:11:20] epoch 085/100  train=0.8947  val=2.3403  lr=5.02e-05  18.0s  
+  [2026-05-17 08:11:20] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0085.pt
+  [2026-05-17 08:11:39] epoch 086/100  train=0.8930  val=2.3478  lr=4.76e-05  18.0s  
+  [2026-05-17 08:11:57] epoch 087/100  train=0.8897  val=2.3508  lr=4.52e-05  18.0s  
+  [2026-05-17 08:12:15] epoch 088/100  train=0.8872  val=2.3587  lr=4.30e-05  18.0s  
+  [2026-05-17 08:12:33] epoch 089/100  train=0.8835  val=2.3579  lr=4.10e-05  18.0s  
+  [2026-05-17 08:12:51] epoch 090/100  train=0.8812  val=2.3571  lr=3.91e-05  18.0s  
+  [2026-05-17 08:12:51] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0090.pt
+  [2026-05-17 08:12:51] exact_match probe: 0.0% (16 samples)
+  [2026-05-17 08:13:22] epoch 091/100  train=0.8788  val=2.3632  lr=3.74e-05  18.0s  
+  [2026-05-17 08:13:40] epoch 092/100  train=0.8765  val=2.3655  lr=3.59e-05  18.0s  
+  [2026-05-17 08:13:58] epoch 093/100  train=0.8753  val=2.3673  lr=3.45e-05  18.0s  
+  [2026-05-17 08:14:16] epoch 094/100  train=0.8734  val=2.3675  lr=3.33e-05  18.0s  
+  [2026-05-17 08:14:34] epoch 095/100  train=0.8712  val=2.3673  lr=3.23e-05  18.0s  
+  [2026-05-17 08:14:34] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0095.pt
+  [2026-05-17 08:14:53] epoch 096/100  train=0.8699  val=2.3763  lr=3.15e-05  18.0s  
+  [2026-05-17 08:15:11] epoch 097/100  train=0.8685  val=2.3785  lr=3.08e-05  18.0s  
+  [2026-05-17 08:15:29] epoch 098/100  train=0.8679  val=2.3747  lr=3.04e-05  18.0s  
+  [2026-05-17 08:15:47] epoch 099/100  train=0.8667  val=2.3785  lr=3.01e-05  18.0s  
+  [2026-05-17 08:16:05] epoch 100/100  train=0.8651  val=2.3812  lr=3.00e-05  18.0s  
+  [2026-05-17 08:16:05] Saved checkpoint -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char\epoch_0100.pt
+  [2026-05-17 08:16:05] exact_match probe: 0.0% (16 samples)
+
+============================================================
+  [2026-05-17 08:16:20] Training complete
+  Best val loss : 1.9075
+  Checkpoints  -> F:\projects\autoresearch\bet_a\checkpoints\v2_100M_12x12_768_char
+============================================================
+  MLflow run logged.
+
+  Sample generations (best checkpoint):
+------------------------------------------------------------
+Traceback (most recent call last):
+  File "F:\projects\autoresearch\math_lab\finetune.py", line 960, in <module>
+    main()
+  File "F:\projects\autoresearch\math_lab\finetune.py", line 937, in main
+    best_model, _ = load_checkpoint(CKPT_DIR / "best.pt", device)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\projects\autoresearch\math_lab\finetune.py", line 358, in load_checkpoint
+    ckpt = torch.load(path, map_location=device, weights_only=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\seanj\AppData\Roaming\Python\Python312\site-packages\torch\serialization.py", line 1425, in load
+    with _open_file_like(f, "rb") as opened_file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\seanj\AppData\Roaming\Python\Python312\site-packages\torch\serialization.py", line 751, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\seanj\AppData\Roaming\Python\Python312\site-packages\torch\serialization.py", line 732, in __init__
+    super().__init__(open(name, mode))
+                     ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'F:\\projects\\autoresearch\\math_lab\\results\\checkpoints\\best.pt'
+[2026-05-17 08:16:20] training rc=1
+[2026-05-17 08:16:20] snapshot: best.pt -> F:/projects/autoresearch/bet_a/artifacts/bet_a_v2_100M_12x12_768_char.pt
+[2026-05-17 08:16:20] === finished ===

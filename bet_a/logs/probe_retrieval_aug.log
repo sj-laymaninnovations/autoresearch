@@ -1,0 +1,76 @@
+﻿[Retriever] indexed 1206 docs (8000 TF-IDF features)
+
+========================================================================
+  MODEL: v2-5M
+========================================================================
+  5.0M params
+
+--- Q: When optimizing ARM64 NEON code for performance, what is the difference in benef...
+  BARE:  'Using a ARM64 instruction a single the stack instruction and a single stack in a single size instruction and registers the stack at are passed in the stack are are passed in a passed in a singled one '
+  +RAG:  'RELEVANT CONTEXT:\nQ: What scheduling technique can reduce latency on in-order ARM cores like the Cortex A53 when computing block-wise SAD operations?\nA: The commit improves instruction scheduling for '
+
+--- Q: Why is the ARM64 SVE2 SDOT instruction well-suited for 4-tap or 8-tap convolutio...
+  BARE:  'When a single instruction a single instruction and a single instruction and size and registers that the stack and register and registers and the stack address the stack as a single stack. This reduces'
+  +RAG:  'RELEVANT CONTEXT:\nQ: What advantage does the 4element 16bit SDOT instruction of SVE2 provide for convolution filters?\nA: The 4element 16bit SDOT instruction allows the processor to perform four signed'
+
+--- Q: What is the performance cost of partial-register lane writes in ARM64 NEON code ...
+  BARE:  'When a stack is a single instruction a stack in a stack interface the stack in a single the stack in a single a stack in a stack at the stack interrupt and the stack interrupt and the stack in a stack'
+  +RAG:  'RELEVANT CONTEXT:\nQ: How can partial register writes lead to performance degradation on outoforder ARM64 CPUs, and what strategy can mitigate this issue in vectorized code?\nA: Partial register writes '
+
+--- Q: When should you prefer a rounded right-shift instruction over a manual rounding ...
+  BARE:  'When a single instruction a single instruction and a single the code to register and and registers and the code to stack address the code to a single the code be and explicit and instruction and allow'
+  +RAG:  'RELEVANT CONTEXT:\nQ: Why might an ARM64 programmer replace a manual rounding constant added with a fused multiplyadd instruction by using the architectures rounded right shift operation in dequantizat'
+
+--- Q: How can a function safely perform multiple independent stack allocations on x86-...
+  BARE:  'When a single instructions a single instruction and a single instruction a single the code to the stack and reduces the code code to a single a single the code to the compiler and and reduces the code'
+  +RAG:  'RELEVANT CONTEXT:\nQ: How can a function safely perform multiple independent stack allocations without manually adjusting the stack pointer each time?\nA: By restoring the stack state between allocation'
+
+========================================================================
+  MODEL: B-25M
+========================================================================
+  25.8M params
+
+--- Q: When optimizing ARM64 NEON code for performance, what is the difference in benef...
+  BARE:  'The kernel uses a specific often ARM64 kernel code multiple ARM64 CPU (ENEON) instructions and are parallel, which is a single software that is register (EON) and are pointer access. In the benchmark '
+  +RAG:  'RELEVANT CONTEXT:\nQ: What scheduling technique can reduce latency on in-order ARM cores like the Cortex A53 when computing block-wise SAD operations?\nA: The commit improves instruction scheduling for '
+
+--- Q: Why is the ARM64 SVE2 SDOT instruction well-suited for 4-tap or 8-tap convolutio...
+  BARE:  'ARM64 NEON processes the and a single more efficient performance operations and memory more efficiently uses of the processor modern modern and and all extra processing. This commit instruction that a'
+  +RAG:  'RELEVANT CONTEXT:\nQ: What advantage does the 4element 16bit SDOT instruction of SVE2 provide for convolution filters?\nA: The 4element 16bit SDOT instruction allows the processor to perform four signed'
+
+--- Q: What is the performance cost of partial-register lane writes in ARM64 NEON code ...
+  BARE:  'ARM64, the NEON implementation can process more efficient path and explicitly levels in parallel, which is a single block of memory accesses the need for more efficient of scalar CPUs. In this can be '
+  +RAG:  'RELEVANT CONTEXT:\nQ: How can partial register writes lead to performance degradation on outoforder ARM64 CPUs, and what strategy can mitigate this issue in vectorized code?\nA: Partial register writes '
+
+--- Q: When should you prefer a rounded right-shift instruction over a manual rounding ...
+  BARE:  'When a page is a constant of the MMU is introduced and ensures that are normally of the start of the start are not pointer and ensured to a state of the state is not correctly are or may be instructio'
+  +RAG:  'RELEVANT CONTEXT:\nQ: Why might an ARM64 programmer replace a manual rounding constant added with a fused multiplyadd instruction by using the architectures rounded right shift operation in dequantizat'
+
+--- Q: How can a function safely perform multiple independent stack allocations on x86-...
+  BARE:  'The compiler compare to process the stack for a function can be used to the routine compute that the number of a single stored in a single store of the stack in a single performance of the stack. In t'
+  +RAG:  'RELEVANT CONTEXT:\nQ: How can a function safely perform multiple independent stack allocations without manually adjusting the stack pointer each time?\nA: By restoring the stack state between allocation'
+
+========================================================================
+  MODEL: 50M
+========================================================================
+  49.9M params
+
+--- Q: When optimizing ARM64 NEON code for performance, what is the difference in benef...
+  BARE:  'ARM64 NEON instructions compute the processors that processor multiple precisions calculations the data elements in parallel of the perform more operands in parallel, which reduces the need to perform'
+  +RAG:  'RELEVANT CONTEXT:\nQ: What scheduling technique can reduce latency on in-order ARM cores like the Cortex A53 when computing block-wise SAD operations?\nA: The commit improves instruction scheduling for '
+
+--- Q: Why is the ARM64 SVE2 SDOT instruction well-suited for 4-tap or 8-tap convolutio...
+  BARE:  'Using SM4 SVE2 registers that can processes of use SVE register storers and processes the register structions. If the SVE registers state of the SVE register, the SVE vectors registers and preserve th'
+  +RAG:  'RELEVANT CONTEXT:\nQ: What advantage does the 4element 16bit SDOT instruction of SVE2 provide for convolution filters?\nA: The 4element 16bit SDOT instruction allows the processor to perform four signed'
+
+--- Q: What is the performance cost of partial-register lane writes in ARM64 NEON code ...
+  BARE:  'A separate NEON instructions can be processed and eliminate processes that exploit loads the code process to multiple by on a single block of the structions pecific compact or the routine. This reduce'
+  +RAG:  'RELEVANT CONTEXT:\nQ: How can partial register writes lead to performance degradation on outoforder ARM64 CPUs, and what strategy can mitigate this issue in vectorized code?\nA: Partial register writes '
+
+--- Q: When should you prefer a rounded right-shift instruction over a manual rounding ...
+  BARE:  'Using a load for each preserve that encoding because the code preserved the register structure stack process and memory the code can be undefined before effectively. This reduces the need to processor'
+  +RAG:  'RELEVANT CONTEXT:\nQ: Why might an ARM64 programmer replace a manual rounding constant added with a fused multiplyadd instruction by using the architectures rounded right shift operation in dequantizat'
+
+--- Q: How can a function safely perform multiple independent stack allocations on x86-...
+  BARE:  'The commit is allows the context to blocks the compute to the compute to blocks that a single weight blocks with a seriested with the stack perform a series that the need for a series to subtracts tha'
+  +RAG:  'RELEVANT CONTEXT:\nQ: How can a function safely perform multiple independent stack allocations without manually adjusting the stack pointer each time?\nA: By restoring the stack state between allocation'
