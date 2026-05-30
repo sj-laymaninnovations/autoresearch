@@ -1,0 +1,50 @@
+{
+  "input": "F:\\projects\\autoresearch\\math_lab\\results\\training_data.jsonl",
+  "total": 5087,
+  "clean": 2421,
+  "rejected": 2666,
+  "clean_pct": 47.59,
+  "by_reason": {
+    "placeholder_cot": 2461,
+    "clean_verified": 2421,
+    "step_arithmetic_error": 205
+  },
+  "by_domain": {
+    "algebra": {
+      "clean": 0,
+      "dirty": 650
+    },
+    "arithmetic": {
+      "clean": 830,
+      "dirty": 1269
+    },
+    "combinatorics": {
+      "clean": 0,
+      "dirty": 97
+    },
+    "cot_comparison": {
+      "clean": 177,
+      "dirty": 0
+    },
+    "cot_multi_step": {
+      "clean": 358,
+      "dirty": 0
+    },
+    "cot_percentage": {
+      "clean": 241,
+      "dirty": 0
+    },
+    "cot_rate": {
+      "clean": 328,
+      "dirty": 0
+    },
+    "cot_sequential": {
+      "clean": 487,
+      "dirty": 0
+    },
+    "number_theory": {
+      "clean": 0,
+      "dirty": 650
+    }
+  }
+}

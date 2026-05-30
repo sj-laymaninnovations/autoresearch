@@ -1,0 +1,3 @@
+# Per-machine validation state — hash-keyed cumulative pass counter.
+# Each machine accumulates its own history; not useful across machines.
+pipeline_out/dist/.pace_validation_state.json

@@ -1,0 +1,33 @@
+{
+  "input": "F:\\projects\\autoresearch\\math_lab\\pace_mathgpt\\pipeline_out\\audit_out\\clean.jsonl",
+  "counts": {
+    "with_reasoning": 2421,
+    "answer_only": 0
+  },
+  "by_domain": {
+    "arithmetic": {
+      "with_reasoning": 830,
+      "answer_only": 0
+    },
+    "cot_comparison": {
+      "with_reasoning": 177,
+      "answer_only": 0
+    },
+    "cot_multi_step": {
+      "with_reasoning": 358,
+      "answer_only": 0
+    },
+    "cot_percentage": {
+      "with_reasoning": 241,
+      "answer_only": 0
+    },
+    "cot_rate": {
+      "with_reasoning": 328,
+      "answer_only": 0
+    },
+    "cot_sequential": {
+      "with_reasoning": 487,
+      "answer_only": 0
+    }
+  }
+}
